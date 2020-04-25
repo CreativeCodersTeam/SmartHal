@@ -15,7 +15,7 @@ namespace CreativeCoders.Kernel.Services.ConsoleInterface.Commands
             _commands = commands;
         }
         
-        public override Task ExecuteAsync(IReadOnlyCollection<string> arguments)
+        public override Task ExecuteAsync(string[] arguments)
         {
             Output.WriteLine("List available commands:");
             _commands.ForEach(x => Output.WriteLine(x.CommandName));

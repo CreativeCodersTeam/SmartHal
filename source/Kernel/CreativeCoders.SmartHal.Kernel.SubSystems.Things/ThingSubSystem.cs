@@ -29,7 +29,7 @@ namespace CreativeCoders.SmartHal.Kernel.SubSystems.Things
         
         private readonly IMessageHub _messageHub;
 
-        private IDictionary<GatewayConfigurationPackage, IDisposable> _gatewayInitializedHandlers;
+        private readonly IDictionary<GatewayConfigurationPackage, IDisposable> _gatewayInitializedHandlers;
 
         public ThingSubSystem(IGatewayBuilder gatewayBuilder, IThingBuilder thingBuilder,
             IThingTemplateRepository thingTemplateRepository, IKernelRequestDispatcher requestDispatcher,

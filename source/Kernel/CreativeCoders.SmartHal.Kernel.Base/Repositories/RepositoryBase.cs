@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using CreativeCoders.Core;
 using CreativeCoders.Core.Threading;
-using CreativeCoders.SmartHal.Kernel.Base.Repositories;
 
-namespace CreativeCoders.SmartHal.Kernel.SubSystems.Things.Repositories
+namespace CreativeCoders.SmartHal.Kernel.Base.Repositories
 {
     public class RepositoryBase<T> : IRepositoryBase<T>
         where T : class

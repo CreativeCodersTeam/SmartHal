@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 
 namespace CreativeCoders.Kernel.Services.ConsoleInterface
 {
@@ -7,7 +6,7 @@ namespace CreativeCoders.Kernel.Services.ConsoleInterface
     {
         void Init(IConsoleOutput consoleOutput);
         
-        Task ExecuteAsync(IReadOnlyCollection<string> arguments);
+        Task ExecuteAsync(string[] arguments);
         
         string CommandName { get; }
     }

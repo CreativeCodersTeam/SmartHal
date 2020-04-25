@@ -29,6 +29,6 @@ namespace CreativeCoders.Kernel.Services.ConsoleInterface
 
         public string CommandName { get; private set; }
 
-        public IReadOnlyCollection<string> Arguments => _arguments;
+        public string[] Arguments => _arguments.ToArray();
     }
 }

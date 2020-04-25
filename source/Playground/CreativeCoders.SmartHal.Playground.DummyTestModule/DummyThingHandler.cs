@@ -21,6 +21,8 @@ namespace CreativeCoders.SmartHal.Playground.DummyTestModule
 
             MessageHub.SendMessage(new ThingStateChangedMessage(_thingSetupInfo.Id.ToString(), ThingState.Initialized));
             
+            MessageHub.SendMessage(new NewThingChannelMessage(_thingSetupInfo.Id.ToString(), new DummyThingChannelHandler(_thingSetupInfo.Id, "CH_3")));
+            
             MessageHub.SendMessage(new NewThingChannelMessage(_thingSetupInfo.Id.ToString(), new DummyThingChannelHandler(_thingSetupInfo.Id, "CH_4")));
             
             return ThingState.Online;

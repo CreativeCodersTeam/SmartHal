@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using System.Threading.Tasks;
 using CreativeCoders.SmartHal.Kernel.Base.Messages;
 using CreativeCoders.SmartHal.Kernel.Base.Messaging;
@@ -17,7 +16,7 @@ namespace CreativeCoders.Kernel.Services.ConsoleInterface.Commands
             _messageHub = messageHub;
         }
         
-        public override Task ExecuteAsync(IReadOnlyCollection<string> arguments)
+        public override Task ExecuteAsync(string[] arguments)
         {
             var channelId = arguments.FirstOrDefault();
 

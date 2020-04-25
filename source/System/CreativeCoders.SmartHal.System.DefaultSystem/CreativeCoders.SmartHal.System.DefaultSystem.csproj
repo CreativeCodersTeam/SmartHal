@@ -9,6 +9,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\..\Kernel\CreativeCoders.SmartHal.Kernel.Base\CreativeCoders.SmartHal.Kernel.Base.csproj" />
+      <ProjectReference Include="..\..\Kernel\CreativeCoders.SmartHal.Kernel.SubSystems.Items\CreativeCoders.SmartHal.Kernel.SubSystems.Items.csproj" />
       <ProjectReference Include="..\..\Kernel\CreativeCoders.SmartHal.Kernel.SubSystems.Things\CreativeCoders.SmartHal.Kernel.SubSystems.Things.csproj" />
       <ProjectReference Include="..\..\Kernel\CreativeCoders.SmartHal.Kernel.SubSystems\CreativeCoders.SmartHal.Kernel.SubSystems.csproj" />
       <ProjectReference Include="..\..\Kernel\CreativeCoders.SmartHal.Kernel\CreativeCoders.SmartHal.Kernel.csproj" />

@@ -18,7 +18,7 @@ namespace CreativeCoders.Kernel.Services.ConsoleInterface.Commands
             _thingRepository = thingRepository;
         }
         
-        public override Task ExecuteAsync(IReadOnlyCollection<string> arguments)
+        public override Task ExecuteAsync(string[] arguments)
         {
             var thingName = arguments.FirstOrDefault();
 

@@ -3,6 +3,7 @@ using CreativeCoders.SmartHal.Kernel;
 using CreativeCoders.SmartHal.Kernel.Base;
 using CreativeCoders.SmartHal.Kernel.Base.Booting;
 using CreativeCoders.SmartHal.Kernel.Base.Halting;
+using CreativeCoders.SmartHal.Kernel.Base.Items;
 using CreativeCoders.SmartHal.Kernel.Base.Messaging;
 using CreativeCoders.SmartHal.Kernel.Base.Repositories;
 using CreativeCoders.SmartHal.Kernel.Base.Requests;
@@ -12,6 +13,9 @@ using CreativeCoders.SmartHal.Kernel.Halt;
 using CreativeCoders.SmartHal.Kernel.Messaging;
 using CreativeCoders.SmartHal.Kernel.SubSystems.Assemblies;
 using CreativeCoders.SmartHal.Kernel.SubSystems.Drivers;
+using CreativeCoders.SmartHal.Kernel.SubSystems.Items;
+using CreativeCoders.SmartHal.Kernel.SubSystems.Items.Bindings;
+using CreativeCoders.SmartHal.Kernel.SubSystems.Items.Building;
 using CreativeCoders.SmartHal.Kernel.SubSystems.Things;
 using CreativeCoders.SmartHal.Kernel.SubSystems.Things.Building;
 using CreativeCoders.SmartHal.Kernel.SubSystems.Things.Repositories;
@@ -27,6 +31,7 @@ namespace CreativeCoders.SmartHal.System.DefaultSystem
                 .SetupAssemblySubSystem()
                 .SetupDriversSubSystem()
                 .SetupTingsSubSystem()
+                .SetupItemSubSystem()
                 .SetupHalt();
         }
 
@@ -59,7 +64,8 @@ namespace CreativeCoders.SmartHal.System.DefaultSystem
                 .AddScoped<IKernelBootProcess, KernelBootProcess>()
                 .AddScoped<IAssemblyBootStep, AssemblyBootStep>()
                 .AddScoped<IDriverBootStep, DriverBootStep>()
-                .AddScoped<IThingsBootStep, ThingsBootStep>();
+                .AddScoped<IThingsBootStep, ThingsBootStep>()
+                .AddScoped<IItemBootStep, ItemBootStep>();
 
             return containerBuilder;
         }
@@ -83,6 +89,19 @@ namespace CreativeCoders.SmartHal.System.DefaultSystem
                 .AddScoped<IThingBuilder, ThingBuilder>()
                 .AddScoped<IThingChannelBuilder, ThingChannelBuilder>();
 
+            return containerBuilder;
+        }
+
+        private static IDiContainerBuilder SetupItemSubSystem(this IDiContainerBuilder containerBuilder)
+        {
+            containerBuilder
+                .AddScoped<IItemSubSystem, ItemSubSystem>()
+                .AddScoped<IItemRepository, ItemRepository>()
+                .AddScopedCollectionFor<IItemType>()
+                .AddScoped<IItemTypeRegistrations, ItemTypeRegistrations>()
+                .AddScoped<IItemBuilder, ItemBuilder>()
+                .AddScoped<IItemBindingBuilder, ItemBindingBuilder>();
+            
             return containerBuilder;
         }
     }

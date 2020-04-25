@@ -1,5 +1,4 @@
-﻿using System.Threading.Tasks;
-using CreativeCoders.SmartHal.Kernel.Base.Things.Ident;
+﻿using CreativeCoders.SmartHal.Kernel.Base.Things.Ident;
 using JetBrains.Annotations;
 
 namespace CreativeCoders.SmartHal.Kernel.Base.Things

@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using System.Threading.Tasks;
 using CreativeCoders.Core;
 using CreativeCoders.SmartHal.Kernel.Base.Repositories;
@@ -17,7 +16,7 @@ namespace CreativeCoders.Kernel.Services.ConsoleInterface.Commands
             _gatewayRepository = gatewayRepository;
         }
         
-        public override Task ExecuteAsync(IReadOnlyCollection<string> arguments)
+        public override Task ExecuteAsync(string[] arguments)
         {
             var maxNameWidth = _gatewayRepository.Max(x => x.Name.Length) + 2;
             var maxIdWidth = _gatewayRepository.Max(x => x.Id.ToString().Length) + 2;
