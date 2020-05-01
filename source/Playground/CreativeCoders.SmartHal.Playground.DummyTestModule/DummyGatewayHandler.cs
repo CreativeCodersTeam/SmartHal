@@ -16,15 +16,11 @@ namespace CreativeCoders.SmartHal.Playground.DummyTestModule
             _gatewaySetupInfo = gatewaySetupInfo;
         }
 
-        protected override async Task<ThingState> OnInitAsync()
+        protected override Task<ThingState> OnInitAsync()
         {
-            await Task.Delay(1000);
-            
             MessageHub.SendMessage(new ThingStateChangedMessage(_gatewaySetupInfo.Id.ToString(), ThingState.Initialized));
 
-            await Task.Delay(200);
-
-            return ThingState.Online;
+            return Task.FromResult(ThingState.Online);
         }
 
         public override IThingHandler CreateThingHandler(IThingSetupInfo thingSetupInfo)

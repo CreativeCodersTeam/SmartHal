@@ -6,7 +6,7 @@ using CreativeCoders.Core.Threading;
 
 namespace CreativeCoders.SmartHal.Kernel.Base.Repositories
 {
-    public class RepositoryBase<T> : IRepositoryBase<T>
+    public abstract class RepositoryBase<T> : IRepositoryBase<T>
         where T : class
     {
         private readonly IList<T> _items;

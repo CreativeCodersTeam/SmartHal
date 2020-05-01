@@ -53,6 +53,11 @@ namespace CreativeCoders.SmartHal.Kernel.SubSystems.Things
 
         private Task OnChannelHandlerValueChanged(ChannelHandlerValueChangedMessage msg)
         {
+            if (ValuesAreEqual(Value, msg.NewValue))
+            {
+                return Task.CompletedTask;
+            }
+            
             Log.Info($"Thing Channel '{Id}' value changed from '{Value}' -> '{msg.NewValue}'");
             
             Value = msg.NewValue;
@@ -67,6 +72,21 @@ namespace CreativeCoders.SmartHal.Kernel.SubSystems.Things
             State = msg.NewState;
             
             return Task.CompletedTask;
+        }
+        
+        private static bool ValuesAreEqual(object value0, object value1)
+        {
+            if (value0 == null || value1 == null)
+            {
+                return false;
+            }
+            
+            if (value0 is double doubleValue0 && value1 is double doubleValue1)
+            {
+                return Math.Abs(doubleValue0 - doubleValue1) < 0.01;
+            }
+            
+            return value0.Equals(value1);
         }
 
         public ThingChannelId Id { get; }

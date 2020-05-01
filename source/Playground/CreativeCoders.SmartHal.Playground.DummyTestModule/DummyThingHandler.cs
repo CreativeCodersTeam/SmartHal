@@ -15,17 +15,13 @@ namespace CreativeCoders.SmartHal.Playground.DummyTestModule
             _thingSetupInfo = thingSetupInfo;
         }
 
-        protected override async Task<ThingState> OnInitAsync()
+        protected override Task<ThingState> OnInitAsync()
         {
-            await Task.Delay(10000);
-
             MessageHub.SendMessage(new ThingStateChangedMessage(_thingSetupInfo.Id.ToString(), ThingState.Initialized));
             
             MessageHub.SendMessage(new NewThingChannelMessage(_thingSetupInfo.Id.ToString(), new DummyThingChannelHandler(_thingSetupInfo.Id, "CH_3")));
             
-            MessageHub.SendMessage(new NewThingChannelMessage(_thingSetupInfo.Id.ToString(), new DummyThingChannelHandler(_thingSetupInfo.Id, "CH_4")));
-            
-            return ThingState.Online;
+            return Task.FromResult(ThingState.Online);
         }
     }
 }

@@ -74,7 +74,8 @@ namespace CreativeCoders.SmartHal.System.DefaultSystem
         {
             containerBuilder
                 .AddScoped<IKernelHaltProcess, KernelHaltProcess>()
-                .AddScoped<IThingsHaltStep, ThingsHaltStep>();
+                .AddScoped<IThingsHaltStep, ThingsHaltStep>()
+                .AddScoped<IItemHaltStep, ItemHaltStep>();
         }
 
         private static IDiContainerBuilder SetupTingsSubSystem(this IDiContainerBuilder containerBuilder)

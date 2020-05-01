@@ -17,7 +17,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="CreativeCoders.Di" Version="0.8.0-unstable0015" />
+        <PackageReference Include="CreativeCoders.Di" Version="0.8.0-unstable0017" />
     </ItemGroup>
 
 </Project>

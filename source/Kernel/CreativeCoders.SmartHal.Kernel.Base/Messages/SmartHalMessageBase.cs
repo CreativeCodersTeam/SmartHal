@@ -2,7 +2,7 @@
 
 namespace CreativeCoders.SmartHal.Kernel.Base.Messages
 {
-    public class SmartHalMessageBase
+    public abstract class SmartHalMessageBase
     {
         private static long _counter;
 

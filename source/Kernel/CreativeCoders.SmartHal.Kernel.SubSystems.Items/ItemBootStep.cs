@@ -24,9 +24,7 @@ namespace CreativeCoders.SmartHal.Kernel.SubSystems.Items
         
         public Task InitItemsAsync()
         {
-            _itemConfigurations.ForEach(itemConfiguration => _itemSubSystem.AddItem(itemConfiguration));
-            
-            return Task.CompletedTask;
+            return _itemConfigurations.ForEachAsync(itemConfiguration => _itemSubSystem.AddItemAsync(itemConfiguration));
         }
     }
 }

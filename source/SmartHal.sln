@@ -59,6 +59,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreativeCoders.SmartHal.Dri
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreativeCoders.SmartHal.Kernel.SubSystems.Items", "Kernel\CreativeCoders.SmartHal.Kernel.SubSystems.Items\CreativeCoders.SmartHal.Kernel.SubSystems.Items.csproj", "{C80DFE87-8816-4C85-9B50-6B08BA2DB576}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreativeCoders.SmartHal.Drivers.AvmFritzBox", "Drivers\CreativeCoders.SmartHal.Drivers.AvmFritzBox\CreativeCoders.SmartHal.Drivers.AvmFritzBox.csproj", "{7FEF65CD-49B8-42B3-A3F6-17F232761F26}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -84,6 +86,7 @@ Global
 		{094CE962-2074-4F04-8082-811386B356CE} = {69D22310-9C2D-45D2-8D05-36E33C1BCED6}
 		{072E90AB-3A4A-486D-A762-7CA183B75F51} = {69D22310-9C2D-45D2-8D05-36E33C1BCED6}
 		{C80DFE87-8816-4C85-9B50-6B08BA2DB576} = {ECD70ECE-892A-4FCB-B221-FCA04CCEE3FC}
+		{7FEF65CD-49B8-42B3-A3F6-17F232761F26} = {69D22310-9C2D-45D2-8D05-36E33C1BCED6}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{4B60FE4B-EDD2-4C13-804D-769A944D1B6A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -152,5 +155,9 @@ Global
 		{C80DFE87-8816-4C85-9B50-6B08BA2DB576}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C80DFE87-8816-4C85-9B50-6B08BA2DB576}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C80DFE87-8816-4C85-9B50-6B08BA2DB576}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7FEF65CD-49B8-42B3-A3F6-17F232761F26}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7FEF65CD-49B8-42B3-A3F6-17F232761F26}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7FEF65CD-49B8-42B3-A3F6-17F232761F26}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7FEF65CD-49B8-42B3-A3F6-17F232761F26}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
