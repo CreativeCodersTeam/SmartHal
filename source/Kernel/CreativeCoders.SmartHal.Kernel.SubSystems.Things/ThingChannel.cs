@@ -4,7 +4,8 @@ using CreativeCoders.Core;
 using CreativeCoders.Core.Logging;
 using CreativeCoders.Core.Threading;
 using CreativeCoders.SmartHal.Kernel.Base.Drivers;
-using CreativeCoders.SmartHal.Kernel.Base.Messages;
+using CreativeCoders.SmartHal.Kernel.Base.Messages.Channels;
+using CreativeCoders.SmartHal.Kernel.Base.Messages.Things;
 using CreativeCoders.SmartHal.Kernel.Base.Messaging;
 using CreativeCoders.SmartHal.Kernel.Base.Things;
 using CreativeCoders.SmartHal.Kernel.Base.Things.Ident;
@@ -59,8 +60,10 @@ namespace CreativeCoders.SmartHal.Kernel.SubSystems.Things
             }
             
             Log.Info($"Thing Channel '{Id}' value changed from '{Value}' -> '{msg.NewValue}'");
-            
+
             Value = msg.NewValue;
+            
+            _messageHub.SendMessage(new ChannelValueChangedMessage(Id.ToString(), msg.NewValue));
             
             return Task.CompletedTask;
         }

@@ -1,4 +1,5 @@
 ﻿using System;
+using CreativeCoders.Core;
 using JetBrains.Annotations;
 
 namespace CreativeCoders.SmartHal.Kernel.Base.Drivers
@@ -34,8 +35,10 @@ namespace CreativeCoders.SmartHal.Kernel.Base.Drivers
 
         private string GetVersion(Type driverType)
         {
+            Ensure.IsNotNull(driverType, nameof(driverType));
+            
             return string.IsNullOrWhiteSpace(Version)
-                ? driverType.Assembly.GetName().Version.ToString()
+                ? driverType.Assembly.GetName().Version.ToStringSafe()
                 : Version;
         }
         

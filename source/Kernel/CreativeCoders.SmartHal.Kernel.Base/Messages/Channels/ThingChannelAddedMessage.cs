@@ -1,7 +1,7 @@
 ﻿using CreativeCoders.SmartHal.Kernel.Base.Things;
 using JetBrains.Annotations;
 
-namespace CreativeCoders.SmartHal.Kernel.Base.Messages
+namespace CreativeCoders.SmartHal.Kernel.Base.Messages.Channels
 {
     [PublicAPI]
     public class ThingChannelAddedMessage : SmartHalMessageBase

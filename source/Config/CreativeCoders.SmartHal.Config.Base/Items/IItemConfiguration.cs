@@ -6,6 +6,8 @@ namespace CreativeCoders.SmartHal.Config.Base.Items
     public interface IItemConfiguration : IConfigurationObject, IConfigurationObjectSettings
     {
         string ItemType { get; }
+        
+        string DataSource { get; }
 
         string[] ChannelIds { get; }
     }

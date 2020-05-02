@@ -6,7 +6,7 @@ using CreativeCoders.Core.Threading;
 using CreativeCoders.SmartHal.Config.Base.Things;
 using CreativeCoders.SmartHal.Kernel.Base.Drivers;
 using CreativeCoders.SmartHal.Kernel.Base.Drivers.SetupInfos;
-using CreativeCoders.SmartHal.Kernel.Base.Messages;
+using CreativeCoders.SmartHal.Kernel.Base.Messages.Things;
 using CreativeCoders.SmartHal.Kernel.Base.Messaging;
 using CreativeCoders.SmartHal.Kernel.Base.Things;
 using CreativeCoders.SmartHal.Kernel.Base.Things.Ident;

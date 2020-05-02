@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 using CreativeCoders.SmartHal.Drivers.Base;
-using CreativeCoders.SmartHal.Kernel.Base.Messages;
+using CreativeCoders.SmartHal.Kernel.Base.Messages.Channels;
 using CreativeCoders.SmartHal.Kernel.Base.Things.Ident;
 
 namespace CreativeCoders.SmartHal.Playground.DummyTestModule

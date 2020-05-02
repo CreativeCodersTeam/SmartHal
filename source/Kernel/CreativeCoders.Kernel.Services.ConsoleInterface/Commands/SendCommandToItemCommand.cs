@@ -1,5 +1,5 @@
 ﻿using System.Threading.Tasks;
-using CreativeCoders.SmartHal.Kernel.Base.Messages;
+using CreativeCoders.SmartHal.Kernel.Base.Messages.Items;
 using CreativeCoders.SmartHal.Kernel.Base.Messaging;
 using JetBrains.Annotations;
 

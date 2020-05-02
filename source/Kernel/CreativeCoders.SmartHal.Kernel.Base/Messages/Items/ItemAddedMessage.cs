@@ -1,7 +1,7 @@
 ﻿using CreativeCoders.SmartHal.Kernel.Base.Items;
 using JetBrains.Annotations;
 
-namespace CreativeCoders.SmartHal.Kernel.Base.Messages
+namespace CreativeCoders.SmartHal.Kernel.Base.Messages.Items
 {
     [PublicAPI]
     public class ItemAddedMessage : SmartHalMessageBase

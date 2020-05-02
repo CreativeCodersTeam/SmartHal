@@ -1,6 +1,6 @@
 ﻿using System.Linq;
 using System.Threading.Tasks;
-using CreativeCoders.SmartHal.Kernel.Base.Messages;
+using CreativeCoders.SmartHal.Kernel.Base.Messages.Channels;
 using CreativeCoders.SmartHal.Kernel.Base.Messaging;
 using JetBrains.Annotations;
 

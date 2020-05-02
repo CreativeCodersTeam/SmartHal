@@ -5,7 +5,7 @@ using CreativeCoders.HomeMatic.XmlRpc.Client;
 using CreativeCoders.HomeMatic.XmlRpc.Server.Messages;
 using CreativeCoders.Messaging.Core;
 using CreativeCoders.SmartHal.Drivers.Base;
-using CreativeCoders.SmartHal.Kernel.Base.Messages;
+using CreativeCoders.SmartHal.Kernel.Base.Messages.Channels;
 using CreativeCoders.SmartHal.Kernel.Base.Things.Ident;
 
 namespace CreativeCoders.SmartHal.Drivers.HomeMatic

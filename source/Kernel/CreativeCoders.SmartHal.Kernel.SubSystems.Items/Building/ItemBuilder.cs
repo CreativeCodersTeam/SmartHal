@@ -40,7 +40,7 @@ namespace CreativeCoders.SmartHal.Kernel.SubSystems.Items.Building
                 return null;
             }
 
-            var binding = _itemBindingBuilder.Build(itemConfiguration.ChannelIds); 
+            var binding = _itemBindingBuilder.Build(itemConfiguration.DataSource, itemConfiguration.Name, itemConfiguration.ChannelIds); 
             
             var item = new Item(itemConfiguration.Name, itemType, binding, _messageHub);
             

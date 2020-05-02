@@ -1,5 +1,5 @@
 ﻿using CreativeCoders.Core.Logging;
-using CreativeCoders.SmartHal.Kernel.Base.Messages;
+using CreativeCoders.SmartHal.Kernel.Base.Messages.Things;
 using CreativeCoders.SmartHal.Kernel.Base.Messaging;
 using CreativeCoders.SmartHal.Kernel.Base.Repositories;
 using CreativeCoders.SmartHal.Kernel.Base.Things;

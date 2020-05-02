@@ -1,4 +1,4 @@
-﻿namespace CreativeCoders.SmartHal.Kernel.Base.Messages
+﻿namespace CreativeCoders.SmartHal.Kernel.Base.Messages.Items
 {
     public class SendCommandToItemMessage : SmartHalMessageBase
     {

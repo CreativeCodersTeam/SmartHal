@@ -5,6 +5,6 @@ namespace CreativeCoders.SmartHal.Kernel.SubSystems.Items.Bindings
 {
     public interface IItemBindingBuilder
     {
-        IItemBinding Build(IReadOnlyCollection<string> channelIds);
+        IItemBinding Build(string dataSource, string itemName, IReadOnlyCollection<string> channelIds);
     }
 }

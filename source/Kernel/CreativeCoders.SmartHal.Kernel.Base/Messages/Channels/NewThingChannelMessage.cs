@@ -1,7 +1,7 @@
 ﻿using CreativeCoders.SmartHal.Kernel.Base.Drivers;
 using JetBrains.Annotations;
 
-namespace CreativeCoders.SmartHal.Kernel.Base.Messages
+namespace CreativeCoders.SmartHal.Kernel.Base.Messages.Channels
 {
     [PublicAPI]
     public class NewThingChannelMessage : SmartHalMessageBase

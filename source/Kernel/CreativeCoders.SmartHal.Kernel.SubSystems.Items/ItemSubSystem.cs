@@ -1,4 +1,6 @@
-﻿using System.Threading.Tasks;
+﻿using System.Linq;
+using System.Threading.Tasks;
+using CreativeCoders.Core.Logging;
 using CreativeCoders.SmartHal.Config.Base.Items;
 using CreativeCoders.SmartHal.Kernel.Base.Repositories;
 using CreativeCoders.SmartHal.Kernel.Base.SubSystems;
@@ -10,6 +12,8 @@ namespace CreativeCoders.SmartHal.Kernel.SubSystems.Items
     [PublicAPI]
     public class ItemSubSystem : IItemSubSystem
     {
+        private static readonly ILogger Log = LogManager.GetLogger<ItemSubSystem>();
+        
         private readonly IItemBuilder _itemBuilder;
         
         private readonly IItemRepository _itemRepository;
@@ -22,6 +26,12 @@ namespace CreativeCoders.SmartHal.Kernel.SubSystems.Items
         
         public Task AddItemAsync(IItemConfiguration itemConfiguration)
         {
+            if (_itemRepository.Any(x => x.Name == itemConfiguration.Name))
+            {
+                Log.Warn($"Item with name '{itemConfiguration.Name}' already exists");
+                return Task.CompletedTask;
+            }
+            
             var item = _itemBuilder.Build(itemConfiguration);
 
             return _itemRepository.AddAsync(item);

@@ -7,6 +7,8 @@ namespace CreativeCoders.SmartHal.Config.FileSystem.Items
     public class ItemConfiguration : ConfigurationObjectSettingsBase, IItemConfiguration
     {
         public string ItemType { get; set; }
+
+        public string DataSource { get; set; }
         
         public string[] ChannelIds { get; set; }
     }

@@ -3,6 +3,7 @@ using System.Reactive.Concurrency;
 using System.Reactive.Linq;
 using System.Reactive.Subjects;
 using System.Threading.Tasks;
+using CreativeCoders.Core.Logging;
 using CreativeCoders.Core.SysEnvironment;
 using CreativeCoders.SmartHal.Kernel.Base.Messages;
 using CreativeCoders.SmartHal.Kernel.Base.Messaging;
@@ -12,6 +13,8 @@ namespace CreativeCoders.SmartHal.Kernel.Messaging
     internal class HandlerRegistration<TMessage> : IHandlerRegistration<TMessage>
         where TMessage : SmartHalMessageBase
     {
+        private static readonly ILogger Log = LogManager.GetLogger($"{typeof(HandlerRegistration<>).Namespace}.HandlerRegistration<{typeof(TMessage).Name}>");
+        
         private readonly ISubject<object> _subject;
         
         private Func<TMessage, bool> _wherePredicate;
@@ -72,7 +75,17 @@ namespace CreativeCoders.SmartHal.Kernel.Messaging
             }
 
             return observable
-                .Select(message => Observable.FromAsync(async () => await execute(message).ConfigureAwait(false)))
+                .Select(message => Observable.FromAsync(async () =>
+                {
+                    try
+                    {
+                        await execute(message).ConfigureAwait(false);
+                    }
+                    catch (Exception e)
+                    {
+                        Log.Error("Message subscriber execution failed.", e);
+                    }
+                }))
                 .Merge(_maxConcurrency)
                 .Subscribe();
         }

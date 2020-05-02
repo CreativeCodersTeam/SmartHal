@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using CreativeCoders.Core.Logging;
 using CreativeCoders.SmartHal.Kernel.Base.Items;
@@ -19,19 +20,33 @@ namespace CreativeCoders.SmartHal.Kernel.SubSystems.Items.Bindings
             _messageHub = messageHub;
         }
         
-        public IItemBinding Build(IReadOnlyCollection<string> channelIds)
+        public IItemBinding Build(string dataSource, string itemName, IReadOnlyCollection<string> channelIds)
         {
-            switch (channelIds.Count)
+            if (dataSource?.Equals("InMemory", StringComparison.CurrentCultureIgnoreCase) == true)
             {
-                case 0:
-                    Log.Warn("No channels for item specified");
-                
-                    return new NullBinding();
-                case 1:
-                    return new ItemBinding(channelIds.First(), _messageHub);
-                default:
-                    return new ItemMultiBinding(channelIds.Select(channelId => new ItemBinding(channelId, _messageHub)).ToArray());
+                return new InMemoryBinding(itemName, _messageHub);
             }
+
+            if (channelIds.Count > 0)
+            {
+                return BuildChannelBinding(itemName, channelIds);
+            }
+
+            Log.Warn("Unknown data source or no channels for item specified");
+                
+            return new NullBinding();
+        }
+
+        private IItemBinding BuildChannelBinding(string itemName, IReadOnlyCollection<string> channelIds)
+        {
+            return channelIds.Count switch
+            {
+                1 => new ItemBinding(itemName, channelIds.First(), _messageHub),
+                _ => new ItemMultiBinding(
+                    channelIds
+                        .Select(channelId => new ItemBinding(itemName, channelId, _messageHub))
+                        .ToArray())
+            };
         }
     }
 }

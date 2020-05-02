@@ -5,7 +5,7 @@ using CreativeCoders.Core.Logging;
 using CreativeCoders.Net.Avm;
 using CreativeCoders.SmartHal.Drivers.Base;
 using CreativeCoders.SmartHal.Kernel.Base.Drivers.SetupInfos;
-using CreativeCoders.SmartHal.Kernel.Base.Messages;
+using CreativeCoders.SmartHal.Kernel.Base.Messages.Channels;
 using CreativeCoders.SmartHal.Kernel.Base.Things;
 
 namespace CreativeCoders.SmartHal.Drivers.AvmFritzBox

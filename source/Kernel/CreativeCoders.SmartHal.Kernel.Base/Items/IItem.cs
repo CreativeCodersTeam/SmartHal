@@ -8,5 +8,7 @@ namespace CreativeCoders.SmartHal.Kernel.Base.Items
         string Name { get; }
         
         IItemType ItemType { get; }
+        
+        object Value { get; }
     }
 }

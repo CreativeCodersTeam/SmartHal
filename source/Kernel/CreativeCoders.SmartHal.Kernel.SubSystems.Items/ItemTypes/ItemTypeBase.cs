@@ -32,7 +32,17 @@ namespace CreativeCoders.SmartHal.Kernel.SubSystems.Items.ItemTypes
 
         public virtual bool ValuesAreEqual(object value0, object value1)
         {
-            return value0 == value1;
+            if (ReferenceEquals(value0, value1))
+            {
+                return true;
+            }
+            
+            if (value0 == null || value1 == null)
+            {
+                return false;
+            }
+
+            return value0.Equals(value1);
         }
         
         public string Name { get; }

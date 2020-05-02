@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using CreativeCoders.Core;
 using CreativeCoders.SmartHal.Config.Base.Things;
-using CreativeCoders.SmartHal.Kernel.Base.Messages;
+using CreativeCoders.SmartHal.Kernel.Base.Messages.Things;
 using CreativeCoders.SmartHal.Kernel.Base.Messaging;
 using CreativeCoders.SmartHal.Kernel.Base.Repositories;
 using CreativeCoders.SmartHal.Kernel.Base.Requests;

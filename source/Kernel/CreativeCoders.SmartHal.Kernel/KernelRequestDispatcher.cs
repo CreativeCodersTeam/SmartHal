@@ -17,8 +17,15 @@ namespace CreativeCoders.SmartHal.Kernel
             ThreadPool.QueueUserWorkItem(async state =>
             {
                 Log.Debug($"Kernel request (id = {request.Id}) '{request.DisplayName}' execution starting");
-                
-                await request.ExecuteAsync().ConfigureAwait(false);
+
+                try
+                {
+                    await request.ExecuteAsync().ConfigureAwait(false);
+                }
+                catch (Exception e)
+                {
+                    Log.Error("Kernel request execution failed.", e);
+                }
                 
                 Log.Debug($"Kernel request (id = {request.Id}) '{request.DisplayName}' execution finished");
             });
