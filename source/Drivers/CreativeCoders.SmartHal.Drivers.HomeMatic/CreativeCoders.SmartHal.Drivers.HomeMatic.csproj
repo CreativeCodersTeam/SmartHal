@@ -14,9 +14,9 @@
 
     <ItemGroup>
       <PackageReference Include="CreativeCoders.HomeMatic.Api" Version="0.2.0-alphaccudevicesa0002" />
-      <PackageReference Include="CreativeCoders.Messaging.Core" Version="0.8.0-unstable0018" />
-      <PackageReference Include="CreativeCoders.Messaging.DefaultMediator" Version="0.8.0-unstable0018" />
-      <PackageReference Include="CreativeCoders.Net.Servers.Http.AspNetCore" Version="0.8.0-unstable0018" />
+      <PackageReference Include="CreativeCoders.Messaging.Core" Version="0.8.0" />
+      <PackageReference Include="CreativeCoders.Messaging.DefaultMediator" Version="0.8.0" />
+      <PackageReference Include="CreativeCoders.Net.Servers.Http.AspNetCore" Version="0.8.0" />
     </ItemGroup>
 
 </Project>

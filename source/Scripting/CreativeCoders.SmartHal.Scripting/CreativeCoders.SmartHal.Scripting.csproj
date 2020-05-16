@@ -12,8 +12,8 @@
     </ItemGroup>
 
     <ItemGroup>
-      <PackageReference Include="CreativeCoders.CodeCompilation" Version="0.8.0-unstable0018" />
-      <PackageReference Include="CreativeCoders.Scripting.CSharp" Version="0.8.0-unstable0018" />
+      <PackageReference Include="CreativeCoders.CodeCompilation" Version="0.8.0" />
+      <PackageReference Include="CreativeCoders.Scripting.CSharp" Version="0.8.0" />
       <PackageReference Include="JetBrains.Annotations" Version="2019.1.3" />
     </ItemGroup>
 
