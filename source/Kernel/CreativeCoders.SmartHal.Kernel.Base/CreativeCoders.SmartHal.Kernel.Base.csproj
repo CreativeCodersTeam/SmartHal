@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>Library</OutputType>
+        <TargetFramework>netcoreapp3.1</TargetFramework>
+        <Authors>CreativeCoders</Authors>
+        <LangVersion>latest</LangVersion>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="CreativeCoders.Core" Version="0.8.0" />
+      <PackageReference Include="JetBrains.Annotations" Version="2019.1.3" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\..\Config\CreativeCoders.SmartHal.Config.Base\CreativeCoders.SmartHal.Config.Base.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Scripting" />
+    </ItemGroup>
+
+</Project>

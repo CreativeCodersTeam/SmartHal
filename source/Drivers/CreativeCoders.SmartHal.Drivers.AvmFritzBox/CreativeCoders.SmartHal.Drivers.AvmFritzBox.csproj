@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>Library</OutputType>
+        <TargetFramework>netcoreapp3.1</TargetFramework>
+        <Authors>CreativeCoders</Authors>
+        <LangVersion>latest</LangVersion>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\..\Kernel\CreativeCoders.SmartHal.Kernel.Base\CreativeCoders.SmartHal.Kernel.Base.csproj" />
+      <ProjectReference Include="..\CreativeCoders.SmartHal.Drivers.Base\CreativeCoders.SmartHal.Drivers.Base.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="CreativeCoders.Net.Avm" Version="0.8.0" />
+    </ItemGroup>
+
+</Project>

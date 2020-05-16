@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>Library</OutputType>
+        <TargetFramework>netcoreapp3.1</TargetFramework>
+        <Authors>CreativeCoders</Authors>
+        <LangVersion>latest</LangVersion>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\..\Config\CreativeCoders.SmartHal.Config.Base\CreativeCoders.SmartHal.Config.Base.csproj" />
+      <ProjectReference Include="..\CreativeCoders.SmartHal.Kernel.Base\CreativeCoders.SmartHal.Kernel.Base.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="CreativeCoders.Config.Base" Version="0.8.0" />
+      <PackageReference Include="CreativeCoders.Core" Version="0.8.0" />
+      <PackageReference Include="CreativeCoders.Di" Version="0.8.0" />
+    </ItemGroup>
+
+</Project>

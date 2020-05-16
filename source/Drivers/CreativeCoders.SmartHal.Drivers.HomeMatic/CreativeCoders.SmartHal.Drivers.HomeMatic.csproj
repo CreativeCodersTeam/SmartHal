@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>Library</OutputType>
+        <TargetFramework>netcoreapp3.1</TargetFramework>
+        <Authors>CreativeCoders</Authors>
+        <LangVersion>latest</LangVersion>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\..\Kernel\CreativeCoders.SmartHal.Kernel.Base\CreativeCoders.SmartHal.Kernel.Base.csproj" />
+      <ProjectReference Include="..\CreativeCoders.SmartHal.Drivers.Base\CreativeCoders.SmartHal.Drivers.Base.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="CreativeCoders.HomeMatic.Api" Version="0.2.0-alphaccudevicesa0002" />
+      <PackageReference Include="CreativeCoders.Messaging.Core" Version="0.8.0" />
+      <PackageReference Include="CreativeCoders.Messaging.DefaultMediator" Version="0.8.0" />
+      <PackageReference Include="CreativeCoders.Net.Servers.Http.AspNetCore" Version="0.8.0" />
+    </ItemGroup>
+
+</Project>
