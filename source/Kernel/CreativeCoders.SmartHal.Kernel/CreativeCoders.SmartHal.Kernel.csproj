@@ -13,10 +13,10 @@
     </ItemGroup>
 
     <ItemGroup>
-      <PackageReference Include="CreativeCoders.Config.Base" Version="0.8.0-unstable0017" />
-      <PackageReference Include="CreativeCoders.Core" Version="0.8.0-unstable0017" />
-      <PackageReference Include="CreativeCoders.Di" Version="0.8.0-unstable0017" />
-      <PackageReference Include="CreativeCoders.Messaging.Core" Version="0.8.0-unstable0017" />
+      <PackageReference Include="CreativeCoders.Config.Base" Version="0.8.0-unstable0018" />
+      <PackageReference Include="CreativeCoders.Core" Version="0.8.0-unstable0018" />
+      <PackageReference Include="CreativeCoders.Di" Version="0.8.0-unstable0018" />
+      <PackageReference Include="CreativeCoders.Messaging.Core" Version="0.8.0-unstable0018" />
       <PackageReference Include="System.Reactive" Version="4.4.1" />
     </ItemGroup>
 

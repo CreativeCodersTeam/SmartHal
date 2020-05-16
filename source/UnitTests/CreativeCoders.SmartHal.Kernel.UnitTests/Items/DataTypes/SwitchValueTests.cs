@@ -1,6 +1,7 @@
 ﻿using System;
 using CreativeCoders.SmartHal.Kernel.Base.Items.DataTypes;
 using Xunit;
+using Xunit.Sdk;
 
 namespace CreativeCoders.SmartHal.Kernel.UnitTests.Items.DataTypes
 {
@@ -9,37 +10,23 @@ namespace CreativeCoders.SmartHal.Kernel.UnitTests.Items.DataTypes
         [Fact]
         public void Equals_SwitchValueWithEqualValue_ReturnsTrue()
         {
-            double valuePassed = -10;
-            
-            var switchValue = new SwitchValue(1, x =>
-            {
-                valuePassed = x;
-                return true;
-            });
+            var switchValue = new SwitchValue(1, _ => throw new XunitException());
 
             var switchValue2 = new SwitchValue(1, x => false);
             var objectValue = (object) switchValue2;
 
             Assert.True(switchValue.Equals(objectValue));
-            Assert.True(Math.Abs(valuePassed + 10) < 0.0001);
         }
         
         [Fact]
         public void Equals_SwitchValueWithNotEqualValue_ReturnsFalse()
         {
-            double valuePassed = -10;
-            
-            var switchValue = new SwitchValue(1, x =>
-            {
-                valuePassed = x;
-                return true;
-            });
+            var switchValue = new SwitchValue(1, _ => throw new XunitException());
 
             var switchValue2 = new SwitchValue(0.5, x => false);
             var objectValue = (object) switchValue2;
 
             Assert.False(switchValue.Equals(objectValue));
-            Assert.True(Math.Abs(valuePassed + 10) < 0.0001);
         }
         
         [Fact]
@@ -117,19 +104,12 @@ namespace CreativeCoders.SmartHal.Kernel.UnitTests.Items.DataTypes
         [Fact]
         public void Equals_OtherType_ReturnsFalse()
         {
-            double valuePassed = -10;
-            
-            var switchValue = new SwitchValue(1, x =>
-            {
-                valuePassed = x;
-                return true;
-            });
+            var switchValue = new SwitchValue(1, _ => throw new XunitException());
 
             const string value = "1";
             var objectValue = (object) value;
 
             Assert.False(switchValue.Equals(objectValue));
-            Assert.True(Math.Abs(valuePassed + 10) < 0.0001);
         }
     }
 }

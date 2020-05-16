@@ -64,7 +64,7 @@ namespace CreativeCoders.SmartHal.Kernel.SubSystems.Items
 
             Log.Info($"Item '{Name}' value changed from '{oldValue}' to '{value}'");
             
-            _messageHub.SendMessage(new ItemValueChangedMessage(Name, value));
+            _messageHub.SendMessage(new ItemValueChangedMessage(Name, value, oldValue));
             
             return Task.CompletedTask;
         }

@@ -10,14 +10,19 @@
     <ItemGroup>
       <ProjectReference Include="..\..\Kernel\CreativeCoders.SmartHal.Kernel.Base\CreativeCoders.SmartHal.Kernel.Base.csproj" />
       <ProjectReference Include="..\..\Kernel\CreativeCoders.SmartHal.Kernel.SubSystems.Items\CreativeCoders.SmartHal.Kernel.SubSystems.Items.csproj" />
+      <ProjectReference Include="..\..\Kernel\CreativeCoders.SmartHal.Kernel.SubSystems.Scripting\CreativeCoders.SmartHal.Kernel.SubSystems.Scripting.csproj" />
       <ProjectReference Include="..\..\Kernel\CreativeCoders.SmartHal.Kernel.SubSystems.Things\CreativeCoders.SmartHal.Kernel.SubSystems.Things.csproj" />
+      <ProjectReference Include="..\..\Kernel\CreativeCoders.SmartHal.Kernel.SubSystems.Triggers\CreativeCoders.SmartHal.Kernel.SubSystems.Triggers.csproj" />
       <ProjectReference Include="..\..\Kernel\CreativeCoders.SmartHal.Kernel.SubSystems\CreativeCoders.SmartHal.Kernel.SubSystems.csproj" />
       <ProjectReference Include="..\..\Kernel\CreativeCoders.SmartHal.Kernel\CreativeCoders.SmartHal.Kernel.csproj" />
+      <ProjectReference Include="..\..\Scripting\CreativeCoders.SmartHal.Scripting.Base\CreativeCoders.SmartHal.Scripting.Base.csproj" />
+      <ProjectReference Include="..\..\Scripting\CreativeCoders.SmartHal.Scripting\CreativeCoders.SmartHal.Scripting.csproj" />
       <ProjectReference Include="..\CreativeCoders.SmartHal.System\CreativeCoders.SmartHal.System.csproj" />
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="CreativeCoders.Di" Version="0.8.0-unstable0017" />
+        <PackageReference Include="CreativeCoders.CodeCompilation.Roslyn" Version="0.8.0-unstable0018" />
+        <PackageReference Include="CreativeCoders.Di" Version="0.8.0-unstable0018" />
     </ItemGroup>
 
 </Project>

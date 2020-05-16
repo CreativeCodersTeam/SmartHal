@@ -6,11 +6,11 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="CreativeCoders.Config" Version="0.8.0-unstable0017" />
-      <PackageReference Include="CreativeCoders.Di" Version="0.8.0-unstable0017" />
-      <PackageReference Include="CreativeCoders.Di.Autofac" Version="0.8.0-unstable0017" />
-      <PackageReference Include="CreativeCoders.Di.MsServiceProvider" Version="0.8.0-unstable0017" />
-      <PackageReference Include="CreativeCoders.Di.SimpleInjector" Version="0.8.0-unstable0017" />
+      <PackageReference Include="CreativeCoders.Config" Version="0.8.0-unstable0018" />
+      <PackageReference Include="CreativeCoders.Di" Version="0.8.0-unstable0018" />
+      <PackageReference Include="CreativeCoders.Di.Autofac" Version="0.8.0-unstable0018" />
+      <PackageReference Include="CreativeCoders.Di.MsServiceProvider" Version="0.8.0-unstable0018" />
+      <PackageReference Include="CreativeCoders.Di.SimpleInjector" Version="0.8.0-unstable0018" />
     </ItemGroup>
 
     <ItemGroup>

@@ -1,4 +1,7 @@
-﻿using CreativeCoders.Di.Building;
+﻿using CreativeCoders.CodeCompilation;
+using CreativeCoders.CodeCompilation.Roslyn;
+using CreativeCoders.Di.Building;
+using CreativeCoders.Scripting.CSharp;
 using CreativeCoders.SmartHal.Kernel;
 using CreativeCoders.SmartHal.Kernel.Base;
 using CreativeCoders.SmartHal.Kernel.Base.Booting;
@@ -16,9 +19,18 @@ using CreativeCoders.SmartHal.Kernel.SubSystems.Drivers;
 using CreativeCoders.SmartHal.Kernel.SubSystems.Items;
 using CreativeCoders.SmartHal.Kernel.SubSystems.Items.Bindings;
 using CreativeCoders.SmartHal.Kernel.SubSystems.Items.Building;
+using CreativeCoders.SmartHal.Kernel.SubSystems.Scripting;
 using CreativeCoders.SmartHal.Kernel.SubSystems.Things;
 using CreativeCoders.SmartHal.Kernel.SubSystems.Things.Building;
 using CreativeCoders.SmartHal.Kernel.SubSystems.Things.Repositories;
+using CreativeCoders.SmartHal.Kernel.SubSystems.Triggers;
+using CreativeCoders.SmartHal.Scripting;
+using CreativeCoders.SmartHal.Scripting.ActionScripts;
+using CreativeCoders.SmartHal.Scripting.ActionScripts.Triggers;
+using CreativeCoders.SmartHal.Scripting.Api;
+using CreativeCoders.SmartHal.Scripting.Base;
+using CreativeCoders.SmartHal.Scripting.Base.ActionScripts.Triggers;
+using CreativeCoders.SmartHal.Scripting.Base.Api;
 
 namespace CreativeCoders.SmartHal.System.DefaultSystem
 {
@@ -30,9 +42,36 @@ namespace CreativeCoders.SmartHal.System.DefaultSystem
                 .SetupBoot()
                 .SetupAssemblySubSystem()
                 .SetupDriversSubSystem()
-                .SetupTingsSubSystem()
+                .SetupThingsSubSystem()
                 .SetupItemSubSystem()
+                .SetupScriptingSubSystem()
+                .SetupTriggerSubSystem()
                 .SetupHalt();
+        }
+
+        private static IDiContainerBuilder SetupTriggerSubSystem(this IDiContainerBuilder containerBuilder)
+        {
+            containerBuilder
+                .AddScoped<ITriggerSubSystem, TriggerSubSystem>()
+                .AddScoped<ITriggerRepository, TriggerRepository>();
+
+            return containerBuilder;
+        }
+        
+        private static IDiContainerBuilder SetupScriptingSubSystem(this IDiContainerBuilder containerBuilder)
+        {
+            containerBuilder
+                .AddScoped<IScriptingSubSystem, ScriptingSubSystem>()
+                .AddScoped<IScriptingCore, ScriptingCore>()
+                .AddScoped<IActionScriptCore, ActionScriptCore>()
+                .AddScoped<ICompilerFactory, RoslynCompilerFactory>()
+                .AddScoped<CSharpScriptRuntime<ActionScriptImplementation>>()
+                .AddScoped<ActionScriptImplementation>()
+                .AddScoped<ActionScriptClassTemplate>()
+                .AddTransient<IItemsScriptApi, ItemsScriptApi>()
+                .AddTransient<ITriggerApi, TriggerApi>();
+            
+            return containerBuilder;
         }
 
         private static IDiContainerBuilder SetupAssemblySubSystem(this IDiContainerBuilder containerBuilder)
@@ -65,7 +104,8 @@ namespace CreativeCoders.SmartHal.System.DefaultSystem
                 .AddScoped<IAssemblyBootStep, AssemblyBootStep>()
                 .AddScoped<IDriverBootStep, DriverBootStep>()
                 .AddScoped<IThingsBootStep, ThingsBootStep>()
-                .AddScoped<IItemBootStep, ItemBootStep>();
+                .AddScoped<IItemBootStep, ItemBootStep>()
+                .AddScoped<IScriptingBootStep, ScriptingBootStep>();
 
             return containerBuilder;
         }
@@ -75,10 +115,11 @@ namespace CreativeCoders.SmartHal.System.DefaultSystem
             containerBuilder
                 .AddScoped<IKernelHaltProcess, KernelHaltProcess>()
                 .AddScoped<IThingsHaltStep, ThingsHaltStep>()
-                .AddScoped<IItemHaltStep, ItemHaltStep>();
+                .AddScoped<IItemHaltStep, ItemHaltStep>()
+                .AddScoped<ITriggersHaltStep, TriggersHaltStep>();
         }
 
-        private static IDiContainerBuilder SetupTingsSubSystem(this IDiContainerBuilder containerBuilder)
+        private static IDiContainerBuilder SetupThingsSubSystem(this IDiContainerBuilder containerBuilder)
         {
             containerBuilder
                 .AddScoped<IThingSubSystem, ThingSubSystem>()

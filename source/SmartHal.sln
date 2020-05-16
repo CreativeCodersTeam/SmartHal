@@ -61,6 +61,16 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreativeCoders.SmartHal.Ker
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreativeCoders.SmartHal.Drivers.AvmFritzBox", "Drivers\CreativeCoders.SmartHal.Drivers.AvmFritzBox\CreativeCoders.SmartHal.Drivers.AvmFritzBox.csproj", "{7FEF65CD-49B8-42B3-A3F6-17F232761F26}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreativeCoders.SmartHal.Kernel.SubSystems.Scripting", "Kernel\CreativeCoders.SmartHal.Kernel.SubSystems.Scripting\CreativeCoders.SmartHal.Kernel.SubSystems.Scripting.csproj", "{C7829983-2FFC-4FC8-A827-9CF63CE9D3A4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Scripting", "Scripting", "{DFDFEC17-A88E-4E25-B9BA-69BC6F6B1618}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreativeCoders.SmartHal.Scripting.Base", "Scripting\CreativeCoders.SmartHal.Scripting.Base\CreativeCoders.SmartHal.Scripting.Base.csproj", "{488F475F-5B73-4D66-88AE-D7EA5A972FE4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreativeCoders.SmartHal.Scripting", "Scripting\CreativeCoders.SmartHal.Scripting\CreativeCoders.SmartHal.Scripting.csproj", "{2B56EE86-F08A-49B0-9D0C-2049F64CDC58}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreativeCoders.SmartHal.Kernel.SubSystems.Triggers", "Kernel\CreativeCoders.SmartHal.Kernel.SubSystems.Triggers\CreativeCoders.SmartHal.Kernel.SubSystems.Triggers.csproj", "{49CD7978-88FA-4FCB-8196-FB1F66788072}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -87,6 +97,10 @@ Global
 		{072E90AB-3A4A-486D-A762-7CA183B75F51} = {69D22310-9C2D-45D2-8D05-36E33C1BCED6}
 		{C80DFE87-8816-4C85-9B50-6B08BA2DB576} = {ECD70ECE-892A-4FCB-B221-FCA04CCEE3FC}
 		{7FEF65CD-49B8-42B3-A3F6-17F232761F26} = {69D22310-9C2D-45D2-8D05-36E33C1BCED6}
+		{C7829983-2FFC-4FC8-A827-9CF63CE9D3A4} = {ECD70ECE-892A-4FCB-B221-FCA04CCEE3FC}
+		{488F475F-5B73-4D66-88AE-D7EA5A972FE4} = {DFDFEC17-A88E-4E25-B9BA-69BC6F6B1618}
+		{2B56EE86-F08A-49B0-9D0C-2049F64CDC58} = {DFDFEC17-A88E-4E25-B9BA-69BC6F6B1618}
+		{49CD7978-88FA-4FCB-8196-FB1F66788072} = {ECD70ECE-892A-4FCB-B221-FCA04CCEE3FC}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{4B60FE4B-EDD2-4C13-804D-769A944D1B6A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -159,5 +173,21 @@ Global
 		{7FEF65CD-49B8-42B3-A3F6-17F232761F26}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7FEF65CD-49B8-42B3-A3F6-17F232761F26}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7FEF65CD-49B8-42B3-A3F6-17F232761F26}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C7829983-2FFC-4FC8-A827-9CF63CE9D3A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C7829983-2FFC-4FC8-A827-9CF63CE9D3A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C7829983-2FFC-4FC8-A827-9CF63CE9D3A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C7829983-2FFC-4FC8-A827-9CF63CE9D3A4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{488F475F-5B73-4D66-88AE-D7EA5A972FE4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{488F475F-5B73-4D66-88AE-D7EA5A972FE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{488F475F-5B73-4D66-88AE-D7EA5A972FE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{488F475F-5B73-4D66-88AE-D7EA5A972FE4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2B56EE86-F08A-49B0-9D0C-2049F64CDC58}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2B56EE86-F08A-49B0-9D0C-2049F64CDC58}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2B56EE86-F08A-49B0-9D0C-2049F64CDC58}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2B56EE86-F08A-49B0-9D0C-2049F64CDC58}.Release|Any CPU.Build.0 = Release|Any CPU
+		{49CD7978-88FA-4FCB-8196-FB1F66788072}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{49CD7978-88FA-4FCB-8196-FB1F66788072}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{49CD7978-88FA-4FCB-8196-FB1F66788072}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{49CD7978-88FA-4FCB-8196-FB1F66788072}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

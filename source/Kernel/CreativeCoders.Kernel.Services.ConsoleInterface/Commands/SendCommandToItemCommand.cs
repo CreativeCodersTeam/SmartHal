@@ -1,6 +1,5 @@
 ﻿using System.Threading.Tasks;
-using CreativeCoders.SmartHal.Kernel.Base.Messages.Items;
-using CreativeCoders.SmartHal.Kernel.Base.Messaging;
+using CreativeCoders.SmartHal.Kernel.Base.SubSystems;
 using JetBrains.Annotations;
 
 namespace CreativeCoders.Kernel.Services.ConsoleInterface.Commands
@@ -8,11 +7,11 @@ namespace CreativeCoders.Kernel.Services.ConsoleInterface.Commands
     [UsedImplicitly]
     public class SendCommandToItemCommand : ConsoleCommandBase
     {
-        private readonly IMessageHub _messageHub;
+        private readonly IItemSubSystem _itemSubSystem;
 
-        public SendCommandToItemCommand(IMessageHub messageHub)
+        public SendCommandToItemCommand(IItemSubSystem itemSubSystem)
         {
-            _messageHub = messageHub;
+            _itemSubSystem = itemSubSystem;
         }
         
         public override Task ExecuteAsync(string[] arguments)
@@ -27,7 +26,7 @@ namespace CreativeCoders.Kernel.Services.ConsoleInterface.Commands
             var itemName = arguments[0];
             var commandValue = arguments[1];
 
-            _messageHub.SendMessage(new SendCommandToItemMessage(itemName, commandValue));
+            _itemSubSystem.SendCommand(itemName, commandValue);
             
             return Task.CompletedTask;
         }

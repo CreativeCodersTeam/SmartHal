@@ -20,9 +20,9 @@ namespace CreativeCoders.SmartHal.Config.FileSystem.Building.ConfigurationInitia
                 .Select(CreateDriverSource);
         }
 
-        private static IConfigurationSource<DriverConfiguration> CreateDriverSource(string file)
+        private static IConfigurationSource<DriverConfiguration> CreateDriverSource(string fileName)
         {
-            return new DriverConfigurationSource(file);
+            return new DriverConfigurationSource(fileName);
         }
     }
 }

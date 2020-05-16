@@ -16,8 +16,8 @@
     </ItemGroup>
 
     <ItemGroup>
-      <PackageReference Include="CreativeCoders.Di.SimpleInjector" Version="0.8.0-unstable0017" />
-      <PackageReference Include="CreativeCoders.Logging.Nlog" Version="0.8.0-unstable0017" />
+      <PackageReference Include="CreativeCoders.Di.SimpleInjector" Version="0.8.0-unstable0018" />
+      <PackageReference Include="CreativeCoders.Logging.Nlog" Version="0.8.0-unstable0018" />
     </ItemGroup>
 
     <ItemGroup>

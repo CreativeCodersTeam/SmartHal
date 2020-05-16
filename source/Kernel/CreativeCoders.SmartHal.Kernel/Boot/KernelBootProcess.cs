@@ -17,14 +17,17 @@ namespace CreativeCoders.SmartHal.Kernel.Boot
         private readonly IThingsBootStep _thingsBootStep;
         
         private readonly IItemBootStep _itemBootStep;
+        
+        private readonly IScriptingBootStep _scriptingBootStep;
 
         public KernelBootProcess(IAssemblyBootStep assemblyBootStep, IDriverBootStep driverBootStep,
-            IThingsBootStep thingsBootStep, IItemBootStep itemBootStep)
+            IThingsBootStep thingsBootStep, IItemBootStep itemBootStep, IScriptingBootStep scriptingBootStep)
         {
             _assemblyBootStep = assemblyBootStep;
             _driverBootStep = driverBootStep;
             _thingsBootStep = thingsBootStep;
             _itemBootStep = itemBootStep;
+            _scriptingBootStep = scriptingBootStep;
         }
 
         public async Task BootAsync()
@@ -38,6 +41,8 @@ namespace CreativeCoders.SmartHal.Kernel.Boot
             await _thingsBootStep.InitThingsAsync().ConfigureAwait(false);
 
             await _itemBootStep.InitItemsAsync().ConfigureAwait(false);
+
+            await _scriptingBootStep.InitScriptingAsync().ConfigureAwait(false);
         }
     }
 }
