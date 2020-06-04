@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 
 namespace CreativeCoders.SmartHal.Kernel.Base.Things.Ident
 {
@@ -7,6 +8,7 @@ namespace CreativeCoders.SmartHal.Kernel.Base.Things.Ident
     {
         private readonly IList<string> _segments;
         
+        [UsedImplicitly]
         protected IdBase()
         {
             _segments = new List<string>();

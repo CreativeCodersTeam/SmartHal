@@ -42,7 +42,7 @@ namespace CreativeCoders.SmartHal.Kernel.UnitTests.Base.Drivers
             
             var driverInfo = attribute.CreateDriverInfo(typeof(DriverAttributeTests));
 
-            Assert.Equal(typeof(DriverAttributeTests).Assembly.GetName().Version.ToString(), driverInfo.Version);
+            Assert.Equal(typeof(DriverAttributeTests).Assembly.GetName().Version?.ToString(), driverInfo.Version);
         }
     }
 }

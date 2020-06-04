@@ -25,7 +25,13 @@ namespace CreativeCoders.SmartHal.Kernel.SubSystems.Items.ItemTypes
             {
                 return default(T);
             }
-            
+
+            if (typeof(T) == typeof(double))
+            {
+                var doubleValue = Convert.ToDouble(value);
+                return doubleValue;
+            }
+
             var convertedValue = Convert.ChangeType(value, typeof(T), CultureInfo.InvariantCulture);
             return convertedValue;
         }

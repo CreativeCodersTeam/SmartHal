@@ -19,15 +19,19 @@ namespace CreativeCoders.SmartHal.Kernel.Boot
         private readonly IItemBootStep _itemBootStep;
         
         private readonly IScriptingBootStep _scriptingBootStep;
+        
+        private readonly IRemoteControlWebApiBootStep _remoteControlWebApiBootStep;
 
         public KernelBootProcess(IAssemblyBootStep assemblyBootStep, IDriverBootStep driverBootStep,
-            IThingsBootStep thingsBootStep, IItemBootStep itemBootStep, IScriptingBootStep scriptingBootStep)
+            IThingsBootStep thingsBootStep, IItemBootStep itemBootStep, IScriptingBootStep scriptingBootStep,
+            IRemoteControlWebApiBootStep remoteControlWebApiBootStep)
         {
             _assemblyBootStep = assemblyBootStep;
             _driverBootStep = driverBootStep;
             _thingsBootStep = thingsBootStep;
             _itemBootStep = itemBootStep;
             _scriptingBootStep = scriptingBootStep;
+            _remoteControlWebApiBootStep = remoteControlWebApiBootStep;
         }
 
         public async Task BootAsync()
@@ -43,6 +47,8 @@ namespace CreativeCoders.SmartHal.Kernel.Boot
             await _itemBootStep.InitItemsAsync().ConfigureAwait(false);
 
             await _scriptingBootStep.InitScriptingAsync().ConfigureAwait(false);
+
+            await _remoteControlWebApiBootStep.InitAsync().ConfigureAwait(false);
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using CreativeCoders.CodeCompilation;
 using CreativeCoders.CodeCompilation.Roslyn;
 using CreativeCoders.Di.Building;
+using CreativeCoders.Net;
 using CreativeCoders.Scripting.CSharp;
 using CreativeCoders.SmartHal.Kernel;
 using CreativeCoders.SmartHal.Kernel.Base;
@@ -31,6 +32,7 @@ using CreativeCoders.SmartHal.Scripting.Api;
 using CreativeCoders.SmartHal.Scripting.Base;
 using CreativeCoders.SmartHal.Scripting.Base.ActionScripts.Triggers;
 using CreativeCoders.SmartHal.Scripting.Base.Api;
+using CreativeCoders.SmartHal.SubSystems.RemoteControl;
 
 namespace CreativeCoders.SmartHal.System.DefaultSystem
 {
@@ -39,6 +41,7 @@ namespace CreativeCoders.SmartHal.System.DefaultSystem
         public static void SetupForKernel(this IDiContainerBuilder containerBuilder)
         {
             containerBuilder
+                .SetupCore()
                 .SetupBoot()
                 .SetupAssemblySubSystem()
                 .SetupDriversSubSystem()
@@ -46,9 +49,29 @@ namespace CreativeCoders.SmartHal.System.DefaultSystem
                 .SetupItemSubSystem()
                 .SetupScriptingSubSystem()
                 .SetupTriggerSubSystem()
+                .SetupRemoteControlWebApiSubSystem()
+                //.SetupControlCenterWebApiSubSystem()
                 .SetupHalt();
         }
 
+
+
+        private static IDiContainerBuilder SetupCore(this IDiContainerBuilder containerBuilder)
+        {
+            containerBuilder
+                .AddScoped<INetworkInfo, NetworkInfo>();
+
+            return containerBuilder;
+        }
+
+        private static IDiContainerBuilder SetupRemoteControlWebApiSubSystem(this IDiContainerBuilder containerBuilder)
+        {
+            containerBuilder
+                .AddScoped<IRemoteControlSubSystem, RemoteControlSubSystem>();
+
+            return containerBuilder;
+        }
+        
         private static IDiContainerBuilder SetupTriggerSubSystem(this IDiContainerBuilder containerBuilder)
         {
             containerBuilder
@@ -105,7 +128,8 @@ namespace CreativeCoders.SmartHal.System.DefaultSystem
                 .AddScoped<IDriverBootStep, DriverBootStep>()
                 .AddScoped<IThingsBootStep, ThingsBootStep>()
                 .AddScoped<IItemBootStep, ItemBootStep>()
-                .AddScoped<IScriptingBootStep, ScriptingBootStep>();
+                .AddScoped<IScriptingBootStep, ScriptingBootStep>()
+                .AddScoped<IRemoteControlWebApiBootStep, RemoteControlWebApiBootStep>();
 
             return containerBuilder;
         }
@@ -116,7 +140,8 @@ namespace CreativeCoders.SmartHal.System.DefaultSystem
                 .AddScoped<IKernelHaltProcess, KernelHaltProcess>()
                 .AddScoped<IThingsHaltStep, ThingsHaltStep>()
                 .AddScoped<IItemHaltStep, ItemHaltStep>()
-                .AddScoped<ITriggersHaltStep, TriggersHaltStep>();
+                .AddScoped<ITriggersHaltStep, TriggersHaltStep>()
+                .AddScoped<IRemoteControlWebApiHaltStep, RemoteControlWebApiHaltStep>();
         }
 
         private static IDiContainerBuilder SetupThingsSubSystem(this IDiContainerBuilder containerBuilder)

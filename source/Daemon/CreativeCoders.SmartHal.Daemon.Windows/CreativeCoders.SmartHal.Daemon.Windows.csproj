@@ -1,0 +1,35 @@
+<Project Sdk="Microsoft.NET.Sdk.Worker">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <Authors>CreativeCoders</Authors>
+    <LangVersion>latest</LangVersion>
+    <UserSecretsId>dotnet-CreativeCoders.SmartHal.Daemon.Windows-17C94561-FEB0-4E65-BE3F-79FBDB40358E</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CreativeCoders.Daemon.Windows" Version="0.12.0-unstable0002" />
+    <PackageReference Include="CreativeCoders.Di.SimpleInjector" Version="0.12.0-unstable0002" />
+    <PackageReference Include="CreativeCoders.Logging.Nlog" Version="0.12.0-unstable0002" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Config\CreativeCoders.SmartHal.Config.FileSystem\CreativeCoders.SmartHal.Config.FileSystem.csproj" />
+    <ProjectReference Include="..\..\Drivers\CreativeCoders.SmartHal.Drivers.AvmFritzBox\CreativeCoders.SmartHal.Drivers.AvmFritzBox.csproj" />
+    <ProjectReference Include="..\..\Drivers\CreativeCoders.SmartHal.Drivers.HomeMatic\CreativeCoders.SmartHal.Drivers.HomeMatic.csproj" />
+    <ProjectReference Include="..\..\System\CreativeCoders.SmartHal.System.DefaultSystem\CreativeCoders.SmartHal.System.DefaultSystem.csproj" />
+    <ProjectReference Include="..\CreativeCoders.SmartHal.Daemon.Base\CreativeCoders.SmartHal.Daemon.Base.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="appsettings.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="daemon.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="NLog.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+</Project>

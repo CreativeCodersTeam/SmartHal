@@ -1,4 +1,5 @@
-﻿using CreativeCoders.SmartHal.Config.Base.Things;
+﻿using System;
+using CreativeCoders.SmartHal.Config.Base.Things;
 using JetBrains.Annotations;
 
 namespace CreativeCoders.SmartHal.Config.FileSystem.Things
@@ -6,6 +7,6 @@ namespace CreativeCoders.SmartHal.Config.FileSystem.Things
     [PublicAPI]
     public class ThingTemplateDefinition : ConfigurationObjectSettingsBase, IThingTemplateDefinition
     {
-        public string[] Channels { get; set; }
+        public string[] Channels { get; set; } = Array.Empty<string>();
     }
 }

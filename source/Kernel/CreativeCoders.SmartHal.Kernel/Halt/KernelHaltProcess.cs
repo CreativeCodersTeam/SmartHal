@@ -16,16 +16,21 @@ namespace CreativeCoders.SmartHal.Kernel.Halt
         
         private readonly ITriggersHaltStep _triggersHaltStep;
 
-        public KernelHaltProcess(IThingsHaltStep thingsHaltStep, IItemHaltStep itemHaltStep, ITriggersHaltStep triggersHaltStep)
+        private readonly IRemoteControlWebApiHaltStep _remoteControlWebApiHaltStep;
+
+        public KernelHaltProcess(IThingsHaltStep thingsHaltStep, IItemHaltStep itemHaltStep, ITriggersHaltStep triggersHaltStep, IRemoteControlWebApiHaltStep remoteControlWebApiHaltStep)
         {
             _thingsHaltStep = thingsHaltStep;
             _itemHaltStep = itemHaltStep;
             _triggersHaltStep = triggersHaltStep;
+            _remoteControlWebApiHaltStep = remoteControlWebApiHaltStep;
         }
         
         public async Task HaltAsync()
         {
             Log.Info("Halting...");
+
+            await _remoteControlWebApiHaltStep.HaltAsync().ConfigureAwait(false);
 
             await _triggersHaltStep.HaltAsync().ConfigureAwait(false);
 

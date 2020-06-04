@@ -2,7 +2,7 @@
 
     <PropertyGroup>
         <OutputType>Library</OutputType>
-        <TargetFramework>netcoreapp3.1</TargetFramework>
+        <TargetFramework>netstandard2.1</TargetFramework>
         <Authors>CreativeCoders</Authors>
         <LangVersion>latest</LangVersion>
     </PropertyGroup>
@@ -12,9 +12,9 @@
     </ItemGroup>
 
     <ItemGroup>
-      <PackageReference Include="CreativeCoders.CodeCompilation" Version="0.8.0" />
-      <PackageReference Include="CreativeCoders.Scripting.CSharp" Version="0.8.0" />
-      <PackageReference Include="JetBrains.Annotations" Version="2019.1.3" />
+      <PackageReference Include="CreativeCoders.CodeCompilation" Version="0.12.0-unstable0002" />
+      <PackageReference Include="CreativeCoders.Scripting.CSharp" Version="0.12.0-unstable0002" />
+      <PackageReference Include="JetBrains.Annotations" Version="2020.1.0" />
     </ItemGroup>
 
 </Project>

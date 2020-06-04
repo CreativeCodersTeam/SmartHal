@@ -1,110 +1,121 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30114.105
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Config", "Config", "{7C15F528-F791-4832-92AE-1A1380682792}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreativeCoders.SmartHal.Config.Base", "Config\CreativeCoders.SmartHal.Config.Base\CreativeCoders.SmartHal.Config.Base.csproj", "{5E17C7C8-2A5C-423E-9726-82CD3EA73376}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CreativeCoders.SmartHal.Config.Base", "Config\CreativeCoders.SmartHal.Config.Base\CreativeCoders.SmartHal.Config.Base.csproj", "{5E17C7C8-2A5C-423E-9726-82CD3EA73376}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreativeCoders.SmartHal.Config.FileSystem", "Config\CreativeCoders.SmartHal.Config.FileSystem\CreativeCoders.SmartHal.Config.FileSystem.csproj", "{3E3354A6-659B-4109-939A-9EC8C8BE2130}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CreativeCoders.SmartHal.Config.FileSystem", "Config\CreativeCoders.SmartHal.Config.FileSystem\CreativeCoders.SmartHal.Config.FileSystem.csproj", "{3E3354A6-659B-4109-939A-9EC8C8BE2130}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Playground", "Playground", "{B533FAE0-FC8E-4FBD-B24B-0CB0A63289B9}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Kernel", "Kernel", "{07F8415E-2415-44F5-BB28-B6A8178F406F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreativeCoders.SmartHal.Playground.TestConsoleApp", "Playground\CreativeCoders.SmartHal.Playground.TestConsoleApp\CreativeCoders.SmartHal.Playground.TestConsoleApp.csproj", "{7E960E42-0B1B-49EC-B055-B0BC9095A618}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CreativeCoders.SmartHal.Playground.TestConsoleApp", "Playground\CreativeCoders.SmartHal.Playground.TestConsoleApp\CreativeCoders.SmartHal.Playground.TestConsoleApp.csproj", "{7E960E42-0B1B-49EC-B055-B0BC9095A618}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreativeCoders.SmartHal.Kernel.Base", "Kernel\CreativeCoders.SmartHal.Kernel.Base\CreativeCoders.SmartHal.Kernel.Base.csproj", "{9FFBCD7B-ED32-4D60-B3DC-CD1449B93205}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CreativeCoders.SmartHal.Kernel.Base", "Kernel\CreativeCoders.SmartHal.Kernel.Base\CreativeCoders.SmartHal.Kernel.Base.csproj", "{9FFBCD7B-ED32-4D60-B3DC-CD1449B93205}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreativeCoders.SmartHal.Kernel", "Kernel\CreativeCoders.SmartHal.Kernel\CreativeCoders.SmartHal.Kernel.csproj", "{6C9EE6B8-A76C-4998-B736-858E445E4AC6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CreativeCoders.SmartHal.Kernel", "Kernel\CreativeCoders.SmartHal.Kernel\CreativeCoders.SmartHal.Kernel.csproj", "{6C9EE6B8-A76C-4998-B736-858E445E4AC6}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UnitTests", "UnitTests", "{39E83A38-CCEA-4387-97FC-B5D874ED8724}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "System", "System", "{A8B860CD-A707-4EE7-A4BD-CBC016DD2CFB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreativeCoders.SmartHal.System", "System\CreativeCoders.SmartHal.System\CreativeCoders.SmartHal.System.csproj", "{C372ED98-B954-4D6D-86EB-641653AE56C4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CreativeCoders.SmartHal.System", "System\CreativeCoders.SmartHal.System\CreativeCoders.SmartHal.System.csproj", "{C372ED98-B954-4D6D-86EB-641653AE56C4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreativeCoders.SmartHal.Playground.TestConsoleRunner", "Playground\CreativeCoders.SmartHal.Playground.TestConsoleRunner\CreativeCoders.SmartHal.Playground.TestConsoleRunner.csproj", "{771C7123-AB08-49C8-BB8E-E355C9630A1F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CreativeCoders.SmartHal.Playground.TestConsoleRunner", "Playground\CreativeCoders.SmartHal.Playground.TestConsoleRunner\CreativeCoders.SmartHal.Playground.TestConsoleRunner.csproj", "{771C7123-AB08-49C8-BB8E-E355C9630A1F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreativeCoders.SmartHal.Playground.DummyTestModule", "Playground\CreativeCoders.SmartHal.Playground.DummyTestModule\CreativeCoders.SmartHal.Playground.DummyTestModule.csproj", "{6F5790D4-69C4-4B69-B603-D848C86F3AAD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CreativeCoders.SmartHal.Playground.DummyTestModule", "Playground\CreativeCoders.SmartHal.Playground.DummyTestModule\CreativeCoders.SmartHal.Playground.DummyTestModule.csproj", "{6F5790D4-69C4-4B69-B603-D848C86F3AAD}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "_build", "..\build\_build.csproj", "{4B60FE4B-EDD2-4C13-804D-769A944D1B6A}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_build", "_build", "{FCA5DA93-7A6C-4EBF-9897-15E803AFFDEF}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "__global", "__global", "{322CA48E-7AFC-4626-B86D-71EFDFC55CC6}"
-ProjectSection(SolutionItems) = preProject
-	..\.gitattributes = ..\.gitattributes
-	..\.gitignore = ..\.gitignore
-	..\LICENSE = ..\LICENSE
-EndProjectSection
+	ProjectSection(SolutionItems) = preProject
+		..\.gitattributes = ..\.gitattributes
+		..\.gitignore = ..\.gitignore
+		..\LICENSE = ..\LICENSE
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SubSystems", "SubSystems", "{ECD70ECE-892A-4FCB-B221-FCA04CCEE3FC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreativeCoders.SmartHal.Kernel.SubSystems", "Kernel\CreativeCoders.SmartHal.Kernel.SubSystems\CreativeCoders.SmartHal.Kernel.SubSystems.csproj", "{AE4F2C29-D0C9-4E67-80C1-3117401AF5AB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CreativeCoders.SmartHal.Kernel.SubSystems", "Kernel\CreativeCoders.SmartHal.Kernel.SubSystems\CreativeCoders.SmartHal.Kernel.SubSystems.csproj", "{AE4F2C29-D0C9-4E67-80C1-3117401AF5AB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreativeCoders.SmartHal.Kernel.SubSystems.Things", "Kernel\CreativeCoders.SmartHal.Kernel.SubSystems.Things\CreativeCoders.SmartHal.Kernel.SubSystems.Things.csproj", "{2FFDDB14-4D3A-4031-881E-D5BF02BA23F7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CreativeCoders.SmartHal.Kernel.SubSystems.Things", "Kernel\CreativeCoders.SmartHal.Kernel.SubSystems.Things\CreativeCoders.SmartHal.Kernel.SubSystems.Things.csproj", "{2FFDDB14-4D3A-4031-881E-D5BF02BA23F7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreativeCoders.SmartHal.Kernel.UnitTests", "UnitTests\CreativeCoders.SmartHal.Kernel.UnitTests\CreativeCoders.SmartHal.Kernel.UnitTests.csproj", "{4952FA14-B0EF-4F49-A4B4-AAAF272646AB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CreativeCoders.SmartHal.Kernel.UnitTests", "UnitTests\CreativeCoders.SmartHal.Kernel.UnitTests\CreativeCoders.SmartHal.Kernel.UnitTests.csproj", "{4952FA14-B0EF-4F49-A4B4-AAAF272646AB}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Drivers", "Drivers", "{69D22310-9C2D-45D2-8D05-36E33C1BCED6}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{D55A1B13-82DA-4CB1-A747-0C1126E94248}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreativeCoders.Kernel.Services.ConsoleInterface", "Kernel\CreativeCoders.Kernel.Services.ConsoleInterface\CreativeCoders.Kernel.Services.ConsoleInterface.csproj", "{3AB361F2-8824-4B85-BB56-6274E347BB0E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CreativeCoders.Kernel.Services.ConsoleInterface", "Kernel\CreativeCoders.Kernel.Services.ConsoleInterface\CreativeCoders.Kernel.Services.ConsoleInterface.csproj", "{3AB361F2-8824-4B85-BB56-6274E347BB0E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreativeCoders.SmartHal.System.DefaultSystem", "System\CreativeCoders.SmartHal.System.DefaultSystem\CreativeCoders.SmartHal.System.DefaultSystem.csproj", "{1DB0122A-E400-4824-9C34-A5D7AC832388}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CreativeCoders.SmartHal.System.DefaultSystem", "System\CreativeCoders.SmartHal.System.DefaultSystem\CreativeCoders.SmartHal.System.DefaultSystem.csproj", "{1DB0122A-E400-4824-9C34-A5D7AC832388}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreativeCoders.SmartHal.Drivers.HomeMatic", "Drivers\CreativeCoders.SmartHal.Drivers.HomeMatic\CreativeCoders.SmartHal.Drivers.HomeMatic.csproj", "{094CE962-2074-4F04-8082-811386B356CE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CreativeCoders.SmartHal.Drivers.HomeMatic", "Drivers\CreativeCoders.SmartHal.Drivers.HomeMatic\CreativeCoders.SmartHal.Drivers.HomeMatic.csproj", "{094CE962-2074-4F04-8082-811386B356CE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreativeCoders.SmartHal.Drivers.Base", "Drivers\CreativeCoders.SmartHal.Drivers.Base\CreativeCoders.SmartHal.Drivers.Base.csproj", "{072E90AB-3A4A-486D-A762-7CA183B75F51}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CreativeCoders.SmartHal.Drivers.Base", "Drivers\CreativeCoders.SmartHal.Drivers.Base\CreativeCoders.SmartHal.Drivers.Base.csproj", "{072E90AB-3A4A-486D-A762-7CA183B75F51}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreativeCoders.SmartHal.Kernel.SubSystems.Items", "Kernel\CreativeCoders.SmartHal.Kernel.SubSystems.Items\CreativeCoders.SmartHal.Kernel.SubSystems.Items.csproj", "{C80DFE87-8816-4C85-9B50-6B08BA2DB576}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CreativeCoders.SmartHal.Kernel.SubSystems.Items", "Kernel\CreativeCoders.SmartHal.Kernel.SubSystems.Items\CreativeCoders.SmartHal.Kernel.SubSystems.Items.csproj", "{C80DFE87-8816-4C85-9B50-6B08BA2DB576}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreativeCoders.SmartHal.Drivers.AvmFritzBox", "Drivers\CreativeCoders.SmartHal.Drivers.AvmFritzBox\CreativeCoders.SmartHal.Drivers.AvmFritzBox.csproj", "{7FEF65CD-49B8-42B3-A3F6-17F232761F26}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CreativeCoders.SmartHal.Drivers.AvmFritzBox", "Drivers\CreativeCoders.SmartHal.Drivers.AvmFritzBox\CreativeCoders.SmartHal.Drivers.AvmFritzBox.csproj", "{7FEF65CD-49B8-42B3-A3F6-17F232761F26}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreativeCoders.SmartHal.Kernel.SubSystems.Scripting", "Kernel\CreativeCoders.SmartHal.Kernel.SubSystems.Scripting\CreativeCoders.SmartHal.Kernel.SubSystems.Scripting.csproj", "{C7829983-2FFC-4FC8-A827-9CF63CE9D3A4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CreativeCoders.SmartHal.Kernel.SubSystems.Scripting", "Kernel\CreativeCoders.SmartHal.Kernel.SubSystems.Scripting\CreativeCoders.SmartHal.Kernel.SubSystems.Scripting.csproj", "{C7829983-2FFC-4FC8-A827-9CF63CE9D3A4}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Scripting", "Scripting", "{DFDFEC17-A88E-4E25-B9BA-69BC6F6B1618}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreativeCoders.SmartHal.Scripting.Base", "Scripting\CreativeCoders.SmartHal.Scripting.Base\CreativeCoders.SmartHal.Scripting.Base.csproj", "{488F475F-5B73-4D66-88AE-D7EA5A972FE4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CreativeCoders.SmartHal.Scripting.Base", "Scripting\CreativeCoders.SmartHal.Scripting.Base\CreativeCoders.SmartHal.Scripting.Base.csproj", "{488F475F-5B73-4D66-88AE-D7EA5A972FE4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreativeCoders.SmartHal.Scripting", "Scripting\CreativeCoders.SmartHal.Scripting\CreativeCoders.SmartHal.Scripting.csproj", "{2B56EE86-F08A-49B0-9D0C-2049F64CDC58}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CreativeCoders.SmartHal.Scripting", "Scripting\CreativeCoders.SmartHal.Scripting\CreativeCoders.SmartHal.Scripting.csproj", "{2B56EE86-F08A-49B0-9D0C-2049F64CDC58}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreativeCoders.SmartHal.Kernel.SubSystems.Triggers", "Kernel\CreativeCoders.SmartHal.Kernel.SubSystems.Triggers\CreativeCoders.SmartHal.Kernel.SubSystems.Triggers.csproj", "{49CD7978-88FA-4FCB-8196-FB1F66788072}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CreativeCoders.SmartHal.Kernel.SubSystems.Triggers", "Kernel\CreativeCoders.SmartHal.Kernel.SubSystems.Triggers\CreativeCoders.SmartHal.Kernel.SubSystems.Triggers.csproj", "{49CD7978-88FA-4FCB-8196-FB1F66788072}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{E841BE1F-115D-4F77-B10B-C723549E4E4E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Api", "Api", "{7E93FE18-98A0-4810-8E3F-FDCFA362DFA1}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CreativeCoders.SmartHal.Web.Api.RemoteControl", "Web\Api\CreativeCoders.SmartHal.Web.Api.RemoteControl\CreativeCoders.SmartHal.Web.Api.RemoteControl.csproj", "{EDA6F307-E88C-4612-96D5-DF0D365068F6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CreativeCoders.SmartHal.Web.Api.Core", "Web\Api\CreativeCoders.SmartHal.Web.Api.Core\CreativeCoders.SmartHal.Web.Api.Core.csproj", "{2B212E00-7993-4F4D-A73A-E3C1E0EA246B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Frontend", "Frontend", "{77F4474A-6E7A-440C-8F37-F29C46119320}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CreativeCoders.SmartHal.Web.Frontend.Server", "Web\Frontend\CreativeCoders.SmartHal.Web.Frontend\Server\CreativeCoders.SmartHal.Web.Frontend.Server.csproj", "{1706C4F0-B88F-4CDF-8150-B80A379A6C3C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CreativeCoders.SmartHal.Web.Frontend.Client", "Web\Frontend\CreativeCoders.SmartHal.Web.Frontend\Client\CreativeCoders.SmartHal.Web.Frontend.Client.csproj", "{D95A6014-EF52-4CAA-BF81-5E13AE650A00}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CreativeCoders.SmartHal.Web.Frontend.Shared", "Web\Frontend\CreativeCoders.SmartHal.Web.Frontend\Shared\CreativeCoders.SmartHal.Web.Frontend.Shared.csproj", "{7E0DF3FE-A1A4-4B40-B9F9-5283DE251092}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CreativeCoders.SmartHal.Web.Api.Client", "Web\Api\CreativeCoders.SmartHal.Web.Api.Client\CreativeCoders.SmartHal.Web.Api.Client.csproj", "{D0D87652-533D-4485-A430-E1431F830F8F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Daemon", "Daemon", "{7C3CC125-C003-4961-8160-FAF3EDD0070F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CreativeCoders.SmartHal.Daemon.Windows", "Daemon\CreativeCoders.SmartHal.Daemon.Windows\CreativeCoders.SmartHal.Daemon.Windows.csproj", "{B55BA362-A2F5-4BCD-856A-190CA736872C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CreativeCoders.SmartHal.Daemon.Base", "Daemon\CreativeCoders.SmartHal.Daemon.Base\CreativeCoders.SmartHal.Daemon.Base.csproj", "{D7B4EC28-158F-400A-AA89-DDE64D7267AA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ControlCenter", "ControlCenter", "{2C34DC5A-616E-490F-BC7E-60D256850CD2}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CreativeCoders.SmartHal.Web.Api.ServerBase", "Web\Api\CreativeCoders.SmartHal.Web.Api.ServerBase\CreativeCoders.SmartHal.Web.Api.ServerBase.csproj", "{28BEA8CE-540D-4867-A196-1FFF7C371575}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CreativeCoders.SmartHal.Web.Api.ControlCenter", "Web\Api\CreativeCoders.SmartHal.Web.Api.ControlCenter\CreativeCoders.SmartHal.Web.Api.ControlCenter.csproj", "{6DD34E0F-FD4E-44C9-A451-0BBA7D8575CD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SubSystems", "SubSystems", "{1256F7BA-8A71-486D-A4E8-4BEB0E0E2D23}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CreativeCoders.SmartHal.SubSystems.ControlCenter", "SubSystems\CreativeCoders.SmartHal.SubSystems.ControlCenter\CreativeCoders.SmartHal.SubSystems.ControlCenter.csproj", "{EA96302B-F2A6-49DF-8AA5-A8146F2D3212}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CreativeCoders.SmartHal.SubSystems.RemoteControl", "SubSystems\CreativeCoders.SmartHal.SubSystems.RemoteControl\CreativeCoders.SmartHal.SubSystems.RemoteControl.csproj", "{83E8A631-7405-446D-863F-EA5BE6D28E27}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{5E17C7C8-2A5C-423E-9726-82CD3EA73376} = {7C15F528-F791-4832-92AE-1A1380682792}
-		{3E3354A6-659B-4109-939A-9EC8C8BE2130} = {7C15F528-F791-4832-92AE-1A1380682792}
-		{7E960E42-0B1B-49EC-B055-B0BC9095A618} = {B533FAE0-FC8E-4FBD-B24B-0CB0A63289B9}
-		{9FFBCD7B-ED32-4D60-B3DC-CD1449B93205} = {07F8415E-2415-44F5-BB28-B6A8178F406F}
-		{6C9EE6B8-A76C-4998-B736-858E445E4AC6} = {07F8415E-2415-44F5-BB28-B6A8178F406F}
-		{C372ED98-B954-4D6D-86EB-641653AE56C4} = {A8B860CD-A707-4EE7-A4BD-CBC016DD2CFB}
-		{771C7123-AB08-49C8-BB8E-E355C9630A1F} = {B533FAE0-FC8E-4FBD-B24B-0CB0A63289B9}
-		{6F5790D4-69C4-4B69-B603-D848C86F3AAD} = {B533FAE0-FC8E-4FBD-B24B-0CB0A63289B9}
-		{4B60FE4B-EDD2-4C13-804D-769A944D1B6A} = {FCA5DA93-7A6C-4EBF-9897-15E803AFFDEF}
-		{ECD70ECE-892A-4FCB-B221-FCA04CCEE3FC} = {07F8415E-2415-44F5-BB28-B6A8178F406F}
-		{AE4F2C29-D0C9-4E67-80C1-3117401AF5AB} = {ECD70ECE-892A-4FCB-B221-FCA04CCEE3FC}
-		{2FFDDB14-4D3A-4031-881E-D5BF02BA23F7} = {ECD70ECE-892A-4FCB-B221-FCA04CCEE3FC}
-		{4952FA14-B0EF-4F49-A4B4-AAAF272646AB} = {39E83A38-CCEA-4387-97FC-B5D874ED8724}
-		{D55A1B13-82DA-4CB1-A747-0C1126E94248} = {07F8415E-2415-44F5-BB28-B6A8178F406F}
-		{3AB361F2-8824-4B85-BB56-6274E347BB0E} = {D55A1B13-82DA-4CB1-A747-0C1126E94248}
-		{1DB0122A-E400-4824-9C34-A5D7AC832388} = {A8B860CD-A707-4EE7-A4BD-CBC016DD2CFB}
-		{094CE962-2074-4F04-8082-811386B356CE} = {69D22310-9C2D-45D2-8D05-36E33C1BCED6}
-		{072E90AB-3A4A-486D-A762-7CA183B75F51} = {69D22310-9C2D-45D2-8D05-36E33C1BCED6}
-		{C80DFE87-8816-4C85-9B50-6B08BA2DB576} = {ECD70ECE-892A-4FCB-B221-FCA04CCEE3FC}
-		{7FEF65CD-49B8-42B3-A3F6-17F232761F26} = {69D22310-9C2D-45D2-8D05-36E33C1BCED6}
-		{C7829983-2FFC-4FC8-A827-9CF63CE9D3A4} = {ECD70ECE-892A-4FCB-B221-FCA04CCEE3FC}
-		{488F475F-5B73-4D66-88AE-D7EA5A972FE4} = {DFDFEC17-A88E-4E25-B9BA-69BC6F6B1618}
-		{2B56EE86-F08A-49B0-9D0C-2049F64CDC58} = {DFDFEC17-A88E-4E25-B9BA-69BC6F6B1618}
-		{49CD7978-88FA-4FCB-8196-FB1F66788072} = {ECD70ECE-892A-4FCB-B221-FCA04CCEE3FC}
-	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{4B60FE4B-EDD2-4C13-804D-769A944D1B6A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4B60FE4B-EDD2-4C13-804D-769A944D1B6A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5E17C7C8-2A5C-423E-9726-82CD3EA73376}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{5E17C7C8-2A5C-423E-9726-82CD3EA73376}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5E17C7C8-2A5C-423E-9726-82CD3EA73376}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -137,6 +148,8 @@ Global
 		{6F5790D4-69C4-4B69-B603-D848C86F3AAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6F5790D4-69C4-4B69-B603-D848C86F3AAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6F5790D4-69C4-4B69-B603-D848C86F3AAD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4B60FE4B-EDD2-4C13-804D-769A944D1B6A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4B60FE4B-EDD2-4C13-804D-769A944D1B6A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AE4F2C29-D0C9-4E67-80C1-3117401AF5AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{AE4F2C29-D0C9-4E67-80C1-3117401AF5AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AE4F2C29-D0C9-4E67-80C1-3117401AF5AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -189,5 +202,100 @@ Global
 		{49CD7978-88FA-4FCB-8196-FB1F66788072}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{49CD7978-88FA-4FCB-8196-FB1F66788072}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{49CD7978-88FA-4FCB-8196-FB1F66788072}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EDA6F307-E88C-4612-96D5-DF0D365068F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EDA6F307-E88C-4612-96D5-DF0D365068F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EDA6F307-E88C-4612-96D5-DF0D365068F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EDA6F307-E88C-4612-96D5-DF0D365068F6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2B212E00-7993-4F4D-A73A-E3C1E0EA246B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2B212E00-7993-4F4D-A73A-E3C1E0EA246B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2B212E00-7993-4F4D-A73A-E3C1E0EA246B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2B212E00-7993-4F4D-A73A-E3C1E0EA246B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1706C4F0-B88F-4CDF-8150-B80A379A6C3C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1706C4F0-B88F-4CDF-8150-B80A379A6C3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1706C4F0-B88F-4CDF-8150-B80A379A6C3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1706C4F0-B88F-4CDF-8150-B80A379A6C3C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D95A6014-EF52-4CAA-BF81-5E13AE650A00}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D95A6014-EF52-4CAA-BF81-5E13AE650A00}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D95A6014-EF52-4CAA-BF81-5E13AE650A00}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D95A6014-EF52-4CAA-BF81-5E13AE650A00}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7E0DF3FE-A1A4-4B40-B9F9-5283DE251092}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E0DF3FE-A1A4-4B40-B9F9-5283DE251092}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E0DF3FE-A1A4-4B40-B9F9-5283DE251092}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E0DF3FE-A1A4-4B40-B9F9-5283DE251092}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D0D87652-533D-4485-A430-E1431F830F8F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D0D87652-533D-4485-A430-E1431F830F8F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D0D87652-533D-4485-A430-E1431F830F8F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D0D87652-533D-4485-A430-E1431F830F8F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B55BA362-A2F5-4BCD-856A-190CA736872C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B55BA362-A2F5-4BCD-856A-190CA736872C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B55BA362-A2F5-4BCD-856A-190CA736872C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B55BA362-A2F5-4BCD-856A-190CA736872C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D7B4EC28-158F-400A-AA89-DDE64D7267AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D7B4EC28-158F-400A-AA89-DDE64D7267AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D7B4EC28-158F-400A-AA89-DDE64D7267AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D7B4EC28-158F-400A-AA89-DDE64D7267AA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{28BEA8CE-540D-4867-A196-1FFF7C371575}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{28BEA8CE-540D-4867-A196-1FFF7C371575}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{28BEA8CE-540D-4867-A196-1FFF7C371575}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{28BEA8CE-540D-4867-A196-1FFF7C371575}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6DD34E0F-FD4E-44C9-A451-0BBA7D8575CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6DD34E0F-FD4E-44C9-A451-0BBA7D8575CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6DD34E0F-FD4E-44C9-A451-0BBA7D8575CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6DD34E0F-FD4E-44C9-A451-0BBA7D8575CD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EA96302B-F2A6-49DF-8AA5-A8146F2D3212}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA96302B-F2A6-49DF-8AA5-A8146F2D3212}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EA96302B-F2A6-49DF-8AA5-A8146F2D3212}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EA96302B-F2A6-49DF-8AA5-A8146F2D3212}.Release|Any CPU.Build.0 = Release|Any CPU
+		{83E8A631-7405-446D-863F-EA5BE6D28E27}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{83E8A631-7405-446D-863F-EA5BE6D28E27}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{83E8A631-7405-446D-863F-EA5BE6D28E27}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{83E8A631-7405-446D-863F-EA5BE6D28E27}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{5E17C7C8-2A5C-423E-9726-82CD3EA73376} = {7C15F528-F791-4832-92AE-1A1380682792}
+		{3E3354A6-659B-4109-939A-9EC8C8BE2130} = {7C15F528-F791-4832-92AE-1A1380682792}
+		{7E960E42-0B1B-49EC-B055-B0BC9095A618} = {B533FAE0-FC8E-4FBD-B24B-0CB0A63289B9}
+		{9FFBCD7B-ED32-4D60-B3DC-CD1449B93205} = {07F8415E-2415-44F5-BB28-B6A8178F406F}
+		{6C9EE6B8-A76C-4998-B736-858E445E4AC6} = {07F8415E-2415-44F5-BB28-B6A8178F406F}
+		{C372ED98-B954-4D6D-86EB-641653AE56C4} = {A8B860CD-A707-4EE7-A4BD-CBC016DD2CFB}
+		{771C7123-AB08-49C8-BB8E-E355C9630A1F} = {B533FAE0-FC8E-4FBD-B24B-0CB0A63289B9}
+		{6F5790D4-69C4-4B69-B603-D848C86F3AAD} = {B533FAE0-FC8E-4FBD-B24B-0CB0A63289B9}
+		{4B60FE4B-EDD2-4C13-804D-769A944D1B6A} = {FCA5DA93-7A6C-4EBF-9897-15E803AFFDEF}
+		{ECD70ECE-892A-4FCB-B221-FCA04CCEE3FC} = {07F8415E-2415-44F5-BB28-B6A8178F406F}
+		{AE4F2C29-D0C9-4E67-80C1-3117401AF5AB} = {ECD70ECE-892A-4FCB-B221-FCA04CCEE3FC}
+		{2FFDDB14-4D3A-4031-881E-D5BF02BA23F7} = {ECD70ECE-892A-4FCB-B221-FCA04CCEE3FC}
+		{4952FA14-B0EF-4F49-A4B4-AAAF272646AB} = {39E83A38-CCEA-4387-97FC-B5D874ED8724}
+		{D55A1B13-82DA-4CB1-A747-0C1126E94248} = {07F8415E-2415-44F5-BB28-B6A8178F406F}
+		{3AB361F2-8824-4B85-BB56-6274E347BB0E} = {D55A1B13-82DA-4CB1-A747-0C1126E94248}
+		{1DB0122A-E400-4824-9C34-A5D7AC832388} = {A8B860CD-A707-4EE7-A4BD-CBC016DD2CFB}
+		{094CE962-2074-4F04-8082-811386B356CE} = {69D22310-9C2D-45D2-8D05-36E33C1BCED6}
+		{072E90AB-3A4A-486D-A762-7CA183B75F51} = {69D22310-9C2D-45D2-8D05-36E33C1BCED6}
+		{C80DFE87-8816-4C85-9B50-6B08BA2DB576} = {ECD70ECE-892A-4FCB-B221-FCA04CCEE3FC}
+		{7FEF65CD-49B8-42B3-A3F6-17F232761F26} = {69D22310-9C2D-45D2-8D05-36E33C1BCED6}
+		{C7829983-2FFC-4FC8-A827-9CF63CE9D3A4} = {ECD70ECE-892A-4FCB-B221-FCA04CCEE3FC}
+		{488F475F-5B73-4D66-88AE-D7EA5A972FE4} = {DFDFEC17-A88E-4E25-B9BA-69BC6F6B1618}
+		{2B56EE86-F08A-49B0-9D0C-2049F64CDC58} = {DFDFEC17-A88E-4E25-B9BA-69BC6F6B1618}
+		{49CD7978-88FA-4FCB-8196-FB1F66788072} = {ECD70ECE-892A-4FCB-B221-FCA04CCEE3FC}
+		{7E93FE18-98A0-4810-8E3F-FDCFA362DFA1} = {E841BE1F-115D-4F77-B10B-C723549E4E4E}
+		{EDA6F307-E88C-4612-96D5-DF0D365068F6} = {7E93FE18-98A0-4810-8E3F-FDCFA362DFA1}
+		{2B212E00-7993-4F4D-A73A-E3C1E0EA246B} = {7E93FE18-98A0-4810-8E3F-FDCFA362DFA1}
+		{77F4474A-6E7A-440C-8F37-F29C46119320} = {E841BE1F-115D-4F77-B10B-C723549E4E4E}
+		{1706C4F0-B88F-4CDF-8150-B80A379A6C3C} = {77F4474A-6E7A-440C-8F37-F29C46119320}
+		{D95A6014-EF52-4CAA-BF81-5E13AE650A00} = {77F4474A-6E7A-440C-8F37-F29C46119320}
+		{7E0DF3FE-A1A4-4B40-B9F9-5283DE251092} = {77F4474A-6E7A-440C-8F37-F29C46119320}
+		{D0D87652-533D-4485-A430-E1431F830F8F} = {7E93FE18-98A0-4810-8E3F-FDCFA362DFA1}
+		{B55BA362-A2F5-4BCD-856A-190CA736872C} = {7C3CC125-C003-4961-8160-FAF3EDD0070F}
+		{D7B4EC28-158F-400A-AA89-DDE64D7267AA} = {7C3CC125-C003-4961-8160-FAF3EDD0070F}
+		{2C34DC5A-616E-490F-BC7E-60D256850CD2} = {E841BE1F-115D-4F77-B10B-C723549E4E4E}
+		{28BEA8CE-540D-4867-A196-1FFF7C371575} = {7E93FE18-98A0-4810-8E3F-FDCFA362DFA1}
+		{6DD34E0F-FD4E-44C9-A451-0BBA7D8575CD} = {7E93FE18-98A0-4810-8E3F-FDCFA362DFA1}
+		{EA96302B-F2A6-49DF-8AA5-A8146F2D3212} = {1256F7BA-8A71-486D-A4E8-4BEB0E0E2D23}
+		{83E8A631-7405-446D-863F-EA5BE6D28E27} = {1256F7BA-8A71-486D-A4E8-4BEB0E0E2D23}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {91A49A27-BB0C-473C-B12F-4C1BC9676BEF}
 	EndGlobalSection
 EndGlobal

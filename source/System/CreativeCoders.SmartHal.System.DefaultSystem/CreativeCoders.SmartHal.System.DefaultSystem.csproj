@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
         <OutputType>Library</OutputType>
@@ -17,12 +17,14 @@
       <ProjectReference Include="..\..\Kernel\CreativeCoders.SmartHal.Kernel\CreativeCoders.SmartHal.Kernel.csproj" />
       <ProjectReference Include="..\..\Scripting\CreativeCoders.SmartHal.Scripting.Base\CreativeCoders.SmartHal.Scripting.Base.csproj" />
       <ProjectReference Include="..\..\Scripting\CreativeCoders.SmartHal.Scripting\CreativeCoders.SmartHal.Scripting.csproj" />
+      <ProjectReference Include="..\..\SubSystems\CreativeCoders.SmartHal.SubSystems.RemoteControl\CreativeCoders.SmartHal.SubSystems.RemoteControl.csproj" />
       <ProjectReference Include="..\CreativeCoders.SmartHal.System\CreativeCoders.SmartHal.System.csproj" />
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="CreativeCoders.CodeCompilation.Roslyn" Version="0.8.0" />
-        <PackageReference Include="CreativeCoders.Di" Version="0.8.0" />
+        <PackageReference Include="CreativeCoders.CodeCompilation.Roslyn" Version="0.12.0-unstable0002" />
+        <PackageReference Include="CreativeCoders.Di" Version="0.12.0-unstable0002" />
+        <PackageReference Include="CreativeCoders.Net" Version="0.12.0-unstable0002" />
     </ItemGroup>
 
 </Project>
