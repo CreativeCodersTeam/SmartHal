@@ -1,14 +1,15 @@
 ﻿using System.Threading.Tasks;
 using CreativeCoders.Config.Base;
 using CreativeCoders.SmartHal.Config.Base.Kernel;
-using CreativeCoders.SmartHal.Kernel.Base.Booting;
+using CreativeCoders.SmartHal.Kernel.Base.InitSystem;
 using CreativeCoders.SmartHal.Kernel.Base.SubSystems;
 using JetBrains.Annotations;
 
 namespace CreativeCoders.SmartHal.Kernel.SubSystems.Assemblies
 {
     [UsedImplicitly]
-    public class AssemblyBootStep : IAssemblyBootStep
+    [InitSystemStep(typeof(IAssemblySubSystem))]
+    public class AssemblyBootStep : IBootStep
     {
         private readonly IAssemblySubSystem _assemblySubSystem;
         
@@ -20,7 +21,7 @@ namespace CreativeCoders.SmartHal.Kernel.SubSystems.Assemblies
             _assemblySubSystem = assemblySubSystem;
         }
         
-        public Task LoadAssembliesAsync()
+        public Task ExecuteAsync()
         {
             return _assemblySubSystem.LoadAssembliesAsync(_kernelConfiguration.GetAssemblyReferences());
         }

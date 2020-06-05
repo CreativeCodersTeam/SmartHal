@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 
-namespace CreativeCoders.SmartHal.Kernel.Boot
+namespace CreativeCoders.SmartHal.Kernel.InitSystem
 {
     public interface IKernelBootProcess
     {

@@ -1,12 +1,14 @@
 ﻿using System.Threading.Tasks;
-using CreativeCoders.SmartHal.Kernel.Base.Halting;
+using CreativeCoders.SmartHal.Kernel.Base.InitSystem;
 using CreativeCoders.SmartHal.Kernel.Base.Repositories;
+using CreativeCoders.SmartHal.Kernel.Base.SubSystems;
 using JetBrains.Annotations;
 
 namespace CreativeCoders.SmartHal.Kernel.SubSystems.Triggers
 {
     [UsedImplicitly]
-    public class TriggersHaltStep : ITriggersHaltStep
+    [InitSystemStep(typeof(ITriggerSubSystem))]
+    public class TriggersHaltStep : IHaltStep
     {
         private readonly ITriggerRepository _triggerRepository;
 
@@ -15,7 +17,7 @@ namespace CreativeCoders.SmartHal.Kernel.SubSystems.Triggers
             _triggerRepository = triggerRepository;
         }
         
-        public Task HaltAsync()
+        public Task ExecuteAsync()
         {
             return _triggerRepository.ClearAsync();
         }

@@ -7,7 +7,9 @@ using JetBrains.Annotations;
 namespace CreativeCoders.SmartHal.SubSystems.RemoteControl
 {
     [UsedImplicitly]
-    public class RemoteControlSubSystem : IRemoteControlSubSystem
+    [SubSystem("RemoteControl")]
+    [DependsOn(typeof(IItemSubSystem))]
+    public class RemoteControlSubSystem : SubSystemBase, IRemoteControlSubSystem
     {
         private readonly RemoteControlHost _host;
 

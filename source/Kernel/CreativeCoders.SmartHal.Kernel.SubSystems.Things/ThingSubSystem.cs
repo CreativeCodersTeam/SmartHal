@@ -17,7 +17,9 @@ using JetBrains.Annotations;
 namespace CreativeCoders.SmartHal.Kernel.SubSystems.Things
 {
     [UsedImplicitly]
-    public class ThingSubSystem : IThingSubSystem
+    [SubSystem("Things")]
+    [DependsOn(typeof(IDriverSubSystem))]
+    public class ThingSubSystem : SubSystemBase, IThingSubSystem
     {
         private readonly IGatewayBuilder _gatewayBuilder;
         

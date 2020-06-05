@@ -1,12 +1,14 @@
 ﻿using System.Threading.Tasks;
-using CreativeCoders.SmartHal.Kernel.Base.Halting;
+using CreativeCoders.SmartHal.Kernel.Base.InitSystem;
 using CreativeCoders.SmartHal.Kernel.Base.Repositories;
+using CreativeCoders.SmartHal.Kernel.Base.SubSystems;
 using JetBrains.Annotations;
 
 namespace CreativeCoders.SmartHal.Kernel.SubSystems.Items
 {
     [UsedImplicitly]
-    public class ItemHaltStep : IItemHaltStep
+    [InitSystemStep(typeof(IItemSubSystem))]
+    public class ItemHaltStep : IHaltStep
     {
         private readonly IItemRepository _itemRepository;
 
@@ -15,7 +17,7 @@ namespace CreativeCoders.SmartHal.Kernel.SubSystems.Items
             _itemRepository = itemRepository;
         }
         
-        public Task HaltAsync()
+        public Task ExecuteAsync()
         {
             return _itemRepository.ClearAsync();
         }

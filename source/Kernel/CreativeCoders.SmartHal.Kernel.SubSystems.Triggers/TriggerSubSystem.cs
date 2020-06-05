@@ -10,7 +10,9 @@ using JetBrains.Annotations;
 namespace CreativeCoders.SmartHal.Kernel.SubSystems.Triggers
 {
     [UsedImplicitly]
-    public class TriggerSubSystem : ITriggerSubSystem
+    [SubSystem("Triggers")]
+    [DependsOn(typeof(IItemSubSystem))]
+    public class TriggerSubSystem : SubSystemBase, ITriggerSubSystem
     {
         private readonly IMessageHub _messageHub;
         

@@ -12,7 +12,9 @@ using JetBrains.Annotations;
 namespace CreativeCoders.SmartHal.Kernel.SubSystems.Scripting
 {
     [UsedImplicitly]
-    public class ScriptingSubSystem : IScriptingSubSystem
+    [SubSystem("Scripting")]
+    [DependsOn(typeof(ITriggerSubSystem), typeof(IItemSubSystem))]
+    public class ScriptingSubSystem : SubSystemBase, IScriptingSubSystem
     {
         private static readonly ILogger Log = LogManager.GetLogger<ScriptingSubSystem>();
         

@@ -14,10 +14,12 @@ using JetBrains.Annotations;
 namespace CreativeCoders.SmartHal.Kernel.SubSystems.Drivers
 {
     [UsedImplicitly]
-    public class DriverSubSystem : IDriverSubSystem
+    [SubSystem("Drivers")]
+    [DependsOn(typeof(IAssemblySubSystem))]
+    public class DriverSubSystem : SubSystemBase, IDriverSubSystem
     {
         private static readonly ILogger Log = LogManager.GetLogger<DriverSubSystem>();
-        
+
         private readonly IDriverLoader _driverLoader;
 
         private readonly IList<DriverInfo> _driverInfos;
@@ -27,7 +29,7 @@ namespace CreativeCoders.SmartHal.Kernel.SubSystems.Drivers
         public DriverSubSystem(IDriverLoader driverLoader)
         {
             _driverLoader = driverLoader;
-            
+
             _driverInfos = new ConcurrentList<DriverInfo>();
             _driverInstances = new ConcurrentList<DriverInstance>();
         }
@@ -36,7 +38,8 @@ namespace CreativeCoders.SmartHal.Kernel.SubSystems.Drivers
         {
             LoadDriverInfos();
 
-            return _driverLoader.LoadDriversAsync(driverConfigurations, _driverInfos, driverInstance => _driverInstances.Add(driverInstance));
+            return _driverLoader.LoadDriversAsync(driverConfigurations, _driverInfos,
+                driverInstance => _driverInstances.Add(driverInstance));
         }
 
         public IDriver GetDriver(string driverName)
@@ -47,18 +50,18 @@ namespace CreativeCoders.SmartHal.Kernel.SubSystems.Drivers
         private void LoadDriverInfos()
         {
             Log.Info("Find all drivers");
-            
+
             var driverInfos =
                 from type in ReflectionUtils.GetAllTypes()
                 where typeof(IDriver).IsAssignableFrom(type)
                 let driverAttribute = type.GetCustomAttribute<DriverAttribute>()
                 where driverAttribute != null
                 select driverAttribute.CreateDriverInfo(type);
-            
+
             _driverInfos.AddRange(driverInfos);
-            
+
             Log.Info($"{_driverInfos.Count} driver(s) found");
-            
+
             _driverInfos.ForEach(driverInfo => Log.Debug($"Driver: {driverInfo.Name}"));
         }
     }

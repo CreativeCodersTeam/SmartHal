@@ -2,14 +2,15 @@
 using System.Threading.Tasks;
 using CreativeCoders.Config.Base;
 using CreativeCoders.SmartHal.Config.Base.Drivers;
-using CreativeCoders.SmartHal.Kernel.Base.Booting;
+using CreativeCoders.SmartHal.Kernel.Base.InitSystem;
 using CreativeCoders.SmartHal.Kernel.Base.SubSystems;
 using JetBrains.Annotations;
 
 namespace CreativeCoders.SmartHal.Kernel.SubSystems.Drivers
 {
     [UsedImplicitly]
-    public class DriverBootStep : IDriverBootStep
+    [InitSystemStep(typeof(IDriverSubSystem))]
+    public class DriverBootStep : IBootStep
     {
         private readonly IDriverSubSystem _driverSubSystem;
         
@@ -21,7 +22,7 @@ namespace CreativeCoders.SmartHal.Kernel.SubSystems.Drivers
             _driverSubSystem = driverSubSystem;
         }
         
-        public Task LoadDriversAsync()
+        public Task ExecuteAsync()
         {
             return _driverSubSystem.InitAsync(_driverConfigurations);
         }

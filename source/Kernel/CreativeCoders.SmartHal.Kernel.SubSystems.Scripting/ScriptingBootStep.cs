@@ -3,14 +3,15 @@ using System.Threading.Tasks;
 using CreativeCoders.Config.Base;
 using CreativeCoders.Core;
 using CreativeCoders.SmartHal.Config.Base.Scripts;
-using CreativeCoders.SmartHal.Kernel.Base.Booting;
+using CreativeCoders.SmartHal.Kernel.Base.InitSystem;
 using CreativeCoders.SmartHal.Kernel.Base.SubSystems;
 using JetBrains.Annotations;
 
 namespace CreativeCoders.SmartHal.Kernel.SubSystems.Scripting
 {
     [UsedImplicitly]
-    public class ScriptingBootStep : IScriptingBootStep
+    [InitSystemStep(typeof(IScriptingSubSystem))]
+    public class ScriptingBootStep : IBootStep
     {
         private readonly IScriptingSubSystem _scriptingSubSystem;
         
@@ -22,7 +23,7 @@ namespace CreativeCoders.SmartHal.Kernel.SubSystems.Scripting
             _actionScripts = actionScripts.Values;
         }
         
-        public async Task InitScriptingAsync()
+        public async Task ExecuteAsync()
         {
             await _actionScripts.ForEachAsync(actionScript => _scriptingSubSystem.AddActionScript(actionScript));
         }

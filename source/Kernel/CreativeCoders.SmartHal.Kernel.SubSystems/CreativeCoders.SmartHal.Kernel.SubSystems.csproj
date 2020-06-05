@@ -13,9 +13,9 @@
     </ItemGroup>
 
     <ItemGroup>
-      <PackageReference Include="CreativeCoders.Config.Base" Version="0.12.0-unstable0002" />
-      <PackageReference Include="CreativeCoders.Core" Version="0.12.0-unstable0002" />
-      <PackageReference Include="CreativeCoders.Di" Version="0.12.0-unstable0002" />
+      <PackageReference Include="CreativeCoders.Config.Base" Version="0.12.0-unstable0005" />
+      <PackageReference Include="CreativeCoders.Core" Version="0.12.0-unstable0005" />
+      <PackageReference Include="CreativeCoders.Di" Version="0.12.0-unstable0005" />
     </ItemGroup>
 
 </Project>

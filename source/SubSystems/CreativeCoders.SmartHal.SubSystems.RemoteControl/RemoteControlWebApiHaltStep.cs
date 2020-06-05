@@ -1,10 +1,13 @@
 ﻿using System.Threading.Tasks;
-using CreativeCoders.SmartHal.Kernel.Base.Halting;
+using CreativeCoders.SmartHal.Kernel.Base.InitSystem;
 using CreativeCoders.SmartHal.Kernel.Base.SubSystems;
+using JetBrains.Annotations;
 
 namespace CreativeCoders.SmartHal.SubSystems.RemoteControl
 {
-    public class RemoteControlWebApiHaltStep : IRemoteControlWebApiHaltStep
+    [UsedImplicitly]
+    [InitSystemStep(typeof(IRemoteControlSubSystem))]
+    public class RemoteControlWebApiHaltStep : IHaltStep
     {
         private readonly IRemoteControlSubSystem _remoteControlSubSystem;
 
@@ -13,7 +16,7 @@ namespace CreativeCoders.SmartHal.SubSystems.RemoteControl
             _remoteControlSubSystem = remoteControlSubSystem;
         }
 
-        public Task HaltAsync()
+        public Task ExecuteAsync()
         {
             return _remoteControlSubSystem.ShutdownWebApi();
         }

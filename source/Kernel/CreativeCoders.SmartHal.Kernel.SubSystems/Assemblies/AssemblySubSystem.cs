@@ -7,7 +7,8 @@ using JetBrains.Annotations;
 namespace CreativeCoders.SmartHal.Kernel.SubSystems.Assemblies
 {
     [UsedImplicitly]
-    public class AssemblySubSystem : IAssemblySubSystem
+    [SubSystem("Assemblies")]
+    public class AssemblySubSystem : SubSystemBase, IAssemblySubSystem
     {
         private readonly IAssemblyLoader _assemblyLoader;
         

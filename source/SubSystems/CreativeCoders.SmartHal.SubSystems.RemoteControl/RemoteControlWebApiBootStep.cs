@@ -1,12 +1,13 @@
 ﻿using System.Threading.Tasks;
-using CreativeCoders.SmartHal.Kernel.Base.Booting;
+using CreativeCoders.SmartHal.Kernel.Base.InitSystem;
 using CreativeCoders.SmartHal.Kernel.Base.SubSystems;
 using JetBrains.Annotations;
 
 namespace CreativeCoders.SmartHal.SubSystems.RemoteControl
 {
     [UsedImplicitly]
-    public class RemoteControlWebApiBootStep : IRemoteControlWebApiBootStep
+    [InitSystemStep(typeof(IRemoteControlSubSystem))]
+    public class RemoteControlWebApiBootStep : IBootStep
     {
         private readonly IRemoteControlSubSystem _remoteControlSubSystem;
 
@@ -15,7 +16,7 @@ namespace CreativeCoders.SmartHal.SubSystems.RemoteControl
             _remoteControlSubSystem = remoteControlSubSystem;
         }
         
-        public Task InitAsync()
+        public Task ExecuteAsync()
         {
             return _remoteControlSubSystem.StartWebApi();
         }

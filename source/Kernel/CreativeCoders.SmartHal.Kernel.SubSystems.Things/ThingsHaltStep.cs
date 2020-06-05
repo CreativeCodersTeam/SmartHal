@@ -1,12 +1,14 @@
 ﻿using System.Threading.Tasks;
-using CreativeCoders.SmartHal.Kernel.Base.Halting;
+using CreativeCoders.SmartHal.Kernel.Base.InitSystem;
 using CreativeCoders.SmartHal.Kernel.Base.Repositories;
+using CreativeCoders.SmartHal.Kernel.Base.SubSystems;
 using JetBrains.Annotations;
 
 namespace CreativeCoders.SmartHal.Kernel.SubSystems.Things
 {
     [UsedImplicitly]
-    public class ThingsHaltStep : IThingsHaltStep
+    [InitSystemStep(typeof(IThingSubSystem))]
+    public class ThingsHaltStep : IHaltStep
     {
         private readonly IGatewayRepository _gatewayRepository;
         
@@ -21,10 +23,12 @@ namespace CreativeCoders.SmartHal.Kernel.SubSystems.Things
             _thingChannelRepository = thingChannelRepository;
         }
         
-        public async Task HaltAsync()
+        public async Task ExecuteAsync()
         {
             await _thingChannelRepository.ClearAsync().ConfigureAwait(false);
+
             await _thingRepository.ClearAsync().ConfigureAwait(false);
+
             await _gatewayRepository.ClearAsync().ConfigureAwait(false);
         }
     }

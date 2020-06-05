@@ -4,8 +4,7 @@ using CreativeCoders.Core.Logging;
 using CreativeCoders.SmartHal.Kernel.Base;
 using CreativeCoders.SmartHal.Kernel.Base.Messages;
 using CreativeCoders.SmartHal.Kernel.Base.Messaging;
-using CreativeCoders.SmartHal.Kernel.Boot;
-using CreativeCoders.SmartHal.Kernel.Halt;
+using CreativeCoders.SmartHal.Kernel.InitSystem;
 using JetBrains.Annotations;
 
 namespace CreativeCoders.SmartHal.Kernel
@@ -44,7 +43,7 @@ namespace CreativeCoders.SmartHal.Kernel
         public async Task StartAsync()
         {
             Log.Info("Startup kernel...");
-            
+
             await SetNewStateAsync(KernelState.Booting).ConfigureAwait(false);
 
             await _bootProcess.BootAsync().ConfigureAwait(false);

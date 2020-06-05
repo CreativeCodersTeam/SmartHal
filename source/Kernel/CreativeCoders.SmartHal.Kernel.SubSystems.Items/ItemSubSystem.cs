@@ -12,7 +12,9 @@ using JetBrains.Annotations;
 namespace CreativeCoders.SmartHal.Kernel.SubSystems.Items
 {
     [PublicAPI]
-    public class ItemSubSystem : IItemSubSystem
+    [SubSystem("Items")]
+    [DependsOn(typeof(IThingSubSystem))]
+    public class ItemSubSystem : SubSystemBase, IItemSubSystem
     {
         private static readonly ILogger Log = LogManager.GetLogger<ItemSubSystem>();
         
