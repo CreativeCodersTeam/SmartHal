@@ -1,8 +1,10 @@
-﻿namespace CreativeCoders.SmartHal.Config.Base.WebApi
+﻿using System.Collections.Generic;
+
+namespace CreativeCoders.SmartHal.Config.Base.WebApi
 {
     public interface IControlCenterConfiguration
     {
-        string[] Urls { get; }
+        IEnumerable<string> Urls { get; }
 
         int DefaultPort { get; }
 

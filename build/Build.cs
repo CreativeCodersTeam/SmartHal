@@ -21,14 +21,6 @@ class Build : NukeBuild, IBuildInfo
     [Parameter("Configuration to build - Default is 'Debug' (local) or 'Release' (server)")]
     readonly Configuration Configuration = IsLocalBuild ? Configuration.Debug : Configuration.Release;
 
-    [Parameter] string DevNuGetSource;
-
-    [Parameter] string DevNuGetApiKey;
-
-    [Parameter] string NuGetSource;
-
-    [Parameter] string NuGetApiKey;
-
     [Solution] readonly Solution Solution;
 
     [GitRepository] readonly GitRepository GitRepository;
@@ -50,47 +42,25 @@ class Build : NukeBuild, IBuildInfo
         .UseBuildAction<RestoreBuildAction>(this);
 
     Target Compile => _ => _
-        .DependsOn(Restore)
-        .ProceedAfterFailure()
+        .After(Clean)
         .UseBuildAction<DotNetCompileBuildAction>(this);
 
-    Target RunTests => _ => _
-        .DependsOn(Compile)
+    Target Test => _ => _
+        .After(Compile)
         .UseBuildAction<UnitTestAction>(this,
             x => x
                 .SetUnitTestsBasePath("UnitTests")
                 .SetProjectsPattern("**/*.csproj")
                 .SetResultsDirectory(ArtifactsDirectory / "test_results"));
 
-    //Target Pack => _ => _
-    //    .DependsOn(Clean)
-    //    .DependsOn(RunTests)
-    //    .UseBuildAction<PackBuildAction>(this, x => x
-    //        .SetPackageLicenseExpression(PackageLicenseExpressions.MIT)
-    //        .SetPackageProjectUrl(PackageProjectUrl)
-    //        .SetCopyright($"{DateTime.Now.Year} CreativeCoders"));
-
-    Target Rebuild => _ => _
+    Target RunBuild => _ => _
         .DependsOn(Clean)
-        .DependsOn(Compile);
+        .DependsOn(Restore)
+        .Executes(Compile);
 
-    //Target PushDevNuGet => _ => _
-    //    .DependsOn(Pack)
-    //    .Requires(() => DevNuGetSource)
-    //    .Requires(() => DevNuGetApiKey)
-    //    .UseBuildAction<PushBuildAction>(this,
-    //        x => x
-    //            .SetSource(DevNuGetSource)
-    //            .SetApiKey(DevNuGetApiKey));
-
-    //Target PushNuGet => _ => _
-    //    .DependsOn(Pack)
-    //    .Requires(() => NuGetSource)
-    //    .Requires(() => NuGetApiKey)
-    //    .UseBuildAction<PushBuildAction>(this,
-    //        x => x
-    //            .SetSource(NuGetSource)
-    //            .SetApiKey(NuGetApiKey));
+    Target RunTest => _ => _
+        .DependsOn(RunBuild)
+        .Executes(Test);
 
     Configuration IBuildInfo.Configuration => Configuration;
 

@@ -1,5 +1,6 @@
 using System;
 using System.Net.Http;
+using System.Net.Http.Json;
 using System.Threading.Tasks;
 using CreativeCoders.Net.Http;
 using CreativeCoders.Net.WebApi.Building;
@@ -20,7 +21,9 @@ namespace CreativeCoders.SmartHal.Web.Frontend.Client
 
             var httpClient = new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) };
 
-            var config = await httpClient.GetJsonAsync<ClientConfig>(new Uri(new Uri(builder.HostEnvironment.BaseAddress), "/api/clientconfig"), _ => { });
+            var configUri = new Uri(new Uri(builder.HostEnvironment.BaseAddress), "/api/clientconfig");
+            
+            var config = await httpClient.GetFromJsonAsync<ClientConfig>(configUri.ToString());
 
             builder.Services.AddTransient(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
 
@@ -33,7 +36,7 @@ namespace CreativeCoders.SmartHal.Web.Frontend.Client
         {
             Console.WriteLine($"WebApiUrl: {config.WebApiUrl}");
 
-            var apiBuilder = new ApiBuilder(new HttpClientEx(new HttpClient()));
+            var apiBuilder = new ApiBuilder(new HttpClient());
             var webApi =
                 apiBuilder.BuildApi<ISmartHalWebApi>(config.WebApiUrl, new JsonDataFormatter());
 

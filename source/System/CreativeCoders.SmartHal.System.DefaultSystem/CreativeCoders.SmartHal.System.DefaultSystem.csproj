@@ -23,9 +23,9 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="CreativeCoders.CodeCompilation.Roslyn" Version="0.12.0-unstable0005" />
-        <PackageReference Include="CreativeCoders.Di" Version="0.12.0-unstable0005" />
-        <PackageReference Include="CreativeCoders.Net" Version="0.12.0-unstable0005" />
+        <PackageReference Include="CreativeCoders.CodeCompilation.Roslyn" Version="0.13.0" />
+        <PackageReference Include="CreativeCoders.Di" Version="0.13.0" />
+        <PackageReference Include="CreativeCoders.Net" Version="0.13.0" />
     </ItemGroup>
 
 </Project>

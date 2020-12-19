@@ -8,7 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="CreativeCoders.Net.WebApi" Version="0.12.0-unstable0005" />
+    <PackageReference Include="CreativeCoders.Net.WebApi" Version="0.13.0" />
   </ItemGroup>
 
   <ItemGroup>

@@ -1,0 +1,41 @@
+﻿@page "/items"
+@using CreativeCoders.SmartHal.Web.ControlCenter.Client.ViewModels
+@using CreativeCoders.SmartHal.Web.Api.Core.Models
+@inject ItemsViewModel ItemsViewModel
+
+<h3>Items</h3>
+
+<div style="margin: 8px">
+    <Button Clicked="@(async () => await ItemsViewModel.Refresh())">
+        <Iconify Icon="mdi:refresh" Height="24px" Width="24px"></Iconify>
+    </Button>
+</div>
+
+<DataTable TItem="ItemModel" ItemsSource="@ItemsViewModel.ItemModels">
+    <HeaderTemplate>
+        <th>Name</th>
+        <th>ItemType</th>
+        <th>Value</th>
+    </HeaderTemplate>
+    <ItemTemplate>
+        <td>@context.Name</td>
+        <td>@context.ItemType</td>
+        <td>
+            <div class="input-group">
+                <input type="text" class="form-control" @bind="@context.Value"/>
+                <div class="input-group-append">
+                    <Button>Send</Button>
+                </div>
+            </div>
+        </td>
+    </ItemTemplate>
+</DataTable>
+
+@code {
+    protected override async Task OnInitializedAsync()
+    {
+        await base.OnInitializedAsync();
+
+        await ItemsViewModel.Refresh();
+    }
+}

@@ -1,0 +1,36 @@
+﻿@page "/gateways"
+@using CreativeCoders.SmartHal.Web.ControlCenter.Client.ViewModels
+@using CreativeCoders.SmartHal.Web.Api.Core.Models
+@inject GatewaysViewModel GatewaysViewModel
+
+<h1>Gateways</h1>
+
+<div style="margin: 8px">
+    <Button Clicked="@(async () => await GatewaysViewModel.Refresh())">
+        <Iconify Icon="mdi:refresh" Height="24px" Width="24px"></Iconify>
+    </Button>
+</div>
+
+<DataTable TItem="GatewayModel" ItemsSource="@GatewaysViewModel.GatewayModels">
+    <HeaderTemplate>
+        <th>Id</th>
+        <th>Name</th>
+        <th>State</th>
+    </HeaderTemplate>
+    <ItemTemplate>
+        <td>@context.Id</td>
+        <td>@context.Name</td>
+        <td>@context.StateText</td>
+    </ItemTemplate>
+</DataTable>
+
+@code {
+
+    protected override async Task OnInitializedAsync()
+    {
+        await base.OnInitializedAsync();
+
+        await GatewaysViewModel.Refresh();
+    }
+
+}

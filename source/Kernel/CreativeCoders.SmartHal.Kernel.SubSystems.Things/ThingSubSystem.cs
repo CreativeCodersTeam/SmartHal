@@ -31,18 +31,21 @@ namespace CreativeCoders.SmartHal.Kernel.SubSystems.Things
         
         private readonly IMessageHub _messageHub;
 
+        private readonly IGatewayRepository _gatewayRepository;
+
         private readonly IDictionary<GatewayConfigurationPackage, IDisposable> _gatewayInitializedHandlers;
 
         public ThingSubSystem(IGatewayBuilder gatewayBuilder, IThingBuilder thingBuilder,
             IThingTemplateRepository thingTemplateRepository, IKernelRequestDispatcher requestDispatcher,
-            IMessageHub messageHub)
+            IMessageHub messageHub, IGatewayRepository gatewayRepository)
         {
             _gatewayBuilder = gatewayBuilder;
             _thingBuilder = thingBuilder;
             _thingTemplateRepository = thingTemplateRepository;
             _requestDispatcher = requestDispatcher;
             _messageHub = messageHub;
-            
+            _gatewayRepository = gatewayRepository;
+
             _gatewayInitializedHandlers = new ConcurrentDictionary<GatewayConfigurationPackage, IDisposable>();
         }
 

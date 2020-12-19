@@ -73,7 +73,7 @@ namespace CreativeCoders.SmartHal.Scripting.ActionScripts
                 {
                     return script.CreateObject<IActionScriptObject>();
                 }
-                
+
                 Log.Error($"Script object '{scriptPackage.Name}' creation failed.");
                 return null;
 

@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using CreativeCoders.SmartHal.Config.Base.Things;
+using CreativeCoders.SmartHal.Kernel.Base.Things;
 
 namespace CreativeCoders.SmartHal.Kernel.Base.SubSystems
 {

@@ -4,7 +4,7 @@ using JetBrains.Annotations;
 
 namespace CreativeCoders.SmartHal.Config.FileSystem.WebApi
 {
-    [UsedImplicitly]
+    [PublicAPI]
     public class WebApiConfiguration : IWebApiConfiguration
     {
         public string[] Urls { get; set; } = Array.Empty<string>();
