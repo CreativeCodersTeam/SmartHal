@@ -1,13 +1,13 @@
 using System.Threading.Tasks;
 using CreativeCoders.Daemon.Base;
-using CreativeCoders.Di.SimpleInjector;
+using CreativeCoders.Di.MsServiceProvider;
 using CreativeCoders.SmartHal.Config.FileSystem.Building;
 using CreativeCoders.SmartHal.Kernel.Base;
 using CreativeCoders.SmartHal.System;
 using CreativeCoders.SmartHal.System.DefaultSystem;
 using JetBrains.Annotations;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using SimpleInjector;
 
 namespace CreativeCoders.SmartHal.Daemon.Base
 {
@@ -35,7 +35,7 @@ namespace CreativeCoders.SmartHal.Daemon.Base
             Logging.InitNlog(_smartHalDaemonConfig.LogPath);
 
             _kernel = new DefaultKernelBuilder()
-                .UseDiContainerBuilder(() => new SimpleInjectorDiContainerBuilder(new Container()))
+                .UseDiContainerBuilder(() => new ServiceProviderDiContainerBuilder(new ServiceCollection()))
                 .UseConfig(new FileConfigurationBuilder(basePath, true).Build())
                 .Build();
 

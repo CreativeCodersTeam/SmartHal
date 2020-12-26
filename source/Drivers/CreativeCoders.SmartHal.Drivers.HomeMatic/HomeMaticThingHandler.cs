@@ -1,7 +1,7 @@
 ﻿using System.Threading.Tasks;
 using CreativeCoders.Core;
-using CreativeCoders.HomeMatic.Core;
-using CreativeCoders.HomeMatic.Core.Devices;
+using CreativeCoders.HomeMatic.Api.Core;
+using CreativeCoders.HomeMatic.Api.Core.Devices;
 using CreativeCoders.HomeMatic.XmlRpc.Client;
 using CreativeCoders.Messaging.Core;
 using CreativeCoders.SmartHal.Drivers.Base;

@@ -27,7 +27,7 @@ namespace CreativeCoders.SmartHal.Web.ControlCenter.Client.ViewModels
                 ThingModels.AddRange(things);
             }
 
-            Console.WriteLine($"{things.Count()} gateways loaded.");
+            Console.WriteLine($"{things.Length} gateways loaded.");
         }
 
         public ExtendedObservableCollection<ThingModel> ThingModels { get; }

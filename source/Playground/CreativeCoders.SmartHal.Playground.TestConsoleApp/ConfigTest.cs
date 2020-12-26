@@ -55,7 +55,7 @@ namespace CreativeCoders.SmartHal.Playground.TestConsoleApp
             
             var items = Enumerable.Range(1, 100);
 
-            if (items.Any(item => !ThreadPool.QueueUserWorkItem(async state => await DoWork(item))))
+            if (items.Any(item => !ThreadPool.QueueUserWorkItem(async _ => await DoWork(item))))
             {
                 throw new InvalidOperationException();
             }

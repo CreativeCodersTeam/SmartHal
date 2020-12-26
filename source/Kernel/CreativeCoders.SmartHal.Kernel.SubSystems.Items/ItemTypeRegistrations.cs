@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using CreativeCoders.Core.Threading;
 using CreativeCoders.SmartHal.Kernel.Base.Items;
 using JetBrains.Annotations;
@@ -10,9 +11,13 @@ namespace CreativeCoders.SmartHal.Kernel.SubSystems.Items
     {
         private readonly ConcurrentList<IItemType> _itemTypes;
         
+        private IEnumerable<IItemType> _initItemTypes;
+
         public ItemTypeRegistrations(IEnumerable<IItemType> itemTypes)
         {
-            _itemTypes = new ConcurrentList<IItemType>(itemTypes);
+            _initItemTypes = itemTypes;
+            _itemTypes = new ConcurrentList<IItemType>();
+            //_itemTypes = new ConcurrentList<IItemType>(itemTypes);
         }
         
         public void AddItemType(IItemType itemType)
@@ -20,6 +25,6 @@ namespace CreativeCoders.SmartHal.Kernel.SubSystems.Items
             _itemTypes.Add(itemType);
         }
 
-        public IReadOnlyCollection<IItemType> ItemTypes => _itemTypes;
+        public IReadOnlyCollection<IItemType> ItemTypes => _initItemTypes.Concat(_itemTypes).ToArray();// _itemTypes;
     }
 }

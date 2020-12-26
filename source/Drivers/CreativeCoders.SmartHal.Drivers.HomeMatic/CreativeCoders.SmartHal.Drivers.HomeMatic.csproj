@@ -1,24 +1,23 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <OutputType>Library</OutputType>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
-    <Authors>CreativeCoders</Authors>
-    <LangVersion>latest</LangVersion>
-    <IsPackable>false</IsPackable>
-    <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
-  </PropertyGroup>
+	<PropertyGroup>
+		<OutputType>Library</OutputType>
+		<TargetFramework>net5.0</TargetFramework>
+		<Authors>CreativeCoders</Authors>
+		<IsPackable>false</IsPackable>
+		<CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\..\Kernel\CreativeCoders.SmartHal.Kernel.Base\CreativeCoders.SmartHal.Kernel.Base.csproj" />
-    <ProjectReference Include="..\CreativeCoders.SmartHal.Drivers.Base\CreativeCoders.SmartHal.Drivers.Base.csproj" />
-  </ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\..\Kernel\CreativeCoders.SmartHal.Kernel.Base\CreativeCoders.SmartHal.Kernel.Base.csproj" />
+		<ProjectReference Include="..\CreativeCoders.SmartHal.Drivers.Base\CreativeCoders.SmartHal.Drivers.Base.csproj" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <PackageReference Include="CreativeCoders.HomeMatic.Api" Version="0.5.0-unstable0007" />
-    <PackageReference Include="CreativeCoders.Messaging.Core" Version="0.13.0" />
-    <PackageReference Include="CreativeCoders.Messaging.DefaultMediator" Version="0.13.0" />
-    <PackageReference Include="CreativeCoders.Net.Servers.Http.AspNetCore" Version="0.13.0" />
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="CreativeCoders.HomeMatic.Api" Version="0.5.0-unstable0011" />
+		<PackageReference Include="CreativeCoders.Messaging.Core" Version="0.14.0-unstable0015" />
+		<PackageReference Include="CreativeCoders.Messaging.DefaultMediator" Version="0.14.0-unstable0015" />
+		<PackageReference Include="CreativeCoders.Net.Servers.Http.AspNetCore" Version="0.14.0-unstable0015" />
+	</ItemGroup>
 
 </Project>

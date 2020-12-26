@@ -9,5 +9,8 @@ namespace CreativeCoders.SmartHal.Web.Api.Client.ControlCenter
     {
         [Get("items")]
         Task<IEnumerable<ItemModel>> GetItemsAsync();
+
+        [Post("items/sendcommand")]
+        Task SendCommandAsync([ViaBody] SendCommandModel sendCommandModel);
     }
 }

@@ -60,7 +60,7 @@ namespace CreativeCoders.SmartHal.Drivers.AvmFritzBox
             {
                 return;
             }
-            _timer = new Timer(state => CheckIsActive(), null, 0, _interval);
+            _timer = new Timer(_ => CheckIsActive(), null, 0, _interval);
         }
         
         private void CheckIsActive()

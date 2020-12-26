@@ -14,12 +14,14 @@ namespace CreativeCoders.SmartHal.Kernel.Base.Drivers
 
         public DriverAttribute(string name)
         {
+            Ensure.IsNotNullOrWhitespace(name, nameof(name));
+            
             Name = name;
         }
 
         public DriverInfo CreateDriverInfo(Type driverType)
         {
-            return new DriverInfo(driverType)
+            return new(driverType)
             {
                 Name = GetName(driverType),
                 Version = GetVersion(driverType)

@@ -1,31 +1,30 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-    <PropertyGroup>
-        <OutputType>Library</OutputType>
-        <TargetFramework>netcoreapp3.1</TargetFramework>
-        <Authors>CreativeCoders</Authors>
-        <LangVersion>latest</LangVersion>
-    </PropertyGroup>
+	<PropertyGroup>
+		<OutputType>Library</OutputType>
+		<TargetFramework>net5.0</TargetFramework>
+		<Authors>CreativeCoders</Authors>
+	</PropertyGroup>
 
-    <ItemGroup>
-      <ProjectReference Include="..\..\Kernel\CreativeCoders.SmartHal.Kernel.Base\CreativeCoders.SmartHal.Kernel.Base.csproj" />
-      <ProjectReference Include="..\..\Kernel\CreativeCoders.SmartHal.Kernel.SubSystems.Items\CreativeCoders.SmartHal.Kernel.SubSystems.Items.csproj" />
-      <ProjectReference Include="..\..\Kernel\CreativeCoders.SmartHal.Kernel.SubSystems.Scripting\CreativeCoders.SmartHal.Kernel.SubSystems.Scripting.csproj" />
-      <ProjectReference Include="..\..\Kernel\CreativeCoders.SmartHal.Kernel.SubSystems.Things\CreativeCoders.SmartHal.Kernel.SubSystems.Things.csproj" />
-      <ProjectReference Include="..\..\Kernel\CreativeCoders.SmartHal.Kernel.SubSystems.Triggers\CreativeCoders.SmartHal.Kernel.SubSystems.Triggers.csproj" />
-      <ProjectReference Include="..\..\Kernel\CreativeCoders.SmartHal.Kernel.SubSystems\CreativeCoders.SmartHal.Kernel.SubSystems.csproj" />
-      <ProjectReference Include="..\..\Kernel\CreativeCoders.SmartHal.Kernel\CreativeCoders.SmartHal.Kernel.csproj" />
-      <ProjectReference Include="..\..\Scripting\CreativeCoders.SmartHal.Scripting.Base\CreativeCoders.SmartHal.Scripting.Base.csproj" />
-      <ProjectReference Include="..\..\Scripting\CreativeCoders.SmartHal.Scripting\CreativeCoders.SmartHal.Scripting.csproj" />
-      <ProjectReference Include="..\..\SubSystems\CreativeCoders.SmartHal.SubSystems.ControlCenter\CreativeCoders.SmartHal.SubSystems.ControlCenter.csproj" />
-      <ProjectReference Include="..\..\SubSystems\CreativeCoders.SmartHal.SubSystems.RemoteControl\CreativeCoders.SmartHal.SubSystems.RemoteControl.csproj" />
-      <ProjectReference Include="..\CreativeCoders.SmartHal.System\CreativeCoders.SmartHal.System.csproj" />
-    </ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\..\Kernel\CreativeCoders.SmartHal.Kernel.Base\CreativeCoders.SmartHal.Kernel.Base.csproj" />
+		<ProjectReference Include="..\..\Kernel\CreativeCoders.SmartHal.Kernel.SubSystems.Items\CreativeCoders.SmartHal.Kernel.SubSystems.Items.csproj" />
+		<ProjectReference Include="..\..\Kernel\CreativeCoders.SmartHal.Kernel.SubSystems.Scripting\CreativeCoders.SmartHal.Kernel.SubSystems.Scripting.csproj" />
+		<ProjectReference Include="..\..\Kernel\CreativeCoders.SmartHal.Kernel.SubSystems.Things\CreativeCoders.SmartHal.Kernel.SubSystems.Things.csproj" />
+		<ProjectReference Include="..\..\Kernel\CreativeCoders.SmartHal.Kernel.SubSystems.Triggers\CreativeCoders.SmartHal.Kernel.SubSystems.Triggers.csproj" />
+		<ProjectReference Include="..\..\Kernel\CreativeCoders.SmartHal.Kernel.SubSystems\CreativeCoders.SmartHal.Kernel.SubSystems.csproj" />
+		<ProjectReference Include="..\..\Kernel\CreativeCoders.SmartHal.Kernel\CreativeCoders.SmartHal.Kernel.csproj" />
+		<ProjectReference Include="..\..\Scripting\CreativeCoders.SmartHal.Scripting.Base\CreativeCoders.SmartHal.Scripting.Base.csproj" />
+		<ProjectReference Include="..\..\Scripting\CreativeCoders.SmartHal.Scripting\CreativeCoders.SmartHal.Scripting.csproj" />
+		<ProjectReference Include="..\..\SubSystems\CreativeCoders.SmartHal.SubSystems.ControlCenter\CreativeCoders.SmartHal.SubSystems.ControlCenter.csproj" />
+		<ProjectReference Include="..\..\SubSystems\CreativeCoders.SmartHal.SubSystems.RemoteControl\CreativeCoders.SmartHal.SubSystems.RemoteControl.csproj" />
+		<ProjectReference Include="..\CreativeCoders.SmartHal.System\CreativeCoders.SmartHal.System.csproj" />
+	</ItemGroup>
 
-    <ItemGroup>
-        <PackageReference Include="CreativeCoders.CodeCompilation.Roslyn" Version="0.13.0" />
-        <PackageReference Include="CreativeCoders.Di" Version="0.13.0" />
-        <PackageReference Include="CreativeCoders.Net" Version="0.13.0" />
-    </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="CreativeCoders.CodeCompilation.Roslyn" Version="0.14.0-unstable0015" />
+		<PackageReference Include="CreativeCoders.Di" Version="0.14.0-unstable0015" />
+		<PackageReference Include="CreativeCoders.Net" Version="0.14.0-unstable0015" />
+	</ItemGroup>
 
 </Project>

@@ -2,9 +2,11 @@
 using System.Threading.Tasks;
 using CreativeCoders.Core;
 using CreativeCoders.SmartHal.Kernel.Base.Repositories;
+using JetBrains.Annotations;
 
 namespace CreativeCoders.Kernel.Services.ConsoleInterface.Commands
 {
+    [UsedImplicitly]
     public class RemoveGatewayCommand : ConsoleCommandBase
     {
         private readonly IGatewayRepository _gatewayRepository;

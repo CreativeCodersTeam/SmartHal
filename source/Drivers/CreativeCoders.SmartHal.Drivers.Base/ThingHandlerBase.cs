@@ -28,7 +28,7 @@ namespace CreativeCoders.SmartHal.Drivers.Base
         
         protected virtual ValueTask OnDisposeAsync()
         {
-            return new ValueTask();
+            return ValueTask.CompletedTask;
         }
 
         protected IMessageHub MessageHub { get; private set; }

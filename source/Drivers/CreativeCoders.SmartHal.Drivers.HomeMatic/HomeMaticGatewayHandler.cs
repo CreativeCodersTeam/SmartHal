@@ -75,11 +75,15 @@ namespace CreativeCoders.SmartHal.Drivers.HomeMatic
         {
             _httpServer = new AspNetCoreHttpServer {AllowSynchronousIO = true};
 
-            var xmlRpcServer = new XmlRpcServer(_httpServer, new XmlRpcServerMethods(),
-                Encoding.GetEncoding("iso-8859-1"));
-            xmlRpcServer.Urls.Add(xmlRpcUrl);
-
-            _eventServer = new CcuXmlRpcEventServer(xmlRpcServer);
+            var xmlRpcServer = new XmlRpcServer(_httpServer)
+            {
+                Encoding = Encoding.GetEncoding("iso-8859-1")
+            };
+            
+            _eventServer = new CcuXmlRpcEventServer(xmlRpcServer)
+            {
+                ServerUrl = xmlRpcUrl
+            };
 
             _eventServer.RegisterEventHandler(
                 new HomeMaticGatewayEventHandler(_mediator, $"GW_{_gatewaySetupInfo.Id.Gateway}"));

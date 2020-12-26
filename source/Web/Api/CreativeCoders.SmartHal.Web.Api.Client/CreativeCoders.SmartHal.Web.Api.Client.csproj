@@ -1,18 +1,17 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <OutputType>Library</OutputType>
-    <TargetFramework>netstandard2.1</TargetFramework>
-    <Authors>CreativeCoders</Authors>
-    <LangVersion>latest</LangVersion>
-  </PropertyGroup>
+	<PropertyGroup>
+		<OutputType>Library</OutputType>
+		<TargetFramework>net5.0</TargetFramework>
+		<Authors>CreativeCoders</Authors>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="CreativeCoders.Net.WebApi" Version="0.13.0" />
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="CreativeCoders.Net.WebApi" Version="0.14.0-unstable0015" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\CreativeCoders.SmartHal.Web.Api.Core\CreativeCoders.SmartHal.Web.Api.Core.csproj" />
-  </ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\CreativeCoders.SmartHal.Web.Api.Core\CreativeCoders.SmartHal.Web.Api.Core.csproj" />
+	</ItemGroup>
 
 </Project>

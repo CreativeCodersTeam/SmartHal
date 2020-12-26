@@ -19,7 +19,7 @@ namespace CreativeCoders.SmartHal.Kernel.SubSystems.Assemblies
 
         public Task LoadAssembliesAsync(IEnumerable<IKernelAssemblyReference> assemblyReferences)
         {
-            _assemblyLoader.Load(assemblyReferences, assembly => { });
+            _assemblyLoader.Load(assemblyReferences, _ => { });
             
             return Task.CompletedTask;
         }

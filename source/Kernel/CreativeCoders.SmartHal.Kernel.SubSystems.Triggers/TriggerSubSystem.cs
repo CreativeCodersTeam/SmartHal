@@ -31,7 +31,7 @@ namespace CreativeCoders.SmartHal.Kernel.SubSystems.Triggers
         {
             var trigger = new ItemChangedTrigger(_itemRepository, _messageHub, itemName, oldValue, newValue, executeAsync);
 
-            _triggerRepository.AddAsync(trigger).FireAndForgetAsync(e => { });
+            _triggerRepository.AddAsync(trigger).FireAndForgetAsync(_ => { });
 
             return trigger;
         }

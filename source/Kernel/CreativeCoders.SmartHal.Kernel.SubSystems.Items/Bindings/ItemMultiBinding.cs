@@ -22,7 +22,7 @@ namespace CreativeCoders.SmartHal.Kernel.SubSystems.Items.Bindings
 
         public ValueTask DisposeAsync()
         {
-            return new ValueTask(_itemBindings.ForEachAsync(itemBinding => itemBinding.TryDisposeAsync().AsTask()));
+            return new(_itemBindings.ForEachAsync(itemBinding => itemBinding.TryDisposeAsync().AsTask()));
         }
     }
 }

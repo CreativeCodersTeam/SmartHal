@@ -1,19 +1,19 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
-    <Authors>CreativeCoders</Authors>
-    <LangVersion>latest</LangVersion>
-  </PropertyGroup>
+	<PropertyGroup>
+		<OutputType>Library</OutputType>
+		<TargetFramework>net5.0</TargetFramework>
+		<Authors>CreativeCoders</Authors>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <FrameworkReference Include="Microsoft.AspNetCore.App" />
-  </ItemGroup>
+	<ItemGroup>
+		<FrameworkReference Include="Microsoft.AspNetCore.App" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <PackageReference Include="CreativeCoders.Core" Version="0.13.0" />
-    <PackageReference Include="CreativeCoders.Di" Version="0.13.0" />
-    <PackageReference Include="JetBrains.Annotations" Version="2020.3.0" />
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="CreativeCoders.Core" Version="0.14.0-unstable0015" />
+		<PackageReference Include="CreativeCoders.Di" Version="0.14.0-unstable0015" />
+		<PackageReference Include="JetBrains.Annotations" Version="2020.3.0" />
+	</ItemGroup>
 
 </Project>

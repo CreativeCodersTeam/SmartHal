@@ -58,7 +58,7 @@ namespace CreativeCoders.SmartHal.System.DefaultSystem
         private static IDiContainerBuilder SetupCore(this IDiContainerBuilder containerBuilder)
         {
             containerBuilder
-                .AddScoped<INetworkInfo, NetworkInfo>();
+                .AddSingleton<INetworkInfo, NetworkInfo>();
 
             return containerBuilder;
         }
@@ -66,7 +66,7 @@ namespace CreativeCoders.SmartHal.System.DefaultSystem
         private static IDiContainerBuilder SetupControlCenterSubSystem(this IDiContainerBuilder containerBuilder)
         {
             containerBuilder
-                .AddScoped<IControlCenterSubSystem, ControlCenterSubSystem>();
+                .AddSingleton<IControlCenterSubSystem, ControlCenterSubSystem>();
 
             return containerBuilder;
         }
@@ -74,7 +74,7 @@ namespace CreativeCoders.SmartHal.System.DefaultSystem
         private static IDiContainerBuilder SetupRemoteControlSubSystem(this IDiContainerBuilder containerBuilder)
         {
             containerBuilder
-                .AddScoped<IRemoteControlSubSystem, RemoteControlSubSystem>();
+                .AddSingleton<IRemoteControlSubSystem, RemoteControlSubSystem>();
 
             return containerBuilder;
         }
@@ -82,8 +82,8 @@ namespace CreativeCoders.SmartHal.System.DefaultSystem
         private static IDiContainerBuilder SetupTriggerSubSystem(this IDiContainerBuilder containerBuilder)
         {
             containerBuilder
-                .AddScoped<ITriggerSubSystem, TriggerSubSystem>()
-                .AddScoped<ITriggerRepository, TriggerRepository>();
+                .AddSingleton<ITriggerSubSystem, TriggerSubSystem>()
+                .AddSingleton<ITriggerRepository, TriggerRepository>();
 
             return containerBuilder;
         }
@@ -91,13 +91,13 @@ namespace CreativeCoders.SmartHal.System.DefaultSystem
         private static IDiContainerBuilder SetupScriptingSubSystem(this IDiContainerBuilder containerBuilder)
         {
             containerBuilder
-                .AddScoped<IScriptingSubSystem, ScriptingSubSystem>()
-                .AddScoped<IScriptingCore, ScriptingCore>()
-                .AddScoped<IActionScriptCore, ActionScriptCore>()
-                .AddScoped<ICompilerFactory, RoslynCompilerFactory>()
-                .AddScoped<CSharpScriptRuntime<ActionScriptImplementation>>()
-                .AddScoped<ActionScriptImplementation>()
-                .AddScoped<ActionScriptClassTemplate>()
+                .AddSingleton<IScriptingSubSystem, ScriptingSubSystem>()
+                .AddSingleton<IScriptingCore, ScriptingCore>()
+                .AddSingleton<IActionScriptCore, ActionScriptCore>()
+                .AddSingleton<ICompilerFactory, RoslynCompilerFactory>()
+                .AddSingleton<CSharpScriptRuntime<ActionScriptImplementation>>()
+                .AddSingleton<ActionScriptImplementation>()
+                .AddSingleton<ActionScriptClassTemplate>()
                 .AddTransient<IItemsScriptApi, ItemsScriptApi>()
                 .AddTransient<ITriggerApi, TriggerApi>();
             
@@ -107,10 +107,10 @@ namespace CreativeCoders.SmartHal.System.DefaultSystem
         private static IDiContainerBuilder SetupAssemblySubSystem(this IDiContainerBuilder containerBuilder)
         {
             containerBuilder
-                .AddScoped<IAssemblyLoader, AssemblyLoader>()
-                .AddScopedCollection<IAssemblyReferenceLoader>(
+                .AddSingleton<IAssemblyLoader, AssemblyLoader>()
+                .AddSingletonCollection<IAssemblyReferenceLoader>(
                     typeof(FileAssemblyReferenceLoader))
-                .AddScoped<IAssemblySubSystem, AssemblySubSystem>();
+                .AddSingleton<IAssemblySubSystem, AssemblySubSystem>();
                 
             return containerBuilder;
         }
@@ -118,8 +118,8 @@ namespace CreativeCoders.SmartHal.System.DefaultSystem
         private static IDiContainerBuilder SetupDriversSubSystem(this IDiContainerBuilder containerBuilder)
         {
             containerBuilder
-                .AddScoped<IDriverSubSystem, DriverSubSystem>()
-                .AddScoped<IDriverLoader, DriverLoader>();
+                .AddSingleton<IDriverSubSystem, DriverSubSystem>()
+                .AddSingleton<IDriverLoader, DriverLoader>();
             
             return containerBuilder;
         }
@@ -127,13 +127,13 @@ namespace CreativeCoders.SmartHal.System.DefaultSystem
         private static IDiContainerBuilder SetupBoot(this IDiContainerBuilder containerBuilder)
         {
             containerBuilder
-                .AddScoped<ISmartHalKernel, SmartHalKernel>()
-                .AddScoped<IMessageHub, MessageHub>()
-                .AddScoped<IKernelRequestDispatcher, KernelRequestDispatcher>()
-                .AddScoped<IKernelBootProcess, KernelBootProcess>()
-                .AddScopedCollectionFor<IBootStep>(true)
-                .AddScopedCollectionFor<ISubSystem>(true)
-                .AddScoped<ISubSystemInitSystem, SubSystemInitSystem>();
+                .AddSingleton<ISmartHalKernel, SmartHalKernel>()
+                .AddSingleton<IMessageHub, MessageHub>()
+                .AddSingleton<IKernelRequestDispatcher, KernelRequestDispatcher>()
+                .AddSingleton<IKernelBootProcess, KernelBootProcess>()
+                .AddSingletonCollectionFor<IBootStep>(true)
+                .AddSingletonCollectionFor<ISubSystem>(true)
+                .AddSingleton<ISubSystemInitSystem, SubSystemInitSystem>();
 
             return containerBuilder;
         }
@@ -141,21 +141,21 @@ namespace CreativeCoders.SmartHal.System.DefaultSystem
         private static void SetupHalt(this IDiContainerBuilder containerBuilder)
         {
             containerBuilder
-                .AddScoped<IKernelHaltProcess, KernelHaltProcess>()
-                .AddScopedCollectionFor<IHaltStep>();
+                .AddSingleton<IKernelHaltProcess, KernelHaltProcess>()
+                .AddSingletonCollectionFor<IHaltStep>();
         }
 
         private static IDiContainerBuilder SetupThingsSubSystem(this IDiContainerBuilder containerBuilder)
         {
             containerBuilder
-                .AddScoped<IThingSubSystem, ThingSubSystem>()
-                .AddScoped<IGatewayRepository, GatewayRepository>()
-                .AddScoped<IThingRepository, ThingRepository>()
-                .AddScoped<IThingTemplateRepository, ThingTemplateRepository>()
-                .AddScoped<IThingChannelRepository, ThingChannelRepository>()
-                .AddScoped<IGatewayBuilder, GatewayBuilder>()
-                .AddScoped<IThingBuilder, ThingBuilder>()
-                .AddScoped<IThingChannelBuilder, ThingChannelBuilder>();
+                .AddSingleton<IThingSubSystem, ThingSubSystem>()
+                .AddSingleton<IGatewayRepository, GatewayRepository>()
+                .AddSingleton<IThingRepository, ThingRepository>()
+                .AddSingleton<IThingTemplateRepository, ThingTemplateRepository>()
+                .AddSingleton<IThingChannelRepository, ThingChannelRepository>()
+                .AddSingleton<IGatewayBuilder, GatewayBuilder>()
+                .AddSingleton<IThingBuilder, ThingBuilder>()
+                .AddSingleton<IThingChannelBuilder, ThingChannelBuilder>();
 
             return containerBuilder;
         }
@@ -163,12 +163,12 @@ namespace CreativeCoders.SmartHal.System.DefaultSystem
         private static IDiContainerBuilder SetupItemSubSystem(this IDiContainerBuilder containerBuilder)
         {
             containerBuilder
-                .AddScoped<IItemSubSystem, ItemSubSystem>()
-                .AddScoped<IItemRepository, ItemRepository>()
-                .AddScopedCollectionFor<IItemType>()
-                .AddScoped<IItemTypeRegistrations, ItemTypeRegistrations>()
-                .AddScoped<IItemBuilder, ItemBuilder>()
-                .AddScoped<IItemBindingBuilder, ItemBindingBuilder>();
+                .AddSingleton<IItemSubSystem, ItemSubSystem>()
+                .AddSingleton<IItemRepository, ItemRepository>()
+                .AddSingletonCollectionFor<IItemType>()
+                .AddSingleton<IItemTypeRegistrations, ItemTypeRegistrations>()
+                .AddSingleton<IItemBuilder, ItemBuilder>()
+                .AddSingleton<IItemBindingBuilder, ItemBindingBuilder>();
             
             return containerBuilder;
         }

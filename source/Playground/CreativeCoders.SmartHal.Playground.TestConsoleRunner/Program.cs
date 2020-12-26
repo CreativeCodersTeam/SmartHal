@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Threading.Tasks;
-using CreativeCoders.Di.SimpleInjector;
+using CreativeCoders.Di.MsServiceProvider;
 using CreativeCoders.Kernel.Services.ConsoleInterface;
 using CreativeCoders.SmartHal.Config.FileSystem.Building;
 using CreativeCoders.SmartHal.System;
 using CreativeCoders.SmartHal.System.DefaultSystem;
-using SimpleInjector;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace CreativeCoders.SmartHal.Playground.TestConsoleRunner
 {
@@ -18,7 +18,7 @@ namespace CreativeCoders.SmartHal.Playground.TestConsoleRunner
             Logging.InitNlog(@"c:\temp\SmartHal\hm\logs");
             
             var kernel = new DefaultKernelBuilder()
-                .UseDiContainerBuilder(() => new SimpleInjectorDiContainerBuilder(new Container()))
+                .UseDiContainerBuilder(() => new ServiceProviderDiContainerBuilder(new ServiceCollection()))
                 .UseConfig(new FileConfigurationBuilder(basePath, true).Build())
                 .AddConsoleSupport()
                 .Build();

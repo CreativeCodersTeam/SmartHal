@@ -31,8 +31,6 @@ namespace CreativeCoders.SmartHal.Kernel.SubSystems.Things
         
         private readonly IMessageHub _messageHub;
 
-        private readonly IGatewayRepository _gatewayRepository;
-
         private readonly IDictionary<GatewayConfigurationPackage, IDisposable> _gatewayInitializedHandlers;
 
         public ThingSubSystem(IGatewayBuilder gatewayBuilder, IThingBuilder thingBuilder,
@@ -44,8 +42,7 @@ namespace CreativeCoders.SmartHal.Kernel.SubSystems.Things
             _thingTemplateRepository = thingTemplateRepository;
             _requestDispatcher = requestDispatcher;
             _messageHub = messageHub;
-            _gatewayRepository = gatewayRepository;
-
+            
             _gatewayInitializedHandlers = new ConcurrentDictionary<GatewayConfigurationPackage, IDisposable>();
         }
 
@@ -98,7 +95,7 @@ namespace CreativeCoders.SmartHal.Kernel.SubSystems.Things
                 .Handle<ThingStateChangedMessage>()
                 .Where(msg => gateway.Id.Equals(msg.Id) && msg.NewState.IsInitialized())
                 .Once()
-                .Register(msg => InitThingsAsync(gatewayConfigurationPackage));
+                .Register(_ => InitThingsAsync(gatewayConfigurationPackage));
 
             _gatewayInitializedHandlers[gatewayConfigurationPackage] = initThingsHandler;
         }

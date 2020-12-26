@@ -6,7 +6,7 @@
 <h3>Items</h3>
 
 <div style="margin: 8px">
-    <Button Clicked="@(async () => await ItemsViewModel.Refresh())">
+    <Button Clicked="@(async () => await ItemsViewModel.RefreshAsync())">
         <Iconify Icon="mdi:refresh" Height="24px" Width="24px"></Iconify>
     </Button>
 </div>
@@ -24,7 +24,7 @@
             <div class="input-group">
                 <input type="text" class="form-control" @bind="@context.Value"/>
                 <div class="input-group-append">
-                    <Button>Send</Button>
+                    <Button @onclick=@(async () => await ItemsViewModel.SendCommandAsync(context))>Send</Button>
                 </div>
             </div>
         </td>
@@ -36,6 +36,6 @@
     {
         await base.OnInitializedAsync();
 
-        await ItemsViewModel.Refresh();
+        await ItemsViewModel.RefreshAsync();
     }
 }

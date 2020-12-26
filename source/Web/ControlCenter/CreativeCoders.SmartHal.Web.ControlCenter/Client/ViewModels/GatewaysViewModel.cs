@@ -27,7 +27,7 @@ namespace CreativeCoders.SmartHal.Web.ControlCenter.Client.ViewModels
                 GatewayModels.AddRange(gateways);
             }
             
-            Console.WriteLine($"{gateways.Count()} gateways loaded.");
+            Console.WriteLine($"{gateways.Length} gateways loaded.");
         }
 
         public ExtendedObservableCollection<GatewayModel> GatewayModels { get; }

@@ -12,7 +12,7 @@ namespace CreativeCoders.SmartHal.Kernel.UnitTests.Items.DataTypes
         {
             var switchValue = new SwitchValue(1, _ => throw new XunitException());
 
-            var switchValue2 = new SwitchValue(1, x => false);
+            var switchValue2 = new SwitchValue(1, _ => false);
             var objectValue = (object) switchValue2;
 
             Assert.True(switchValue.Equals(objectValue));
@@ -23,7 +23,7 @@ namespace CreativeCoders.SmartHal.Kernel.UnitTests.Items.DataTypes
         {
             var switchValue = new SwitchValue(1, _ => throw new XunitException());
 
-            var switchValue2 = new SwitchValue(0.5, x => false);
+            var switchValue2 = new SwitchValue(0.5, _ => false);
             var objectValue = (object) switchValue2;
 
             Assert.False(switchValue.Equals(objectValue));

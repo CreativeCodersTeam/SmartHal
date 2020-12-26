@@ -14,7 +14,7 @@ namespace CreativeCoders.SmartHal.Kernel
         
         public void Process(KernelRequest request)
         {
-            ThreadPool.QueueUserWorkItem(async state =>
+            ThreadPool.QueueUserWorkItem(async _ =>
             {
                 Log.Debug($"Kernel request (id = {request.Id}) '{request.DisplayName}' execution starting");
 

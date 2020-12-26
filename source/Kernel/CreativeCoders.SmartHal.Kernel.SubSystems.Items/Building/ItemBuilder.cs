@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using CreativeCoders.Core.Logging;
 using CreativeCoders.SmartHal.Config.Base.Items;
@@ -15,7 +14,7 @@ namespace CreativeCoders.SmartHal.Kernel.SubSystems.Items.Building
     {
         private static readonly ILogger Log = LogManager.GetLogger<ItemBuilder>();
         
-        private readonly IReadOnlyCollection<IItemType> _itemTypes;
+        private readonly IItemTypeRegistrations _itemTypeRegistrations;
         
         private readonly IMessageHub _messageHub;
         
@@ -23,14 +22,14 @@ namespace CreativeCoders.SmartHal.Kernel.SubSystems.Items.Building
         
         public ItemBuilder(IItemTypeRegistrations itemTypeRegistrations, IMessageHub messageHub, IItemBindingBuilder itemBindingBuilder)
         {
-            _itemTypes = itemTypeRegistrations.ItemTypes;
+            _itemTypeRegistrations = itemTypeRegistrations;
             _messageHub = messageHub;
             _itemBindingBuilder = itemBindingBuilder;
         }
         
         public Item Build(IItemConfiguration itemConfiguration)
         {
-            var itemType = _itemTypes.FirstOrDefault(x =>
+            var itemType = _itemTypeRegistrations.ItemTypes.FirstOrDefault(x =>
                 x.Name.Equals(itemConfiguration.ItemType, StringComparison.InvariantCulture));
 
             if (itemType == null)

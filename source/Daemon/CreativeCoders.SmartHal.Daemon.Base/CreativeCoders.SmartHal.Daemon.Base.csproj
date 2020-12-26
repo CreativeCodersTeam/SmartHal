@@ -1,21 +1,20 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <OutputType>Library</OutputType>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
-    <Authors>CreativeCoders</Authors>
-    <LangVersion>latest</LangVersion>
-  </PropertyGroup>
+	<PropertyGroup>
+		<OutputType>Library</OutputType>
+		<TargetFramework>net5.0</TargetFramework>
+		<Authors>CreativeCoders</Authors>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="CreativeCoders.Daemon.Base" Version="0.13.0" />
-    <PackageReference Include="CreativeCoders.Di.SimpleInjector" Version="0.13.0" />
-    <PackageReference Include="CreativeCoders.Logging.Nlog" Version="0.13.0" />
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="CreativeCoders.Daemon.Base" Version="0.14.0-unstable0015" />
+		<PackageReference Include="CreativeCoders.Di.MsServiceProvider" Version="0.14.0-unstable0015" />
+		<PackageReference Include="CreativeCoders.Logging.Nlog" Version="0.14.0-unstable0015" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\..\Config\CreativeCoders.SmartHal.Config.FileSystem\CreativeCoders.SmartHal.Config.FileSystem.csproj" />
-    <ProjectReference Include="..\..\System\CreativeCoders.SmartHal.System.DefaultSystem\CreativeCoders.SmartHal.System.DefaultSystem.csproj" />
-  </ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\..\Config\CreativeCoders.SmartHal.Config.FileSystem\CreativeCoders.SmartHal.Config.FileSystem.csproj" />
+		<ProjectReference Include="..\..\System\CreativeCoders.SmartHal.System.DefaultSystem\CreativeCoders.SmartHal.System.DefaultSystem.csproj" />
+	</ItemGroup>
 
 </Project>

@@ -54,7 +54,7 @@ namespace CreativeCoders.SmartHal.Web.Api.ServerBase
                                 services.AddControllers().AddApplicationPart(assembly)));
 
                     webBuilder.ConfigureServices(x =>
-                        x.AddScoped<IControllerFactory>(sp => new DiContainerControllerFactory(_diContainer)));
+                        x.AddScoped<IControllerFactory>(_ => new DiContainerControllerFactory(_diContainer)));
 
                     webBuilder.ConfigureServices(ConfigureServices);
                 });

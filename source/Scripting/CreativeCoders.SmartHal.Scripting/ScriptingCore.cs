@@ -25,7 +25,7 @@ namespace CreativeCoders.SmartHal.Scripting
         
         private static ScriptPackage CreateScriptPackage(IScriptData scriptData)
         {
-            return new ScriptPackage(
+            return new(
                 scriptData.Name,
                 scriptData.Name,
                 new StringSourceCode(scriptData.SourceCode)

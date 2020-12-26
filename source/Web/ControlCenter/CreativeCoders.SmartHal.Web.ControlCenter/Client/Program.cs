@@ -1,24 +1,23 @@
 using System;
 using System.Net.Http;
-using System.Collections.Generic;
 using System.Net.Http.Json;
 using System.Threading.Tasks;
-using System.Text;
-using CreativeCoders.Net.Http;
 using CreativeCoders.Net.WebApi.Building;
 using CreativeCoders.Net.WebApi.Serialization.Json;
 using CreativeCoders.SmartHal.Web.Api.Client.ControlCenter;
 using CreativeCoders.SmartHal.Web.ControlCenter.Client.ViewModels;
 using CreativeCoders.SmartHal.Web.ControlCenter.Shared;
+using JetBrains.Annotations;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
 
 namespace CreativeCoders.SmartHal.Web.ControlCenter.Client
 {
     public class Program
     {
+        private const string ClientConfigUrl = "/api/clientconfig";
+        
+        [UsedImplicitly]
         public static async Task Main(string[] args)
         {
             var builder = WebAssemblyHostBuilder.CreateDefault(args);
@@ -26,17 +25,17 @@ namespace CreativeCoders.SmartHal.Web.ControlCenter.Client
 
             var httpClient = new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) };
 
-            var configUri = new Uri(new Uri(builder.HostEnvironment.BaseAddress), "/api/clientconfig");
+            var configUri = new Uri(new Uri(builder.HostEnvironment.BaseAddress), ClientConfigUrl);
             
-            var config = await httpClient.GetFromJsonAsync<ClientConfig>(configUri.ToString());
+            var config = await httpClient.GetFromJsonAsync<ClientConfig>(configUri);
 
-            builder.Services.AddTransient(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
+            builder.Services.AddTransient(_ => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
 
-            builder.Services.AddTransient(sp => CreateWebApiClient<IGatewaysApi>(config));
+            builder.Services.AddTransient(_ => CreateWebApiClient<IGatewaysApi>(config));
 
-            builder.Services.AddTransient(sp => CreateWebApiClient<IThingsApi>(config));
+            builder.Services.AddTransient(_ => CreateWebApiClient<IThingsApi>(config));
 
-            builder.Services.AddTransient(sp => CreateWebApiClient<IItemsApi>(config));
+            builder.Services.AddTransient(_ => CreateWebApiClient<IItemsApi>(config));
 
             builder.Services.AddSingleton<GatewaysViewModel>();
             builder.Services.AddSingleton<ThingsViewModel>();

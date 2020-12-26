@@ -1,17 +1,18 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
-  <PropertyGroup>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>net5.0</TargetFramework>
+		<Authors>CreativeCoders</Authors>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="3.2.0" />
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="5.0.1" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\Client\CreativeCoders.SmartHal.Web.Frontend.Client.csproj" />
-    <ProjectReference Include="..\Shared\CreativeCoders.SmartHal.Web.Frontend.Shared.csproj" />
-  </ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\Client\CreativeCoders.SmartHal.Web.Frontend.Client.csproj" />
+		<ProjectReference Include="..\Shared\CreativeCoders.SmartHal.Web.Frontend.Shared.csproj" />
+	</ItemGroup>
 
 
 </Project>

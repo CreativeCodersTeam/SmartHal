@@ -18,7 +18,7 @@ namespace CreativeCoders.SmartHal.Web.ControlCenter.Server.Controllers
         [HttpGet]
         public ClientConfig Get()
         {
-            return new ClientConfig {WebApiUrl = _webApiUrl};
+            return new() {WebApiUrl = _webApiUrl};
         }
     }
 }
