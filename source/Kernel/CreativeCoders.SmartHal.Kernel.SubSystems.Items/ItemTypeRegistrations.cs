@@ -11,13 +11,12 @@ namespace CreativeCoders.SmartHal.Kernel.SubSystems.Items
     {
         private readonly ConcurrentList<IItemType> _itemTypes;
         
-        private IEnumerable<IItemType> _initItemTypes;
+        private readonly IEnumerable<IItemType> _initItemTypes;
 
         public ItemTypeRegistrations(IEnumerable<IItemType> itemTypes)
         {
             _initItemTypes = itemTypes;
             _itemTypes = new ConcurrentList<IItemType>();
-            //_itemTypes = new ConcurrentList<IItemType>(itemTypes);
         }
         
         public void AddItemType(IItemType itemType)
@@ -25,6 +24,6 @@ namespace CreativeCoders.SmartHal.Kernel.SubSystems.Items
             _itemTypes.Add(itemType);
         }
 
-        public IReadOnlyCollection<IItemType> ItemTypes => _initItemTypes.Concat(_itemTypes).ToArray();// _itemTypes;
+        public IReadOnlyCollection<IItemType> ItemTypes => _initItemTypes.Concat(_itemTypes).ToArray();
     }
 }

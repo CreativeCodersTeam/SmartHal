@@ -32,7 +32,11 @@ namespace CreativeCoders.SmartHal.Scripting.ActionScripts
         {
             try
             {
+                Log.Info($"Executing ActionScript '{Name}'");
+                
                 await _executeAsync().ConfigureAwait(false);
+
+                Log.Info($"ActionScript '{Name}' executed");
             }
             catch (Exception e)
             {

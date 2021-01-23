@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using CreativeCoders.Core;
@@ -75,9 +76,16 @@ namespace CreativeCoders.SmartHal.Kernel.InitSystem
             {
                 Log.Info($"Executing '{x.Name}' boot step...");
 
-                await x.Step.ExecuteAsync().ConfigureAwait(false);
+                try
+                {
+                    await x.Step.ExecuteAsync().ConfigureAwait(false);
 
-                Log.Info($"Boot step '{x.Name}' executed.");
+                    Log.Info($"Boot step '{x.Name}' executed.");
+                }
+                catch (Exception ex)
+                {
+                    Log.Error($"Boot step '{x.Name}' execution failed", ex);
+                }
             });
         }
 

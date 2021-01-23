@@ -11,14 +11,14 @@
 		<ProjectReference Include="..\..\Drivers\CreativeCoders.SmartHal.Drivers.AvmFritzBox\CreativeCoders.SmartHal.Drivers.AvmFritzBox.csproj" />
 		<ProjectReference Include="..\..\Drivers\CreativeCoders.SmartHal.Drivers.HomeMatic\CreativeCoders.SmartHal.Drivers.HomeMatic.csproj" />
 		<ProjectReference Include="..\..\Kernel\CreativeCoders.Kernel.Services.ConsoleInterface\CreativeCoders.Kernel.Services.ConsoleInterface.csproj" />
+		<ProjectReference Include="..\..\System\CreativeCoders.SmartHal.System.Boot\CreativeCoders.SmartHal.System.Boot.csproj" />
 		<ProjectReference Include="..\..\System\CreativeCoders.SmartHal.System.DefaultSystem\CreativeCoders.SmartHal.System.DefaultSystem.csproj" />
 		<ProjectReference Include="..\..\System\CreativeCoders.SmartHal.System\CreativeCoders.SmartHal.System.csproj" />
 		<ProjectReference Include="..\CreativeCoders.SmartHal.Playground.DummyTestModule\CreativeCoders.SmartHal.Playground.DummyTestModule.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="CreativeCoders.Di.MsServiceProvider" Version="0.14.0-unstable0015" />
-		<PackageReference Include="CreativeCoders.Logging.Nlog" Version="0.14.0-unstable0015" />
+		<PackageReference Include="CreativeCoders.Logging.Nlog" Version="0.14.1" />
 	</ItemGroup>
 
 	<ItemGroup>

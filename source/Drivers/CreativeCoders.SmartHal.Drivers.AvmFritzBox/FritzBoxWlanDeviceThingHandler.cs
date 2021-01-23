@@ -30,6 +30,8 @@ namespace CreativeCoders.SmartHal.Drivers.AvmFritzBox
         
         private Timer _timer;
 
+        private readonly bool _checkMethodHostIsActive;
+
         public FritzBoxWlanDeviceThingHandler(IThingSetupInfo thingSetupInfo, FritzBox fritzBox)
         {
             _thingSetupInfo = thingSetupInfo;
@@ -41,6 +43,7 @@ namespace CreativeCoders.SmartHal.Drivers.AvmFritzBox
             
             _hostAddress = _thingSetupInfo.Address;
             _interval = _thingSetupInfo.ReadSetting("Interval", 10000);
+            _checkMethodHostIsActive = _thingSetupInfo.ReadSetting<string>("CheckMode") == "HostIsActive";
         }
 
         protected override Task<ThingState> OnInitAsync()
@@ -95,6 +98,13 @@ namespace CreativeCoders.SmartHal.Drivers.AvmFritzBox
         {
             try
             {
+                if (_checkMethodHostIsActive)
+                {
+                    var hostEntry = _fritzBox.Hosts.GetHostEntry(_hostAddress);
+
+                    return hostEntry?.IsActive == true;
+                }
+
                 var device = _fritzBox.Wlan.GetWlanDeviceInfo(_hostAddress);
 
                 return device.Speed > 0;

@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using CreativeCoders.Core;
+using CreativeCoders.Core.IO;
 using CreativeCoders.Di;
 using CreativeCoders.Di.Building;
+using CreativeCoders.SmartHal.Kernel;
 using CreativeCoders.SmartHal.Kernel.Base;
 
 namespace CreativeCoders.SmartHal.System.DefaultSystem
@@ -12,6 +15,8 @@ namespace CreativeCoders.SmartHal.System.DefaultSystem
         private Func<IDiContainerBuilder> _createDiContainerBuilder;
         
         private readonly IList<Action<IDiContainerBuilder>> _configureServicesItems;
+        
+        private string _configBasePath;
 
         public DefaultKernelBuilder()
         {
@@ -39,10 +44,11 @@ namespace CreativeCoders.SmartHal.System.DefaultSystem
             }
 
             containerBuilder
+                .AddSingleton<ISmartHalEnvironment>(_ => new SmartHalEnvironment {InstanceConfigPath = _configBasePath})
                 .SetupForKernel();
 
             _configureServicesItems.ForEach(configureServices => configureServices(containerBuilder));
-            
+
             return containerBuilder.Build();
         }
 
@@ -52,12 +58,31 @@ namespace CreativeCoders.SmartHal.System.DefaultSystem
             {
                 throw new InvalidOperationException("No DI container builder creator set.");
             }
+
+            if (_configBasePath == null)
+            {
+                throw new InvalidOperationException("No instance config path specified");
+            }
+            
+            if (!FileSys.Directory.Exists(_configBasePath))
+            {
+                throw new DirectoryNotFoundException($"Instance config path '{_configBasePath}' not found");
+            }
         }
         
         public IKernelBuilder UseDiContainerBuilder(Func<IDiContainerBuilder> createDiContainerBuilder)
         {
             _createDiContainerBuilder = createDiContainerBuilder;
             
+            return this;
+        }
+
+        public IKernelBuilder SetInstanceConfigPath(string configBasePath)
+        {
+            Ensure.IsNotNullOrWhitespace(configBasePath, nameof(configBasePath));
+            
+            _configBasePath = configBasePath;
+
             return this;
         }
 

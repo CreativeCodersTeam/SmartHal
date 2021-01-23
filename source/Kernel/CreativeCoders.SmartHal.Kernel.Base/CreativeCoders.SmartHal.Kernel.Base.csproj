@@ -7,8 +7,9 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="CreativeCoders.Core" Version="0.14.0-unstable0015" />
+		<PackageReference Include="CreativeCoders.Core" Version="0.14.1" />
 		<PackageReference Include="JetBrains.Annotations" Version="2020.3.0" />
+		<PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="5.0.0" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -16,6 +17,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<Folder Include="Modules\" />
 		<Folder Include="Scripting" />
 	</ItemGroup>
 

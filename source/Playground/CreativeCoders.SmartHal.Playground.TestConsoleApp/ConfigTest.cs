@@ -5,12 +5,11 @@ using System.Threading;
 using System.Threading.Tasks;
 using CreativeCoders.Config;
 using CreativeCoders.Config.Base;
-using CreativeCoders.Di.SimpleInjector;
+using CreativeCoders.Di.MsServiceProvider;
 using CreativeCoders.SmartHal.Config.Base.Items;
-using CreativeCoders.SmartHal.Config.Base.Kernel;
 using CreativeCoders.SmartHal.Config.Base.Things;
 using CreativeCoders.SmartHal.Config.FileSystem.Building;
-using SimpleInjector;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace CreativeCoders.SmartHal.Playground.TestConsoleApp
 {
@@ -25,9 +24,7 @@ namespace CreativeCoders.SmartHal.Playground.TestConsoleApp
         {
             var config = new FileConfigurationBuilder(ConfigPath, true).Build();
             
-            var containerBuilder = new SimpleInjectorDiContainerBuilder(new Container());
-            //var containerBuilder = new AutofacDiContainerBuilder(new ContainerBuilder());
-            //var containerBuilder = new ServiceProviderDiContainerBuilder(new ServiceCollection());
+            var containerBuilder = new ServiceProviderDiContainerBuilder(new ServiceCollection());
             
             containerBuilder.Configure(config);
 
@@ -38,10 +35,6 @@ namespace CreativeCoders.SmartHal.Playground.TestConsoleApp
             var thingSettings = container.GetInstance<ISettings<IThingConfiguration>>();
 
             var itemSettings = container.GetInstance<ISettings<IItemConfiguration>>();
-
-            var kernelSetting = container.GetInstance<ISetting<IKernelConfiguration>>();
-
-            var kernelConfig = kernelSetting.Value;
 
             TestThreadPool();
         }

@@ -15,7 +15,6 @@ namespace CreativeCoders.SmartHal.Kernel.SubSystems.Drivers
 {
     [UsedImplicitly]
     [SubSystem("Drivers")]
-    [DependsOn(typeof(IAssemblySubSystem))]
     public class DriverSubSystem : SubSystemBase, IDriverSubSystem
     {
         private static readonly ILogger Log = LogManager.GetLogger<DriverSubSystem>();

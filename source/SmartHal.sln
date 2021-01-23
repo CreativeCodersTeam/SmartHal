@@ -116,6 +116,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CreativeCoders.SmartHal.Web
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CreativeCoders.SmartHal.Web.ControlCenter.Shared", "Web\ControlCenter\CreativeCoders.SmartHal.Web.ControlCenter\Shared\CreativeCoders.SmartHal.Web.ControlCenter.Shared.csproj", "{1AFA1CAC-4D4D-4E24-A68C-C95CBCF38192}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreativeCoders.SmartHal.System.Boot", "System\CreativeCoders.SmartHal.System.Boot\CreativeCoders.SmartHal.System.Boot.csproj", "{68E2CECD-120D-4BAC-80C7-6CA613CAC262}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -268,6 +270,10 @@ Global
 		{1AFA1CAC-4D4D-4E24-A68C-C95CBCF38192}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1AFA1CAC-4D4D-4E24-A68C-C95CBCF38192}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1AFA1CAC-4D4D-4E24-A68C-C95CBCF38192}.Release|Any CPU.Build.0 = Release|Any CPU
+		{68E2CECD-120D-4BAC-80C7-6CA613CAC262}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{68E2CECD-120D-4BAC-80C7-6CA613CAC262}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{68E2CECD-120D-4BAC-80C7-6CA613CAC262}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{68E2CECD-120D-4BAC-80C7-6CA613CAC262}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -315,6 +321,7 @@ Global
 		{E47CCA3B-0B1B-414D-A0AA-DBF063EED152} = {2C34DC5A-616E-490F-BC7E-60D256850CD2}
 		{404E72E5-D642-4E3C-8DC6-42504986D06E} = {2C34DC5A-616E-490F-BC7E-60D256850CD2}
 		{1AFA1CAC-4D4D-4E24-A68C-C95CBCF38192} = {2C34DC5A-616E-490F-BC7E-60D256850CD2}
+		{68E2CECD-120D-4BAC-80C7-6CA613CAC262} = {A8B860CD-A707-4EE7-A4BD-CBC016DD2CFB}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {91A49A27-BB0C-473C-B12F-4C1BC9676BEF}

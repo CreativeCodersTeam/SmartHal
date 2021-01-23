@@ -7,7 +7,7 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="CreativeCoders.Net.WebApi" Version="0.14.0-unstable0015" />
+		<PackageReference Include="CreativeCoders.Net.WebApi" Version="0.14.1" />
 		<PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="5.0.1" />
 		<PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="5.0.1" PrivateAssets="all" />
 		<PackageReference Include="System.Net.Http.Json" Version="5.0.0" />

@@ -1,5 +1,6 @@
 ﻿using System.Text;
 using System.Threading.Tasks;
+using CreativeCoders.Core.Logging;
 using CreativeCoders.Core.SysEnvironment;
 using CreativeCoders.HomeMatic.Api;
 using CreativeCoders.HomeMatic.Core;
@@ -19,6 +20,8 @@ namespace CreativeCoders.SmartHal.Drivers.HomeMatic
 {
     public class HomeMaticGatewayHandler : GatewayHandlerBase
     {
+        private static readonly ILogger Log = LogManager.GetLogger<HomeMaticGatewayHandler>();
+
         private const int XmlRpcDefaultPort = 12345;
 
         private readonly IGatewaySetupInfo _gatewaySetupInfo;
@@ -73,6 +76,8 @@ namespace CreativeCoders.SmartHal.Drivers.HomeMatic
 
         private async Task StartEventServer(string xmlRpcUrl)
         {
+            Log.Info($"Start XML RPC server for HomeMatic with url '{xmlRpcUrl}'");
+
             _httpServer = new AspNetCoreHttpServer {AllowSynchronousIO = true};
 
             var xmlRpcServer = new XmlRpcServer(_httpServer)

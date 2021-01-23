@@ -11,5 +11,9 @@ namespace CreativeCoders.SmartHal.System
         ISmartHalKernel Build();
 
         IKernelBuilder ConfigureServices(Action<IDiContainerBuilder> configureServices);
+
+        IKernelBuilder UseDiContainerBuilder(Func<IDiContainerBuilder> createDiContainerBuilder);
+
+        IKernelBuilder SetInstanceConfigPath(string configBasePath);
     }
 }

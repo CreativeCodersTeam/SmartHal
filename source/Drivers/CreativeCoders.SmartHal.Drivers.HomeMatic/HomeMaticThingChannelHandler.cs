@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Threading.Tasks;
+using CreativeCoders.Core.Logging;
 using CreativeCoders.HomeMatic.Api.Values;
+using CreativeCoders.HomeMatic.Core.Exceptions;
 using CreativeCoders.HomeMatic.XmlRpc.Client;
 using CreativeCoders.HomeMatic.XmlRpc.Server.Messages;
 using CreativeCoders.Messaging.Core;
@@ -12,6 +14,8 @@ namespace CreativeCoders.SmartHal.Drivers.HomeMatic
 {
     public class HomeMaticThingChannelHandler : ThingChannelHandlerBase
     {
+        private static readonly ILogger Log = LogManager.GetLogger<HomeMaticThingChannelHandler>();
+
         private readonly string _channelAddress;
         
         private readonly string _valueKey;
@@ -45,9 +49,16 @@ namespace CreativeCoders.SmartHal.Drivers.HomeMatic
 
         protected override async Task OnInitAsync()
         {
-            var value = await _ccuValue.ReadAsync();
-            
-            MessageHub.SendMessage(new ChannelHandlerValueChangedMessage(ChannelId.ToString(), value));
+            try
+            {
+                var value = await _ccuValue.ReadAsync().ConfigureAwait(false);
+
+                MessageHub.SendMessage(new ChannelHandlerValueChangedMessage(ChannelId.ToString(), value));
+            }
+            catch (CcuXmlRpcException ex)
+            {
+                Log.Error("Channel handler initial value read failed", ex);
+            }
             
             _eventHandler = _mediator.RegisterAsyncHandler<HomeMaticEventMessage>(this, OnEvent);
         }
@@ -61,7 +72,7 @@ namespace CreativeCoders.SmartHal.Drivers.HomeMatic
         {
             _eventHandler?.Dispose();
 
-            return new ValueTask();
+            return ValueTask.CompletedTask;
         }
     }
 }

@@ -15,6 +15,7 @@ namespace CreativeCoders.SmartHal.Scripting.ActionScripts
             Usings.Add("System");
             Usings.Add("System.Linq");
             Usings.Add("System.Threading.Tasks");
+            Usings.Add("CreativeCoders.Core");
             Usings.Add("CreativeCoders.SmartHal.Kernel.Base.Items");
             Usings.Add("CreativeCoders.SmartHal.Kernel.Base.Items.DataTypes");
             Usings.Add("CreativeCoders.SmartHal.Scripting.ActionScripts");

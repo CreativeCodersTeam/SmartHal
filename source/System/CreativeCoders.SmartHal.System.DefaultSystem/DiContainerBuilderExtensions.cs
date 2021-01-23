@@ -13,7 +13,6 @@ using CreativeCoders.SmartHal.Kernel.Base.Requests;
 using CreativeCoders.SmartHal.Kernel.Base.SubSystems;
 using CreativeCoders.SmartHal.Kernel.InitSystem;
 using CreativeCoders.SmartHal.Kernel.Messaging;
-using CreativeCoders.SmartHal.Kernel.SubSystems.Assemblies;
 using CreativeCoders.SmartHal.Kernel.SubSystems.Drivers;
 using CreativeCoders.SmartHal.Kernel.SubSystems.Items;
 using CreativeCoders.SmartHal.Kernel.SubSystems.Items.Bindings;
@@ -41,7 +40,6 @@ namespace CreativeCoders.SmartHal.System.DefaultSystem
         {
             containerBuilder
                 .SetupCore()
-                .SetupAssemblySubSystem()
                 .SetupDriversSubSystem()
                 .SetupThingsSubSystem()
                 .SetupItemSubSystem()
@@ -101,17 +99,6 @@ namespace CreativeCoders.SmartHal.System.DefaultSystem
                 .AddTransient<IItemsScriptApi, ItemsScriptApi>()
                 .AddTransient<ITriggerApi, TriggerApi>();
             
-            return containerBuilder;
-        }
-
-        private static IDiContainerBuilder SetupAssemblySubSystem(this IDiContainerBuilder containerBuilder)
-        {
-            containerBuilder
-                .AddSingleton<IAssemblyLoader, AssemblyLoader>()
-                .AddSingletonCollection<IAssemblyReferenceLoader>(
-                    typeof(FileAssemblyReferenceLoader))
-                .AddSingleton<IAssemblySubSystem, AssemblySubSystem>();
-                
             return containerBuilder;
         }
 

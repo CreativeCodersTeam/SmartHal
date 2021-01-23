@@ -1,11 +1,8 @@
 ﻿using System;
 using System.Threading.Tasks;
-using CreativeCoders.Di.MsServiceProvider;
 using CreativeCoders.Kernel.Services.ConsoleInterface;
-using CreativeCoders.SmartHal.Config.FileSystem.Building;
-using CreativeCoders.SmartHal.System;
+using CreativeCoders.SmartHal.System.Boot;
 using CreativeCoders.SmartHal.System.DefaultSystem;
-using Microsoft.Extensions.DependencyInjection;
 
 namespace CreativeCoders.SmartHal.Playground.TestConsoleRunner
 {
@@ -16,17 +13,12 @@ namespace CreativeCoders.SmartHal.Playground.TestConsoleRunner
             const string basePath = @"c:\temp\SmartHal\hm";
             
             Logging.InitNlog(@"c:\temp\SmartHal\hm\logs");
-            
-            var kernel = new DefaultKernelBuilder()
-                .UseDiContainerBuilder(() => new ServiceProviderDiContainerBuilder(new ServiceCollection()))
-                .UseConfig(new FileConfigurationBuilder(basePath, true).Build())
-                .AddConsoleSupport()
-                .Build();
-            
-            await kernel.InitAsync().ConfigureAwait(false);
-            
-            await kernel.StartAsync().ConfigureAwait(false);
 
+            var kernel = await new BootLoader<DefaultKernelBuilder>()
+                .SetInstancePath(basePath)
+                .ConfigureKernelBuilder(x => x.AddConsoleSupport())
+                .StartKernelAsync();
+            
             await new SmartHalShell(kernel).RunAsync().ConfigureAwait(false);
             
             await kernel.ShutdownAsync().ConfigureAwait(false);

@@ -1,12 +1,9 @@
 using System.Threading.Tasks;
 using CreativeCoders.Daemon.Base;
-using CreativeCoders.Di.MsServiceProvider;
-using CreativeCoders.SmartHal.Config.FileSystem.Building;
 using CreativeCoders.SmartHal.Kernel.Base;
-using CreativeCoders.SmartHal.System;
+using CreativeCoders.SmartHal.System.Boot;
 using CreativeCoders.SmartHal.System.DefaultSystem;
 using JetBrains.Annotations;
-using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
 namespace CreativeCoders.SmartHal.Daemon.Base
@@ -34,18 +31,15 @@ namespace CreativeCoders.SmartHal.Daemon.Base
 
             Logging.InitNlog(_smartHalDaemonConfig.LogPath);
 
-            _kernel = new DefaultKernelBuilder()
-                .UseDiContainerBuilder(() => new ServiceProviderDiContainerBuilder(new ServiceCollection()))
-                .UseConfig(new FileConfigurationBuilder(basePath, true).Build())
-                .Build();
-
-            await _kernel.InitAsync().ConfigureAwait(false);
-
-            await _kernel.StartAsync().ConfigureAwait(false);
+            _kernel = await new BootLoader<DefaultKernelBuilder>()
+                .SetInstancePath(basePath)
+                .StartKernelAsync();
         }
 
         public async Task StopAsync()
         {
+            _logger.Log(LogLevel.Information, new EventId(12346), "SmartHal worker stopping.");
+
             await _kernel.ShutdownAsync().ConfigureAwait(false);
         }
     }

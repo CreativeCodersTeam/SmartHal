@@ -14,7 +14,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="CreativeCoders.Net.Avm" Version="0.14.0-unstable0015" />
+		<PackageReference Include="CreativeCoders.Net.Avm" Version="0.14.1" />
 	</ItemGroup>
 
 </Project>

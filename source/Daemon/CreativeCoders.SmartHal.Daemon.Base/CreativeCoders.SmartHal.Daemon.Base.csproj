@@ -7,13 +7,13 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="CreativeCoders.Daemon.Base" Version="0.14.0-unstable0015" />
-		<PackageReference Include="CreativeCoders.Di.MsServiceProvider" Version="0.14.0-unstable0015" />
-		<PackageReference Include="CreativeCoders.Logging.Nlog" Version="0.14.0-unstable0015" />
+		<PackageReference Include="CreativeCoders.Daemon.Base" Version="0.14.1" />
+		<PackageReference Include="CreativeCoders.Logging.Nlog" Version="0.14.1" />
 	</ItemGroup>
 
 	<ItemGroup>
 		<ProjectReference Include="..\..\Config\CreativeCoders.SmartHal.Config.FileSystem\CreativeCoders.SmartHal.Config.FileSystem.csproj" />
+		<ProjectReference Include="..\..\System\CreativeCoders.SmartHal.System.Boot\CreativeCoders.SmartHal.System.Boot.csproj" />
 		<ProjectReference Include="..\..\System\CreativeCoders.SmartHal.System.DefaultSystem\CreativeCoders.SmartHal.System.DefaultSystem.csproj" />
 	</ItemGroup>
 
