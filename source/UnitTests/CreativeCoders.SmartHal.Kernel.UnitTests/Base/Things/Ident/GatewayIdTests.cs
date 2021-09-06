@@ -11,17 +11,10 @@ namespace CreativeCoders.SmartHal.Kernel.UnitTests.Base.Things.Ident
         {
             const string driver = "Driver1";
             const string gateway = "Gateway1";
-            const string driver2 = "Driver2";
-            const string gateway2 = "Gateway2";
-
+            
             var gatewayId = new GatewayId(driver, gateway);
             
             Assert.Equal($"{driver}:{gateway}", gatewayId.ToString());
-
-            gatewayId.Driver = driver2;
-            gatewayId.Gateway = gateway2;
-            
-            Assert.Equal($"{driver2}:{gateway2}", gatewayId.ToString());
         }
         
         [Fact]
@@ -29,15 +22,10 @@ namespace CreativeCoders.SmartHal.Kernel.UnitTests.Base.Things.Ident
         {
             const string driver = "Driver1";
             const string gateway = "Gateway1";
-            const string gateway2 = "Gateway2";
             
             var gatewayId = new GatewayId(driver, gateway);
             
             Assert.Equal(gateway, gatewayId.Gateway);
-
-            gatewayId.Gateway = gateway2;
-            
-            Assert.Equal(gateway2, gatewayId.Gateway);
         }
         
         [Fact]
@@ -45,15 +33,10 @@ namespace CreativeCoders.SmartHal.Kernel.UnitTests.Base.Things.Ident
         {
             const string driver = "Driver1";
             const string gateway = "Gateway1";
-            const string driver2 = "Driver2";
             
             var gatewayId = new GatewayId(driver, gateway);
             
             Assert.Equal(driver, gatewayId.Driver);
-
-            gatewayId.Driver = driver2;
-            
-            Assert.Equal(driver2, gatewayId.Driver);
         }
 
         [Fact]
@@ -222,6 +205,34 @@ namespace CreativeCoders.SmartHal.Kernel.UnitTests.Base.Things.Ident
             const string gateway = "Gateway1";
 
             Assert.Throws<FormatException>(() => GatewayId.Parse($"{driver}:{gateway}:Thing"));
+        }
+
+        [Fact]
+        public void ImplicitEquals_SameId_ReturnsTrue()
+        {
+            const string driver = "TestDriver";
+            const string gateway = "TestGateway";
+
+            var gatewayId1 = new GatewayId(driver, gateway);
+
+            var gatewayId2 = new GatewayId(driver, gateway);
+
+            Assert.Equal(gatewayId1, gatewayId2);
+
+            Assert.True(gatewayId1 == gatewayId2);
+        }
+
+        [Fact]
+        public void ImplicitNotEquals_SameId_ReturnsFalse()
+        {
+            const string driver = "TestDriver";
+            const string gateway = "TestGateway";
+
+            var gatewayId1 = new GatewayId(driver, gateway);
+
+            var gatewayId2 = new GatewayId(driver, gateway);
+
+            Assert.False(gatewayId1 != gatewayId2);
         }
     }
 }

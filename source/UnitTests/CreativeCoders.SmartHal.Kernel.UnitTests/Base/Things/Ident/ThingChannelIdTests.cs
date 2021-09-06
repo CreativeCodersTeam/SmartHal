@@ -13,21 +13,10 @@ namespace CreativeCoders.SmartHal.Kernel.UnitTests.Base.Things.Ident
             const string gateway = "Gateway1";
             const string thing = "Thing1";
             const string channel = "Channel1";
-            const string driver2 = "Driver2";
-            const string gateway2 = "Gateway2";
-            const string thing2 = "Thing2";
-            const string channel2 = "Channel2";
-
+            
             var thingChannelId = new ThingChannelId(new ThingId(new GatewayId(driver, gateway), thing), channel);
             
             Assert.Equal($"{driver}:{gateway}:{thing}:{channel}", thingChannelId.ToString());
-
-            thingChannelId.Driver = driver2;
-            thingChannelId.Gateway = gateway2;
-            thingChannelId.Thing = thing2;
-            thingChannelId.Channel = channel2;
-            
-            Assert.Equal($"{driver2}:{gateway2}:{thing2}:{channel2}", thingChannelId.ToString());
         }
         
         [Fact]
@@ -37,15 +26,10 @@ namespace CreativeCoders.SmartHal.Kernel.UnitTests.Base.Things.Ident
             const string gateway = "Gateway1";
             const string thing = "Thing1";
             const string channel = "Channel1";
-            const string channel2 = "Channel2";
             
             var thingChannelId = new ThingChannelId(new ThingId(new GatewayId(driver, gateway), thing), channel);
             
             Assert.Equal(thing, thingChannelId.Thing);
-
-            thingChannelId.Channel = channel2;
-            
-            Assert.Equal(channel2, thingChannelId.Channel);
         }
         
         [Fact]
@@ -55,15 +39,10 @@ namespace CreativeCoders.SmartHal.Kernel.UnitTests.Base.Things.Ident
             const string gateway = "Gateway1";
             const string thing = "Thing1";
             const string channel = "Channel1";
-            const string thing2 = "Thing2";
             
             var thingChannelId = new ThingChannelId(new ThingId(new GatewayId(driver, gateway), thing), channel);
             
             Assert.Equal(thing, thingChannelId.Thing);
-
-            thingChannelId.Thing = thing2;
-            
-            Assert.Equal(thing2, thingChannelId.Thing);
         }
         
         [Fact]
@@ -73,15 +52,10 @@ namespace CreativeCoders.SmartHal.Kernel.UnitTests.Base.Things.Ident
             const string gateway = "Gateway1";
             const string thing = "Thing1";
             const string channel = "Channel1";
-            const string gateway2 = "Gateway2";
             
             var thingChannelId = new ThingChannelId(new ThingId(new GatewayId(driver, gateway), thing), channel);
             
             Assert.Equal(gateway, thingChannelId.Gateway);
-
-            thingChannelId.Gateway = gateway2;
-            
-            Assert.Equal(gateway2, thingChannelId.Gateway);
         }
         
         [Fact]
@@ -91,15 +65,10 @@ namespace CreativeCoders.SmartHal.Kernel.UnitTests.Base.Things.Ident
             const string gateway = "Gateway1";
             const string thing = "Thing1";
             const string channel = "Channel1";
-            const string driver2 = "Driver2";
             
             var thingChannelId = new ThingChannelId(new ThingId(new GatewayId(driver, gateway), thing), channel);
             
             Assert.Equal(driver, thingChannelId.Driver);
-
-            thingChannelId.Driver = driver2;
-            
-            Assert.Equal(driver2, thingChannelId.Driver);
         }
 
         [Fact]

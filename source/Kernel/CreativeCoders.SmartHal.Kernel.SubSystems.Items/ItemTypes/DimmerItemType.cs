@@ -15,7 +15,7 @@ namespace CreativeCoders.SmartHal.Kernel.SubSystems.Items.ItemTypes
 
         public override object ConvertValue(object value)
         {
-            if (!(value is SwitchValue switchValue))
+            if (value is not SwitchValue switchValue)
             {
                 return base.ConvertValue(value);
             }

@@ -1,0 +1,20 @@
+﻿@using CreativeCoders.SmartHal.Web.ControlCenter.Client.ViewModels
+@using Microsoft.AspNetCore.Components
+@using CreativeCoders.SmartHal.Web.Api.Core.Models
+
+
+<div class="input-group">
+    <input type="text" class="form-control" @bind="@ItemModel.Value"/>
+    <div class="input-group-append">
+        <Button @onclick=@(async () => await ItemsViewModel.SendCommandAsync(ItemModel))>Send</Button>
+    </div>
+</div>
+
+
+@code {
+    [Parameter]
+    public ItemsViewModel ItemsViewModel { get; set; }
+
+    [Parameter]
+    public ItemModel ItemModel { get; set; }
+}

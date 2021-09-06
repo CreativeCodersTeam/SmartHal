@@ -1,6 +1,7 @@
 ﻿@page "/items"
 @using CreativeCoders.SmartHal.Web.ControlCenter.Client.ViewModels
 @using CreativeCoders.SmartHal.Web.Api.Core.Models
+@using CreativeCoders.SmartHal.Web.ControlCenter.Client.Components
 @inject ItemsViewModel ItemsViewModel
 
 <h3>Items</h3>
@@ -21,12 +22,7 @@
         <td>@context.Name</td>
         <td>@context.ItemType</td>
         <td>
-            <div class="input-group">
-                <input type="text" class="form-control" @bind="@context.Value"/>
-                <div class="input-group-append">
-                    <Button @onclick=@(async () => await ItemsViewModel.SendCommandAsync(context))>Send</Button>
-                </div>
-            </div>
+            <ItemValueControl ItemsViewModel="@ItemsViewModel" ItemModel="@context"/>
         </td>
     </ItemTemplate>
 </DataTable>

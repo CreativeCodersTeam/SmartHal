@@ -8,6 +8,7 @@ using CreativeCoders.HomeMatic.XmlRpc.Server.Messages;
 using CreativeCoders.Messaging.Core;
 using CreativeCoders.SmartHal.Drivers.Base;
 using CreativeCoders.SmartHal.Kernel.Base.Messages.Channels;
+using CreativeCoders.SmartHal.Kernel.Base.Messages.Things;
 using CreativeCoders.SmartHal.Kernel.Base.Things.Ident;
 
 namespace CreativeCoders.SmartHal.Drivers.HomeMatic
@@ -42,7 +43,7 @@ namespace CreativeCoders.SmartHal.Drivers.HomeMatic
                 return Task.CompletedTask;
             }
             
-            MessageHub.SendMessage(new ChannelHandlerValueChangedMessage(ChannelId.ToString(), msg.Value));
+            MessageHub.SendMessage(new ChannelHandlerValueChangedMessage(ChannelId, msg.Value));
 
             return Task.CompletedTask;
         }
@@ -53,11 +54,14 @@ namespace CreativeCoders.SmartHal.Drivers.HomeMatic
             {
                 var value = await _ccuValue.ReadAsync().ConfigureAwait(false);
 
-                MessageHub.SendMessage(new ChannelHandlerValueChangedMessage(ChannelId.ToString(), value));
+                MessageHub.SendMessage(new ChannelHandlerValueChangedMessage(ChannelId, value));
             }
             catch (CcuXmlRpcException ex)
             {
                 Log.Error("Channel handler initial value read failed", ex);
+
+                MessageHub.SendMessage(new ThingStateChangedMessage(ChannelId, Kernel.Base.Things.ThingState.Error));
+                MessageHub.SendMessage(new ThingStateChangedMessage(ChannelId.ThingId, Kernel.Base.Things.ThingState.Error));
             }
             
             _eventHandler = _mediator.RegisterAsyncHandler<HomeMaticEventMessage>(this, OnEvent);

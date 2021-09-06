@@ -43,7 +43,7 @@ namespace CreativeCoders.SmartHal.Scripting.ActionScripts
 
             var scriptType = scriptObject.GetType();
 
-            var executeMethod = scriptType.GetMethod("Execute", new Type[0]);
+            var executeMethod = scriptType.GetMethod("Execute", Type.EmptyTypes);
 
             if (executeMethod != null)
             {
@@ -56,7 +56,7 @@ namespace CreativeCoders.SmartHal.Scripting.ActionScripts
                 });
             }
 
-            var executeAsyncMethod = scriptType.GetMethod("ExecuteAsync", new Type[0]);
+            var executeAsyncMethod = scriptType.GetMethod("ExecuteAsync", Type.EmptyTypes);
 
             return executeAsyncMethod == null 
                 ? null

@@ -12,19 +12,10 @@ namespace CreativeCoders.SmartHal.Kernel.UnitTests.Base.Things.Ident
             const string driver = "Driver1";
             const string gateway = "Gateway1";
             const string thing = "Thing1";
-            const string driver2 = "Driver2";
-            const string gateway2 = "Gateway2";
-            const string thing2 = "Thing2";
-
+            
             var thingId = new ThingId(new GatewayId(driver, gateway), thing);
             
             Assert.Equal($"{driver}:{gateway}:{thing}", thingId.ToString());
-
-            thingId.Driver = driver2;
-            thingId.Gateway = gateway2;
-            thingId.Thing = thing2;
-            
-            Assert.Equal($"{driver2}:{gateway2}:{thing2}", thingId.ToString());
         }
         
         [Fact]
@@ -33,15 +24,10 @@ namespace CreativeCoders.SmartHal.Kernel.UnitTests.Base.Things.Ident
             const string driver = "Driver1";
             const string gateway = "Gateway1";
             const string thing = "Thing1";
-            const string thing2 = "Thing2";
             
             var thingId = new ThingId(new GatewayId(driver, gateway), thing);
             
             Assert.Equal(thing, thingId.Thing);
-
-            thingId.Thing = thing2;
-            
-            Assert.Equal(thing2, thingId.Thing);
         }
         
         [Fact]
@@ -50,15 +36,10 @@ namespace CreativeCoders.SmartHal.Kernel.UnitTests.Base.Things.Ident
             const string driver = "Driver1";
             const string gateway = "Gateway1";
             const string thing = "Thing1";
-            const string gateway2 = "Gateway2";
             
             var thingId = new ThingId(new GatewayId(driver, gateway), thing);
             
             Assert.Equal(gateway, thingId.Gateway);
-
-            thingId.Gateway = gateway2;
-            
-            Assert.Equal(gateway2, thingId.Gateway);
         }
         
         [Fact]
@@ -67,15 +48,10 @@ namespace CreativeCoders.SmartHal.Kernel.UnitTests.Base.Things.Ident
             const string driver = "Driver1";
             const string gateway = "Gateway1";
             const string thing = "Thing1";
-            const string driver2 = "Driver2";
             
             var thingId = new ThingId(new GatewayId(driver, gateway), thing);
             
             Assert.Equal(driver, thingId.Driver);
-
-            thingId.Driver = driver2;
-            
-            Assert.Equal(driver2, thingId.Driver);
         }
 
         [Fact]

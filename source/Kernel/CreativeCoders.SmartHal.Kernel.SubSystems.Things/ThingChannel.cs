@@ -63,7 +63,7 @@ namespace CreativeCoders.SmartHal.Kernel.SubSystems.Things
 
             Value = msg.NewValue;
             
-            _messageHub.SendMessage(new ChannelValueChangedMessage(Id.ToString(), msg.NewValue));
+            _messageHub.SendMessage(new ChannelValueChangedMessage(Id, msg.NewValue));
             
             return Task.CompletedTask;
         }
@@ -106,6 +106,8 @@ namespace CreativeCoders.SmartHal.Kernel.SubSystems.Things
 
         public ValueTask DisposeAsync()
         {
+            GC.SuppressFinalize(this);
+
             _stateChangedHandler.Dispose();
             _channelHandlerValueChangedHandler.Dispose();
             

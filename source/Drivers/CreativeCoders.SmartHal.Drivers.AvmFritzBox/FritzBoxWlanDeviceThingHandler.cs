@@ -48,9 +48,9 @@ namespace CreativeCoders.SmartHal.Drivers.AvmFritzBox
 
         protected override Task<ThingState> OnInitAsync()
         {
-            MessageHub.SendMessage(new NewThingChannelMessage(_thingSetupInfo.Id.ToString(), _isActiveChannelHandler));
-            MessageHub.SendMessage(new NewThingChannelMessage(_thingSetupInfo.Id.ToString(), _lastConnectChannelHandler));
-            MessageHub.SendMessage(new NewThingChannelMessage(_thingSetupInfo.Id.ToString(), _lastDisconnectChannelHandler));
+            MessageHub.SendMessage(new NewThingChannelMessage(_thingSetupInfo.Id, _isActiveChannelHandler));
+            MessageHub.SendMessage(new NewThingChannelMessage(_thingSetupInfo.Id, _lastConnectChannelHandler));
+            MessageHub.SendMessage(new NewThingChannelMessage(_thingSetupInfo.Id, _lastDisconnectChannelHandler));
 
             StartTimer();
             

@@ -36,7 +36,7 @@ namespace CreativeCoders.SmartHal.Drivers.Base
         {
             Value = value;
             
-            MessageHub.SendMessage(new ChannelHandlerValueChangedMessage(ChannelId.ToString(), value));
+            MessageHub.SendMessage(new ChannelHandlerValueChangedMessage(ChannelId, value));
         }
 
         public T Value { get; set; }

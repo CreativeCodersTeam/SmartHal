@@ -13,14 +13,14 @@ namespace CreativeCoders.SmartHal.Playground.DummyTestModule
 
         protected override Task OnInitAsync()
         {
-            MessageHub.SendMessage(new ChannelHandlerValueChangedMessage(ChannelId.ToString(), 100));
+            MessageHub.SendMessage(new ChannelHandlerValueChangedMessage(ChannelId, 100));
             
             return Task.CompletedTask;
         }
 
         protected override Task WriteValueAsync(object value)
         {
-            MessageHub.SendMessage(new ChannelHandlerValueChangedMessage(ChannelId.ToString(), value));
+            MessageHub.SendMessage(new ChannelHandlerValueChangedMessage(ChannelId, value));
             
             return Task.CompletedTask;
         }

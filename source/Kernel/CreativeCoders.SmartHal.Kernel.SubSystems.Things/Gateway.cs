@@ -47,11 +47,11 @@ namespace CreativeCoders.SmartHal.Kernel.SubSystems.Things
                 .Synchronize()
                 .Register(async msg => await OnStateChanged(msg));
             
-            _messageHub.SendMessage(new ThingStateChangedMessage(Id.ToString(), ThingState.Initializing));
+            _messageHub.SendMessage(new ThingStateChangedMessage(Id, ThingState.Initializing));
             
             var state = await _gatewayHandler.InitAsync();
             
-            _messageHub.SendMessage(new ThingStateChangedMessage(Id.ToString(), state));
+            _messageHub.SendMessage(new ThingStateChangedMessage(Id, state));
         }
 
         private Task OnStateChanged(ThingStateChangedMessage msg)
@@ -80,6 +80,8 @@ namespace CreativeCoders.SmartHal.Kernel.SubSystems.Things
 
         public ValueTask DisposeAsync()
         {
+            GC.SuppressFinalize(this);
+
             _stateChangedHandler?.Dispose();
 
             return _gatewayHandler.TryDisposeAsync();

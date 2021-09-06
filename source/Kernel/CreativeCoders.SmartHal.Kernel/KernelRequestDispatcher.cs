@@ -14,21 +14,23 @@ namespace CreativeCoders.SmartHal.Kernel
         
         public void Process(KernelRequest request)
         {
-            ThreadPool.QueueUserWorkItem(async _ =>
-            {
-                Log.Debug($"Kernel request (id = {request.Id}) '{request.DisplayName}' execution starting");
+            ThreadPool.QueueUserWorkItem(_ => ProcessRequest(request));
+        }
 
-                try
-                {
-                    await request.ExecuteAsync().ConfigureAwait(false);
-                }
-                catch (Exception e)
-                {
-                    Log.Error("Kernel request execution failed.", e);
-                }
-                
-                Log.Debug($"Kernel request (id = {request.Id}) '{request.DisplayName}' execution finished");
-            });
+        private static async void ProcessRequest(KernelRequest request)
+        {
+            Log.Debug($"Kernel request (id = {request.Id}) '{request.DisplayName}' execution starting");
+
+            try
+            {
+                await request.ExecuteAsync().ConfigureAwait(false);
+            }
+            catch (Exception e)
+            {
+                Log.Error("Kernel request execution failed.", e);
+            }
+
+            Log.Debug($"Kernel request (id = {request.Id}) '{request.DisplayName}' execution finished");
         }
 
         public void Process(Func<Task> execute)

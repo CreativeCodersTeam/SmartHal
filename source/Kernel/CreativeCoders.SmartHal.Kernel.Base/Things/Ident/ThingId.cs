@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 
 namespace CreativeCoders.SmartHal.Kernel.Base.Things.Ident
 {
@@ -9,15 +8,10 @@ namespace CreativeCoders.SmartHal.Kernel.Base.Things.Ident
         
         public ThingId(GatewayId gatewayId, string thing)
         {
-            SetSegment(SegmentIndex.Driver, gatewayId.Driver);
-            SetSegment(SegmentIndex.Gateway, gatewayId.Gateway);
-            SetSegment(SegmentIndex.Thing, thing);
+            GatewayId = gatewayId;
+            Thing = thing;
         }
 
-        private ThingId(IEnumerable<string> segments) : base(segments)
-        {
-        }
-        
         public static ThingId Parse(string id)
         {
             if (!TryParse(id, out var thingId))
@@ -37,21 +31,22 @@ namespace CreativeCoders.SmartHal.Kernel.Base.Things.Ident
                 thingId = null;
                 return false;
             }
-            
-            thingId = new ThingId(segments);
+
+            thingId = new ThingId(
+                new GatewayId(segments[SegmentIndex.Driver], segments[SegmentIndex.Gateway]),
+                segments[SegmentIndex.Thing]);
+
             return true;
         }
 
-        public string Gateway
-        {
-            get => GetSegment(SegmentIndex.Gateway);
-            set => SetSegment(SegmentIndex.Gateway, value);
-        }
-        
-        public string Thing
-        {
-            get => GetSegment(SegmentIndex.Thing);
-            set => SetSegment(SegmentIndex.Thing, value);
-        }
+        public override string ToString() => $"{GatewayId}:{Thing}";
+
+        public string Driver => GatewayId.Driver;
+
+        public string Gateway => GatewayId.Gateway;
+
+        public string Thing { get; }
+
+        public GatewayId GatewayId { get; }
     }
 }

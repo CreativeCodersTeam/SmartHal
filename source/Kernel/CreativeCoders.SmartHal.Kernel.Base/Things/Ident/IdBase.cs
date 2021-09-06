@@ -1,24 +1,39 @@
 ﻿using System;
-using System.Collections.Generic;
-using JetBrains.Annotations;
 
 namespace CreativeCoders.SmartHal.Kernel.Base.Things.Ident
 {
     public abstract class IdBase
     {
-        private readonly IList<string> _segments;
-        
-        [UsedImplicitly]
-        protected IdBase()
+        public static bool operator ==(IdBase id1, IdBase id2)
         {
-            _segments = new List<string>();
+            if (ReferenceEquals(id1, id2))
+            {
+                return true;
+            }
+
+            if (id1 is null || id2 is null)
+            {
+                return false;
+            }
+
+            return id1.Equals(id2);
         }
-        
-        protected IdBase(IEnumerable<string> segments)
+
+        public static bool operator !=(IdBase id1, IdBase id2)
         {
-            _segments = new List<string>(segments);
+            if (ReferenceEquals(id1, id2))
+            {
+                return false;
+            }
+
+            if (id1 is null || id2 is null)
+            {
+                return true;
+            }
+
+            return !id1.Equals(id2);
         }
-        
+
         public override bool Equals(object obj)
         {
             return obj switch
@@ -36,7 +51,7 @@ namespace CreativeCoders.SmartHal.Kernel.Base.Things.Ident
         
         public bool Equals(IdBase id)
         {
-            if (ReferenceEquals(id, null))
+            if (id is null)
             {
                 return false;
             }
@@ -48,29 +63,7 @@ namespace CreativeCoders.SmartHal.Kernel.Base.Things.Ident
         {
             return ToString().GetHashCode();
         }
-        
-        public override string ToString()
-        {
-            return string.Join(":", _segments);
-        }
-        
-        protected string GetSegment(SegmentIndex segmentIndex)
-        {
-            var index = (int) segmentIndex;
-            return _segments.Count <= index ? string.Empty : _segments[index];
-        }
 
-        protected void SetSegment(SegmentIndex segmentIndex, string value)
-        {
-            var index = (int) segmentIndex;
-            while (_segments.Count <= index) { _segments.Add(string.Empty); }
-            _segments[index] = value;
-        }
-        
-        public string Driver
-        {
-            get => GetSegment(SegmentIndex.Driver);
-            set => SetSegment(SegmentIndex.Driver, value);
-        }
+        public abstract override string ToString();
     }
 }

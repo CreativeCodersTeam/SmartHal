@@ -65,11 +65,11 @@ namespace CreativeCoders.SmartHal.Kernel.SubSystems.Things
                 .Where(msg => Id.Equals(msg.ThingId))
                 .Register(async msg => await OnChannelAdded(msg));
             
-            _messageHub.SendMessage(new ThingStateChangedMessage(Id.ToString(), ThingState.Initializing));
+            _messageHub.SendMessage(new ThingStateChangedMessage(Id, ThingState.Initializing));
             
             var state = await _thingHandler.InitAsync();
             
-            _messageHub.SendMessage(new ThingStateChangedMessage(Id.ToString(), state));
+            _messageHub.SendMessage(new ThingStateChangedMessage(Id, state));
         }
 
         private Task OnChannelAdded(NewThingChannelMessage msg)
@@ -114,6 +114,8 @@ namespace CreativeCoders.SmartHal.Kernel.SubSystems.Things
 
         public ValueTask DisposeAsync()
         {
+            GC.SuppressFinalize(this);
+
             _stateChangedHandler?.Dispose();
             _channelAddedHandler?.Dispose();
 

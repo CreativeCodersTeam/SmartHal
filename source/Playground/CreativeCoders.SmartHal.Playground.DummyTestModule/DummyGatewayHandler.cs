@@ -18,7 +18,7 @@ namespace CreativeCoders.SmartHal.Playground.DummyTestModule
 
         protected override Task<ThingState> OnInitAsync()
         {
-            MessageHub.SendMessage(new ThingStateChangedMessage(_gatewaySetupInfo.Id.ToString(), ThingState.Initialized));
+            MessageHub.SendMessage(new ThingStateChangedMessage(_gatewaySetupInfo.Id, ThingState.Initialized));
 
             return Task.FromResult(ThingState.Online);
         }

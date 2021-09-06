@@ -1,10 +1,13 @@
 ﻿namespace CreativeCoders.SmartHal.Kernel.Base.Things.Ident
 {
-    public enum SegmentIndex
+    public static class SegmentIndex
     {
-        Driver = 0,
-        Gateway = 1,
-        Thing = 2,
-        Channel = 3
+        public const int Driver = 0;
+
+        public const int Gateway = 1;
+
+        public const int Thing = 2;
+
+        public const int Channel = 3;
     }
 }

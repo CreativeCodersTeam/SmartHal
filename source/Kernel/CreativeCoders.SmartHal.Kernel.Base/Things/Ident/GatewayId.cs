@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 
 namespace CreativeCoders.SmartHal.Kernel.Base.Things.Ident
 {
@@ -9,12 +8,8 @@ namespace CreativeCoders.SmartHal.Kernel.Base.Things.Ident
         
         public GatewayId(string driver, string gateway)
         {
-            SetSegment(SegmentIndex.Driver, driver);
-            SetSegment(SegmentIndex.Gateway, gateway);
-        }
-
-        private GatewayId(IEnumerable<string> segments) : base(segments)
-        {
+            Driver = driver;
+            Gateway = gateway;
         }
 
         public static GatewayId Parse(string id)
@@ -37,14 +32,15 @@ namespace CreativeCoders.SmartHal.Kernel.Base.Things.Ident
                 return false;
             }
             
-            gatewayId = new GatewayId(segments);
+            gatewayId = new GatewayId(segments[SegmentIndex.Driver], segments[SegmentIndex.Gateway]);
+
             return true;
         }
 
-        public string Gateway
-        {
-            get => GetSegment(SegmentIndex.Gateway);
-            set => SetSegment(SegmentIndex.Gateway, value);
-        }
+        public override string ToString() => $"{Driver}:{Gateway}";
+
+        public string Driver { get; }
+
+        public string Gateway { get; }
     }
 }

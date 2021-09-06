@@ -116,7 +116,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CreativeCoders.SmartHal.Web
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CreativeCoders.SmartHal.Web.ControlCenter.Shared", "Web\ControlCenter\CreativeCoders.SmartHal.Web.ControlCenter\Shared\CreativeCoders.SmartHal.Web.ControlCenter.Shared.csproj", "{1AFA1CAC-4D4D-4E24-A68C-C95CBCF38192}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreativeCoders.SmartHal.System.Boot", "System\CreativeCoders.SmartHal.System.Boot\CreativeCoders.SmartHal.System.Boot.csproj", "{68E2CECD-120D-4BAC-80C7-6CA613CAC262}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CreativeCoders.SmartHal.System.Boot", "System\CreativeCoders.SmartHal.System.Boot\CreativeCoders.SmartHal.System.Boot.csproj", "{68E2CECD-120D-4BAC-80C7-6CA613CAC262}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

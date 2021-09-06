@@ -55,7 +55,7 @@ namespace CreativeCoders.SmartHal.Daemon.Windows
 
             return separatorIndex == null
                 ? null
-                : arg.Substring(separatorIndex.Value + 1);
+                : arg[(separatorIndex.Value + 1)..];
         }
     }
 }

@@ -8,6 +8,7 @@ using CreativeCoders.SmartHal.Drivers.Base;
 using CreativeCoders.SmartHal.Kernel.Base.Drivers.SetupInfos;
 using CreativeCoders.SmartHal.Kernel.Base.Messages.Channels;
 using CreativeCoders.SmartHal.Kernel.Base.Things;
+using System;
 
 namespace CreativeCoders.SmartHal.Drivers.HomeMatic
 {
@@ -62,17 +63,16 @@ namespace CreativeCoders.SmartHal.Drivers.HomeMatic
             
             var channelHandler = new HomeMaticThingChannelHandler(_thingSetupInfo.Id, channelName, channelAddress, parameterName, _xmlRpcApi, _mediator);
             
-            MessageHub.SendMessage(new NewThingChannelMessage(_thingSetupInfo.Id.ToString(), channelHandler));
+            MessageHub.SendMessage(new NewThingChannelMessage(_thingSetupInfo.Id, channelHandler));
         }
         
         private static string GetChannelName(string address)
         {
             var index = address?.IndexOf(":");
-            if (index >= 0)
-            {
-                return "CH" + address.Substring(index.Value + 1);
-            }
-            return address;
+
+            return index >= 0
+                ? string.Concat("CH", address.AsSpan(index.Value + 1))
+                : address;
         }
     }
 }

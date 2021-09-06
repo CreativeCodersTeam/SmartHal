@@ -25,7 +25,9 @@ namespace CreativeCoders.SmartHal.Daemon.Base
 
         public async Task StartAsync()
         {
-            _logger.Log(LogLevel.Information, new EventId(12345), $"SmartHal worker starting. ConfigBasePath = {_smartHalDaemonConfig.ConfigBasePath}");
+            const string logMessage = "SmartHal worker starting. ConfigBasePath = {ConfigBasePath}";
+
+            _logger.Log(LogLevel.Information, new EventId(12345), logMessage, _smartHalDaemonConfig.ConfigBasePath);
 
             var basePath = _smartHalDaemonConfig.ConfigBasePath;
 

@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 
 namespace CreativeCoders.SmartHal.Kernel.Base.Things.Ident
 {
@@ -9,14 +8,8 @@ namespace CreativeCoders.SmartHal.Kernel.Base.Things.Ident
         
         public ThingChannelId(ThingId thingId, string channel)
         {
-            SetSegment(SegmentIndex.Driver, thingId.Driver);
-            SetSegment(SegmentIndex.Gateway, thingId.Gateway);
-            SetSegment(SegmentIndex.Thing, thingId.Thing);
-            SetSegment(SegmentIndex.Channel, channel);
-        }
-        
-        private ThingChannelId(IEnumerable<string> segments) : base(segments)
-        {
+            ThingId = thingId;
+            Channel = channel;
         }
         
         public static ThingChannelId Parse(string id)
@@ -38,27 +31,26 @@ namespace CreativeCoders.SmartHal.Kernel.Base.Things.Ident
                 thingChannelId = null;
                 return false;
             }
-            
-            thingChannelId = new ThingChannelId(segments);
+
+            thingChannelId = new ThingChannelId(
+                new ThingId(
+                    new GatewayId(segments[SegmentIndex.Driver], segments[SegmentIndex.Gateway]),
+                    segments[SegmentIndex.Thing]),
+                segments[SegmentIndex.Channel]);
+
             return true;
         }
-        
-        public string Gateway
-        {
-            get => GetSegment(SegmentIndex.Gateway);
-            set => SetSegment(SegmentIndex.Gateway, value);
-        }
-        
-        public string Thing
-        {
-            get => GetSegment(SegmentIndex.Thing);
-            set => SetSegment(SegmentIndex.Thing, value);
-        }
 
-        public string Channel
-        {
-            get => GetSegment(SegmentIndex.Channel);
-            set => SetSegment(SegmentIndex.Channel, value);
-        }
+        public override string ToString() => $"{ThingId}:{Channel}";
+
+        public string Driver => ThingId.Driver;
+
+        public string Gateway => ThingId.Gateway;
+
+        public string Thing => ThingId.Thing;
+
+        public string Channel { get; }
+
+        public ThingId ThingId { get; }
     }
 }
