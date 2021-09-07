@@ -39,14 +39,18 @@ namespace CreativeCoders.SmartHal.Kernel.SubSystems.Drivers
             {
                 case null:
                     Log.Warn($"Driver '{driverConfiguration.Name}' could not be created");
+
                     return;
                 case IDriver driver:
                     Log.Info($"Driver '{driverConfiguration.Name} {driverInfo.Version}' loaded");
+                    
                     await driver.InitAsync().ConfigureAwait(false);
                     driverLoaded(new DriverInstance(driver, driverInfo));
+
                     return;
                 default:
                     Log.Warn($"Driver '{driverInstance.GetType().FullName}' must implement IDriver interface");
+
                     return;
             }
         }
@@ -56,12 +60,13 @@ namespace CreativeCoders.SmartHal.Kernel.SubSystems.Drivers
             var driverCount = 0;
             
             await driverConfigurations
-                .ForEachAsync(driverConfiguration =>
-                    LoadDriverAsync(driverConfiguration, driverInfos, driver =>
+                .ForEachAsync(async driverConfiguration =>
+                    await LoadDriverAsync(driverConfiguration, driverInfos, driver =>
                     {
                         driverLoaded(driver);
                         driverCount++;
-                    })).ConfigureAwait(false);
+                    }).ConfigureAwait(false))
+                .ConfigureAwait(false);
             
             Log.Info($"{driverCount} {GetDriverText(driverCount)} loaded");
         }

@@ -104,14 +104,14 @@ namespace CreativeCoders.SmartHal.Kernel.SubSystems.Things
         
         public object Value { get; private set; }
 
-        public ValueTask DisposeAsync()
+        public async ValueTask DisposeAsync()
         {
             GC.SuppressFinalize(this);
 
             _stateChangedHandler.Dispose();
             _channelHandlerValueChangedHandler.Dispose();
             
-            return _thingChannelHandler.TryDisposeAsync();
+            await _thingChannelHandler.TryDisposeAsync().ConfigureAwait(false);
         }
     }
 }

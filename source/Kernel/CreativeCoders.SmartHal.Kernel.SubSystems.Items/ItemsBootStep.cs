@@ -23,9 +23,12 @@ namespace CreativeCoders.SmartHal.Kernel.SubSystems.Items
             _itemConfigurations = itemConfigurations.Values;
         }
         
-        public Task ExecuteAsync()
+        public async Task ExecuteAsync()
         {
-            return _itemConfigurations.ForEachAsync(itemConfiguration => _itemSubSystem.AddItemAsync(itemConfiguration));
+            await _itemConfigurations
+                .ForEachAsync(
+                    async itemConfiguration => await _itemSubSystem.AddItemAsync(itemConfiguration).ConfigureAwait(false))
+                .ConfigureAwait(false);
         }
     }
 }

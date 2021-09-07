@@ -11,11 +11,11 @@ namespace CreativeCoders.SmartHal.Drivers.Base
     [PublicAPI]
     public abstract class GatewayHandlerBase : IGatewayHandler, IAsyncDisposable
     {
-        public Task SetupAsync(IMessageHub messageHub)
+        public async Task SetupAsync(IMessageHub messageHub)
         {
             MessageHub = messageHub;
 
-            return OnSetupAsync();
+            await OnSetupAsync().ConfigureAwait(false);
         }
 
         protected virtual Task OnSetupAsync()
@@ -23,9 +23,9 @@ namespace CreativeCoders.SmartHal.Drivers.Base
             return Task.CompletedTask;
         }
 
-        public Task<ThingState> InitAsync()
+        public async Task<ThingState> InitAsync()
         {
-            return OnInitAsync();
+            return await OnInitAsync().ConfigureAwait(false);
         }
 
         protected virtual Task<ThingState> OnInitAsync()
@@ -42,9 +42,9 @@ namespace CreativeCoders.SmartHal.Drivers.Base
 
         public abstract IThingHandler CreateThingHandler(IThingSetupInfo thingSetupInfo);
         
-        public ValueTask DisposeAsync()
+        public async ValueTask DisposeAsync()
         {
-            return OnDisposeAsync();
+            await OnDisposeAsync().ConfigureAwait(false);
         }
     }
 }

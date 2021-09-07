@@ -67,9 +67,9 @@ namespace CreativeCoders.SmartHal.Drivers.HomeMatic
             _eventHandler = _mediator.RegisterAsyncHandler<HomeMaticEventMessage>(this, OnEvent);
         }
 
-        protected override Task WriteValueAsync(object value)
+        protected override async Task WriteValueAsync(object value)
         {
-            return _ccuValue.WriteAsync(value);
+            await _ccuValue.WriteAsync(value).ConfigureAwait(false);
         }
 
         protected override ValueTask OnDisposeAsync()

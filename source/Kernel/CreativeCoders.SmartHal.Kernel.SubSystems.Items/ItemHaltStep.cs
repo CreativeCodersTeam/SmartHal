@@ -17,9 +17,9 @@ namespace CreativeCoders.SmartHal.Kernel.SubSystems.Items
             _itemRepository = itemRepository;
         }
         
-        public Task ExecuteAsync()
+        public async Task ExecuteAsync()
         {
-            return _itemRepository.ClearAsync();
+            await _itemRepository.ClearAsync().ConfigureAwait(false);
         }
     }
 }

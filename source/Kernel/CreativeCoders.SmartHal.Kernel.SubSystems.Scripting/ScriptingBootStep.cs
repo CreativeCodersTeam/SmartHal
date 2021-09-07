@@ -25,7 +25,11 @@ namespace CreativeCoders.SmartHal.Kernel.SubSystems.Scripting
         
         public async Task ExecuteAsync()
         {
-            await _actionScripts.ForEachAsync(actionScript => _scriptingSubSystem.AddActionScript(actionScript));
+            await _actionScripts
+                .ForEachAsync(
+                    async actionScript =>
+                        await _scriptingSubSystem.AddActionScriptAsync(actionScript).ConfigureAwait(false))
+                .ConfigureAwait(false);
         }
     }
 }

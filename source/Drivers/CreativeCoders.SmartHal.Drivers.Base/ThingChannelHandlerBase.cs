@@ -31,9 +31,9 @@ namespace CreativeCoders.SmartHal.Drivers.Base
             return Task.CompletedTask;
         }
 
-        public Task InitAsync()
+        public async Task InitAsync()
         {
-            return OnInitAsync();
+            await OnInitAsync().ConfigureAwait(false);
         }
 
         protected virtual Task OnInitAsync()
@@ -54,11 +54,11 @@ namespace CreativeCoders.SmartHal.Drivers.Base
         
         public IMessageHub MessageHub { get; private set; }
         
-        public ValueTask DisposeAsync()
+        public async ValueTask DisposeAsync()
         {
             _writeValueHandler.Dispose();
             
-            return OnDisposeAsync();
+            await OnDisposeAsync().ConfigureAwait(false);
         }
     }
 }

@@ -29,7 +29,7 @@ namespace CreativeCoders.SmartHal.Kernel.SubSystems.Scripting
             _actionScripts = new ConcurrentList<IActionScript>();
         }
 
-        public Task AddActionScript(IActionScriptData actionScriptData)
+        public Task AddActionScriptAsync(IActionScriptData actionScriptData)
         {
             var actionScript = _scriptingCore.CreateActionScript(actionScriptData);
 

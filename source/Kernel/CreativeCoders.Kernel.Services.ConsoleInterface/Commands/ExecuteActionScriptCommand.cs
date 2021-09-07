@@ -15,7 +15,7 @@ namespace CreativeCoders.Kernel.Services.ConsoleInterface.Commands
             _scriptingSubSystem = scriptingSubSystem;
         }
         
-        public override Task ExecuteAsync(string[] arguments)
+        public override async Task ExecuteAsync(string[] arguments)
         {
             var actionScriptName = arguments.FirstOrDefault();
 
@@ -23,19 +23,17 @@ namespace CreativeCoders.Kernel.Services.ConsoleInterface.Commands
             {
                 Output.WriteLine("No action script name specified");
                 
-                return Task.CompletedTask;
+                return;
             }
 
             var actionScript = _scriptingSubSystem.FindActionScript(actionScriptName);
 
             if (actionScript != null)
             {
-                return actionScript.ExecuteAsync();
+                await actionScript.ExecuteAsync().ConfigureAwait(false);
             }
             
             Output.WriteLine($"Action script '{actionScriptName}' not found");
-                
-            return Task.CompletedTask;
         }
 
         public override string CommandName => "execute-action";

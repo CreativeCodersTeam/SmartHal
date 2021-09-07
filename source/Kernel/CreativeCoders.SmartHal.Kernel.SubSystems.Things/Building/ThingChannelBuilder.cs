@@ -20,7 +20,7 @@ namespace CreativeCoders.SmartHal.Kernel.SubSystems.Things.Building
             _messageHub = messageHub;
         }
         
-        public async Task<ThingChannel> Build(IThingChannelHandler thingChannelHandler, IThing thing)
+        public async Task<ThingChannel> BuildAsync(IThingChannelHandler thingChannelHandler, IThing thing)
         {
             var thingChannel = new ThingChannel(thingChannelHandler, thing.Id, _messageHub);
             

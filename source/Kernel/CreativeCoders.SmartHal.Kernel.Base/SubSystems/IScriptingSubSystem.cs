@@ -6,7 +6,7 @@ namespace CreativeCoders.SmartHal.Kernel.Base.SubSystems
 {
     public interface IScriptingSubSystem
     {
-        Task AddActionScript(IActionScriptData actionScriptData);
+        Task AddActionScriptAsync(IActionScriptData actionScriptData);
 
         IActionScript FindActionScript(string scriptName);
     }

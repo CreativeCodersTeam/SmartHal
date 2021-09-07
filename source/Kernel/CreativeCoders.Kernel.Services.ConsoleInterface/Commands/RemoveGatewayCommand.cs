@@ -16,14 +16,14 @@ namespace CreativeCoders.Kernel.Services.ConsoleInterface.Commands
             _gatewayRepository = gatewayRepository;
         }
 
-        public override Task ExecuteAsync(string[] arguments)
+        public override async Task ExecuteAsync(string[] arguments)
         {
             var gatewayId = arguments.FirstOrDefault();
 
             if (gatewayId.IsNullOrWhiteSpace())
             {
                 Output.WriteLine("No gateway id given");
-                return Task.CompletedTask;
+                return;
             }
 
             var gateway = _gatewayRepository.FirstOrDefault(x => x.Id.Equals(gatewayId));
@@ -31,10 +31,10 @@ namespace CreativeCoders.Kernel.Services.ConsoleInterface.Commands
             if (gateway == null)
             {
                 Output.WriteLine($"Gateway '{gatewayId}' not found");
-                return Task.CompletedTask;
+                return;
             }
 
-            return _gatewayRepository.RemoveAsync(gateway);
+            await _gatewayRepository.RemoveAsync(gateway).ConfigureAwait(false);
         }
 
         public override string CommandName => "remove-gateway";

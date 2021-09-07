@@ -48,7 +48,7 @@ namespace CreativeCoders.SmartHal.Kernel.SubSystems.Things
 
         private async Task InitGatewayAsync(IGatewayConfiguration gatewayConfiguration, Action<IGateway> afterGatewayCreation)
         {
-            var gateway = await _gatewayBuilder.Build(gatewayConfiguration);
+            var gateway = await _gatewayBuilder.BuildAsync(gatewayConfiguration).ConfigureAwait(false);
 
             if (gateway == null)
             {
@@ -60,20 +60,27 @@ namespace CreativeCoders.SmartHal.Kernel.SubSystems.Things
             _requestDispatcher.Process(new KernelRequest($"InitGateway {gateway.Id}", () => gateway.InitAsync()));
         }
 
-        public Task InitThingTemplatesAsync(IEnumerable<IThingTemplateDefinition> thingTemplateDefinitions)
+        public async Task InitThingTemplatesAsync(IEnumerable<IThingTemplateDefinition> thingTemplateDefinitions)
         {
-            return thingTemplateDefinitions
-                .ForEachAsync(x => _thingTemplateRepository.AddAsync(new ThingTemplate(x)));
+            await thingTemplateDefinitions
+                .ForEachAsync(
+                    async x =>
+                        await _thingTemplateRepository.AddAsync(new ThingTemplate(x)).ConfigureAwait(false))
+                .ConfigureAwait(false);
         }
 
-        public Task InitGatewayConfigurationPackagesAsync(IEnumerable<GatewayConfigurationPackage> gatewayConfigurationPackages)
+        public async Task InitGatewayConfigurationPackagesAsync(IEnumerable<GatewayConfigurationPackage> gatewayConfigurationPackages)
         {
-            return gatewayConfigurationPackages.ForEachAsync(InitGatewayConfigurationPackage);
+            await gatewayConfigurationPackages
+                .ForEachAsync(
+                    async x =>
+                        await InitGatewayConfigurationPackage(x).ConfigureAwait(false))
+                .ConfigureAwait(false);
         }
 
         private async Task InitThingAsync(IThingConfiguration thingConfiguration)
         {
-            var thing = await _thingBuilder.Build(thingConfiguration);
+            var thing = await _thingBuilder.BuildAsync(thingConfiguration).ConfigureAwait(false);
 
             if (thing == null)
             {
@@ -83,10 +90,11 @@ namespace CreativeCoders.SmartHal.Kernel.SubSystems.Things
             _requestDispatcher.Process(new KernelRequest($"InitThing {thing.Id}", () => thing.InitAsync()));
         }
 
-        private Task InitGatewayConfigurationPackage(GatewayConfigurationPackage gatewayConfigurationPackage)
+        private async Task InitGatewayConfigurationPackage(GatewayConfigurationPackage gatewayConfigurationPackage)
         {
-            return InitGatewayAsync(gatewayConfigurationPackage.GatewayConfiguration,
-                gateway => RegisterThingsInitHandler(gateway, gatewayConfigurationPackage));
+            await InitGatewayAsync(gatewayConfigurationPackage.GatewayConfiguration,
+                gateway => RegisterThingsInitHandler(gateway, gatewayConfigurationPackage))
+                .ConfigureAwait(false);
         }
 
         private void RegisterThingsInitHandler(IGateway gateway, GatewayConfigurationPackage gatewayConfigurationPackage)
@@ -100,16 +108,19 @@ namespace CreativeCoders.SmartHal.Kernel.SubSystems.Things
             _gatewayInitializedHandlers[gatewayConfigurationPackage] = initThingsHandler;
         }
 
-        private Task InitThingsAsync(GatewayConfigurationPackage gatewayConfigurationPackage)
+        private async Task InitThingsAsync(GatewayConfigurationPackage gatewayConfigurationPackage)
         {
             if (!_gatewayInitializedHandlers.Remove(gatewayConfigurationPackage, out var handler))
             {
-                return Task.CompletedTask;
+                return;
             }
             
             handler.Dispose();
             
-            return gatewayConfigurationPackage.ThingConfigurations.ForEachAsync(InitThingAsync);
+            await gatewayConfigurationPackage
+                .ThingConfigurations
+                .ForEachAsync(InitThingAsync)
+                .ConfigureAwait(false);
         }
     }
 }

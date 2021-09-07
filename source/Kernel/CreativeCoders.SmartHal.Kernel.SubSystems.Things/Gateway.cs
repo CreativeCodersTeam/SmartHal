@@ -49,7 +49,7 @@ namespace CreativeCoders.SmartHal.Kernel.SubSystems.Things
             
             _messageHub.SendMessage(new ThingStateChangedMessage(Id, ThingState.Initializing));
             
-            var state = await _gatewayHandler.InitAsync();
+            var state = await _gatewayHandler.InitAsync().ConfigureAwait(false);
             
             _messageHub.SendMessage(new ThingStateChangedMessage(Id, state));
         }
@@ -78,13 +78,13 @@ namespace CreativeCoders.SmartHal.Kernel.SubSystems.Things
             return _gatewayHandler.CreateThingHandler(thingSetupInfo);
         }
 
-        public ValueTask DisposeAsync()
+        public async ValueTask DisposeAsync()
         {
             GC.SuppressFinalize(this);
 
             _stateChangedHandler?.Dispose();
 
-            return _gatewayHandler.TryDisposeAsync();
+            await _gatewayHandler.TryDisposeAsync().ConfigureAwait(false);
         }
     }
 }

@@ -67,9 +67,9 @@ namespace CreativeCoders.SmartHal.Drivers.HomeMatic
             
             _connection = new CcuConnection(_xmlRpcApi);
 
-            await StartEventServer(xmlRpcUrl);
+            await StartEventServer(xmlRpcUrl).ConfigureAwait(false);
 
-            await _xmlRpcApi.InitAsync(xmlRpcUrl, _ccuInterfaceId);
+            await _xmlRpcApi.InitAsync(xmlRpcUrl, _ccuInterfaceId).ConfigureAwait(false);
             
             return ThingState.Online;
         }
@@ -93,7 +93,7 @@ namespace CreativeCoders.SmartHal.Drivers.HomeMatic
             _eventServer.RegisterEventHandler(
                 new HomeMaticGatewayEventHandler(_mediator, $"GW_{_gatewaySetupInfo.Id.Gateway}"));
 
-            await _eventServer.StartAsync();
+            await _eventServer.StartAsync().ConfigureAwait(false);
         }
 
         public override IThingHandler CreateThingHandler(IThingSetupInfo thingSetupInfo)
@@ -103,9 +103,9 @@ namespace CreativeCoders.SmartHal.Drivers.HomeMatic
 
         protected override async ValueTask OnDisposeAsync()
         {
-            await _xmlRpcApi.InitAsync("", _ccuInterfaceId);
+            await _xmlRpcApi.InitAsync("", _ccuInterfaceId).ConfigureAwait(false);
 
-            await _eventServer.StopAsync();
+            await _eventServer.StopAsync().ConfigureAwait(false);
 
             _httpServer.Dispose();
         }

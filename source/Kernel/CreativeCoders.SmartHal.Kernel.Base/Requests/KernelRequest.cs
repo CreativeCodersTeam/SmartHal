@@ -29,9 +29,9 @@ namespace CreativeCoders.SmartHal.Kernel.Base.Requests
 
         public string DisplayName => _name ?? _execute.Method.Name;
 
-        public Task ExecuteAsync()
+        public async Task ExecuteAsync()
         {
-            return _execute();
+            await _execute().ConfigureAwait(false);
         }
     }
 }

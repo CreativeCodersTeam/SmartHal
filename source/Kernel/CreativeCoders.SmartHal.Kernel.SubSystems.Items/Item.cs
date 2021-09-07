@@ -44,11 +44,11 @@ namespace CreativeCoders.SmartHal.Kernel.SubSystems.Items
             return UpdateValue(msg.NewValue);
         }
 
-        private Task OnSendCommandToItem(SendCommandToItemMessage msg)
+        private async Task OnSendCommandToItem(SendCommandToItemMessage msg)
         {
             var value = ItemType.ConvertValue(msg.CommandValue);
 
-            return _binding.WriteValueAsync(value);
+            await _binding.WriteValueAsync(value).ConfigureAwait(false);
         }
 
         private Task UpdateValue(object value)
@@ -75,15 +75,13 @@ namespace CreativeCoders.SmartHal.Kernel.SubSystems.Items
 
         public object Value { get; private set; }
         
-        public ValueTask DisposeAsync()
+        public async ValueTask DisposeAsync()
         {
             _sendCommandHandler.Dispose();
             
             _itemValueUpdateHandler.Dispose();
 
-            _binding.TryDisposeAsync();
-            
-            return new ValueTask();
+            await _binding.TryDisposeAsync().ConfigureAwait(false);
         }
     }
 }

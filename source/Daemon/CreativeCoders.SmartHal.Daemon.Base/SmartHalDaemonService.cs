@@ -35,7 +35,8 @@ namespace CreativeCoders.SmartHal.Daemon.Base
 
             _kernel = await new BootLoader<DefaultKernelBuilder>()
                 .SetInstancePath(basePath)
-                .StartKernelAsync();
+                .StartKernelAsync()
+                .ConfigureAwait(false);
         }
 
         public async Task StopAsync()

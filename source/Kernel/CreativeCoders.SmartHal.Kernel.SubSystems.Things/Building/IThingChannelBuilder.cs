@@ -6,6 +6,6 @@ namespace CreativeCoders.SmartHal.Kernel.SubSystems.Things.Building
 {
     public interface IThingChannelBuilder
     {
-        Task<ThingChannel> Build(IThingChannelHandler thingChannelHandler, IThing thing);
+        Task<ThingChannel> BuildAsync(IThingChannelHandler thingChannelHandler, IThing thing);
     }
 }

@@ -25,7 +25,9 @@ namespace CreativeCoders.SmartHal.Daemon.Windows
                 throw new ArgumentException("No config base path given");
             }
 
-            await new WindowsServiceDaemon<SmartHalDaemonService, SmartHalDaemonConfig>(daemonConfig).RunAsync(args);
+            await new WindowsServiceDaemon<SmartHalDaemonService, SmartHalDaemonConfig>(daemonConfig)
+                .RunAsync(args)
+                .ConfigureAwait(false);
         }
 
         private static SmartHalDaemonConfig CreateDaemonConfig(string[] args)

@@ -35,7 +35,7 @@ namespace CreativeCoders.SmartHal.Kernel.SubSystems.Things.Building
             _messageHub = messageHub;
         }
         
-        public async Task<Thing> Build(IThingConfiguration thingConfiguration)
+        public async Task<Thing> BuildAsync(IThingConfiguration thingConfiguration)
         {
             var gateway = _gatewayRepository.FirstOrDefault(x => x.Name == thingConfiguration.GatewayName);
 
@@ -48,7 +48,7 @@ namespace CreativeCoders.SmartHal.Kernel.SubSystems.Things.Building
             
             var thingTemplate = _thingTemplateRepository.GetTemplate(thingConfiguration.Template);
             
-            return await CreateThing(thingConfiguration, thingTemplate, gateway);
+            return await CreateThing(thingConfiguration, thingTemplate, gateway).ConfigureAwait(false);
         }
 
         private async Task<Thing> CreateThing(IThingConfiguration thingConfiguration, IThingTemplate thingTemplate, IGateway gateway)

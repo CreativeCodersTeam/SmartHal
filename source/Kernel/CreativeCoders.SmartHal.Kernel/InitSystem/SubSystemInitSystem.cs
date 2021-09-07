@@ -86,7 +86,7 @@ namespace CreativeCoders.SmartHal.Kernel.InitSystem
                 {
                     Log.Error($"Boot step '{x.Name}' execution failed", ex);
                 }
-            });
+            }).ConfigureAwait(false);
         }
 
         public async Task ExecuteHaltStepsAsync()
@@ -102,7 +102,7 @@ namespace CreativeCoders.SmartHal.Kernel.InitSystem
                 await x.Step.ExecuteAsync().ConfigureAwait(false);
 
                 Log.Info($"Halt step '{x.Name}' executed.");
-            });
+            }).ConfigureAwait(false);
         }
     }
 }

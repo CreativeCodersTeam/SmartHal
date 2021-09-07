@@ -50,9 +50,9 @@ namespace CreativeCoders.SmartHal.Kernel.Base.Repositories
             _items.Remove(item);
         }
 
-        public Task ClearAsync()
+        public async Task ClearAsync()
         {
-            return _items.ForEachAsync(RemoveAsync);
+            await _items.ForEachAsync(RemoveAsync).ConfigureAwait(false);
         }
     }
 }

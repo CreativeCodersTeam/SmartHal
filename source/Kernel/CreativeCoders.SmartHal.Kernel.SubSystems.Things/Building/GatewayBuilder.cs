@@ -29,7 +29,7 @@ namespace CreativeCoders.SmartHal.Kernel.SubSystems.Things.Building
             _messageHub = messageHub;
         }
         
-        public async Task<Gateway> Build(IGatewayConfiguration gatewayConfiguration)
+        public async Task<Gateway> BuildAsync(IGatewayConfiguration gatewayConfiguration)
         {
             var gateway = new Gateway(gatewayConfiguration, _messageHub);
             
@@ -46,7 +46,7 @@ namespace CreativeCoders.SmartHal.Kernel.SubSystems.Things.Building
             
             gateway.SetHandler(gatewayHandler);
 
-            await gatewayHandler.SetupAsync(_messageHub);
+            await gatewayHandler.SetupAsync(_messageHub).ConfigureAwait(false);
             
             await _gatewayRepository.AddAsync(gateway).ConfigureAwait(false);
             

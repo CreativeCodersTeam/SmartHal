@@ -5,6 +5,6 @@ namespace CreativeCoders.SmartHal.Kernel.SubSystems.Things.Building
 {
     public interface IThingBuilder
     {
-        Task<Thing> Build(IThingConfiguration thingConfiguration);
+        Task<Thing> BuildAsync(IThingConfiguration thingConfiguration);
     }
 }

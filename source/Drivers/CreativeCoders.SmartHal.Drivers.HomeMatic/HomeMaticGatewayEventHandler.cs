@@ -25,7 +25,8 @@ namespace CreativeCoders.SmartHal.Drivers.HomeMatic
         {
             Log.Debug($"CCU event Address = {address}, ValueKey = {valueKey}, Value = {value}");
             
-            await _mediator.SendAsync(new HomeMaticEventMessage(_interfaceId, address, valueKey, value));
+            await _mediator.SendAsync(new HomeMaticEventMessage(_interfaceId, address, valueKey, value))
+                .ConfigureAwait(false);
         }
 
         public Task NewDevices(DeviceDescription[] deviceDescriptions)

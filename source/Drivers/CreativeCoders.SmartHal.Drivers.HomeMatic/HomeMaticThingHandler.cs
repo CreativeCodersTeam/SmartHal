@@ -33,21 +33,25 @@ namespace CreativeCoders.SmartHal.Drivers.HomeMatic
 
         protected override async Task<ThingState> OnInitAsync()
         {
-            var device = await _ccuConnection.GetDeviceAsync(_thingSetupInfo.Address);
+            var device = await _ccuConnection.GetDeviceAsync(_thingSetupInfo.Address).ConfigureAwait(false);
 
-            await device.Channels.ForEachAsync(AddDeviceChannel);
+            await device.Channels.ForEachAsync(AddDeviceChannel).ConfigureAwait(false);
             
             return ThingState.Online;
         }
 
         private async Task AddDeviceChannel(ICcuDeviceChannel channel)
         {
-            await channel.ParamSets.ForEachAsync(paramSet => AddParameters(channel, paramSet));
+            await channel
+                .ParamSets
+                .ForEachAsync(paramSet => AddParameters(channel, paramSet))
+                .ConfigureAwait(false);
         }
 
         private async Task AddParameters(ICcuDeviceBase channel, string paramSet)
         {
-            var parameters = await _ccuConnection.GetParameterInfoAsync(channel.Address, paramSet);
+            var parameters = await _ccuConnection.GetParameterInfoAsync(channel.Address, paramSet)
+                .ConfigureAwait(false);
             
             parameters.ForEach(parameter => AddParameter(channel.Address, parameter.Key));
         }

@@ -36,7 +36,7 @@ namespace CreativeCoders.SmartHal.Kernel.SubSystems.Triggers
                 .Register(OnItemValueChanged);
         }
 
-        private Task OnItemValueChanged(ItemValueChangedMessage msg)
+        private async Task OnItemValueChanged(ItemValueChangedMessage msg)
         {
             var item = _itemRepository.FirstOrDefault(x => x.Name == _itemName);
 
@@ -48,10 +48,10 @@ namespace CreativeCoders.SmartHal.Kernel.SubSystems.Triggers
 
             if (!newValueEqual || !oldValueEqual)
             {
-                return Task.CompletedTask;
+                return;
             }
 
-            return _executeAsync();
+            await _executeAsync().ConfigureAwait(false);
         }
 
         private static bool ValuesAreEqual(object value1, object value2, Func<object, object, bool> compare)

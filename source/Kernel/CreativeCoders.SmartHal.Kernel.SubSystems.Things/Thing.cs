@@ -67,14 +67,14 @@ namespace CreativeCoders.SmartHal.Kernel.SubSystems.Things
             
             _messageHub.SendMessage(new ThingStateChangedMessage(Id, ThingState.Initializing));
             
-            var state = await _thingHandler.InitAsync();
+            var state = await _thingHandler.InitAsync().ConfigureAwait(false);
             
             _messageHub.SendMessage(new ThingStateChangedMessage(Id, state));
         }
 
-        private Task OnChannelAdded(NewThingChannelMessage msg)
+        private async Task OnChannelAdded(NewThingChannelMessage msg)
         {
-            return AddChannel(msg.ThingChannelHandler);
+            await AddChannelAsync(msg.ThingChannelHandler).ConfigureAwait(false);
         }
 
         private Task OnStateChanged(ThingStateChangedMessage msg)
@@ -86,7 +86,7 @@ namespace CreativeCoders.SmartHal.Kernel.SubSystems.Things
             return Task.CompletedTask;
         }
         
-        private async Task AddChannel(IThingChannelHandler thingChannelHandler)
+        private async Task AddChannelAsync(IThingChannelHandler thingChannelHandler)
         {
             if (!_thingTemplate.IsChannelDefined(thingChannelHandler.Name))
             {
@@ -95,7 +95,7 @@ namespace CreativeCoders.SmartHal.Kernel.SubSystems.Things
             
             Log.Info($"Channel handler '{thingChannelHandler.Name}' added");
         
-            var thingChannel = await _thingChannelBuilder.Build(thingChannelHandler, this);
+            var thingChannel = await _thingChannelBuilder.BuildAsync(thingChannelHandler, this).ConfigureAwait(false);
             
             _channels.Add(thingChannel);
         }
@@ -112,14 +112,14 @@ namespace CreativeCoders.SmartHal.Kernel.SubSystems.Things
 
         public IReadOnlyCollection<IThingChannel> Channels => _channels;
 
-        public ValueTask DisposeAsync()
+        public async ValueTask DisposeAsync()
         {
             GC.SuppressFinalize(this);
 
             _stateChangedHandler?.Dispose();
             _channelAddedHandler?.Dispose();
 
-            return _thingHandler.TryDisposeAsync();
+            await _thingHandler.TryDisposeAsync().ConfigureAwait(false);
         }
     }
 }

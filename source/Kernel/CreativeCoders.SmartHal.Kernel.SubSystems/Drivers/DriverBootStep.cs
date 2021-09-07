@@ -22,9 +22,9 @@ namespace CreativeCoders.SmartHal.Kernel.SubSystems.Drivers
             _driverSubSystem = driverSubSystem;
         }
         
-        public Task ExecuteAsync()
+        public async Task ExecuteAsync()
         {
-            return _driverSubSystem.InitAsync(_driverConfigurations);
+            await _driverSubSystem.InitAsync(_driverConfigurations).ConfigureAwait(false);
         }
     }
 }

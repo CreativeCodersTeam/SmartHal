@@ -43,7 +43,7 @@ namespace CreativeCoders.SmartHal.Kernel.SubSystems.Things
 
             await _thingSubSystem.InitThingTemplatesAsync(_thingTemplateDefinitions).ConfigureAwait(false);
 
-            await _thingSubSystem.InitGatewayConfigurationPackagesAsync(gatewayConfigurationPackages);
+            await _thingSubSystem.InitGatewayConfigurationPackagesAsync(gatewayConfigurationPackages).ConfigureAwait(false);
         }
     }
 }

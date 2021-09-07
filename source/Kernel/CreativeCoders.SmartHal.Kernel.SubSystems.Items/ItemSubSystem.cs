@@ -31,17 +31,17 @@ namespace CreativeCoders.SmartHal.Kernel.SubSystems.Items
             _messageHub = messageHub;
         }
         
-        public Task AddItemAsync(IItemConfiguration itemConfiguration)
+        public async Task AddItemAsync(IItemConfiguration itemConfiguration)
         {
             if (_itemRepository.Any(x => x.Name == itemConfiguration.Name))
             {
                 Log.Warn($"Item with name '{itemConfiguration.Name}' already exists");
-                return Task.CompletedTask;
+                return;
             }
             
             var item = _itemBuilder.Build(itemConfiguration);
 
-            return _itemRepository.AddAsync(item);
+            await _itemRepository.AddAsync(item).ConfigureAwait(false);
         }
 
         public void SendCommand(string itemName, object commandValue)

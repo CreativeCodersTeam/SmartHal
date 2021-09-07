@@ -17,9 +17,9 @@ namespace CreativeCoders.SmartHal.Kernel.SubSystems.Triggers
             _triggerRepository = triggerRepository;
         }
         
-        public Task ExecuteAsync()
+        public async Task ExecuteAsync()
         {
-            return _triggerRepository.ClearAsync();
+            await _triggerRepository.ClearAsync().ConfigureAwait(false);
         }
     }
 }

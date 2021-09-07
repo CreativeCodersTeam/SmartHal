@@ -15,14 +15,20 @@ namespace CreativeCoders.SmartHal.Kernel.SubSystems.Items.Bindings
             _itemBindings = itemBindings;
         }
 
-        public Task WriteValueAsync(object value)
+        public async Task WriteValueAsync(object value)
         {
-            return _itemBindings.ForEachAsync(itemBinding => itemBinding.WriteValueAsync(value));
+            await _itemBindings
+                .ForEachAsync(
+                    async itemBinding => await itemBinding.WriteValueAsync(value).ConfigureAwait(false))
+                .ConfigureAwait(false);
         }
 
-        public ValueTask DisposeAsync()
+        public async ValueTask DisposeAsync()
         {
-            return new(_itemBindings.ForEachAsync(itemBinding => itemBinding.TryDisposeAsync().AsTask()));
+            await _itemBindings
+                .ForEachAsync(
+                    async itemBinding => await itemBinding.TryDisposeAsync().ConfigureAwait(false))
+                .ConfigureAwait(false);
         }
     }
 }
