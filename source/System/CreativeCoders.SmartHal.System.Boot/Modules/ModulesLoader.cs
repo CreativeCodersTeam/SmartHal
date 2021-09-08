@@ -23,7 +23,7 @@ namespace CreativeCoders.SmartHal.System.Boot.Modules
         
         public async Task LoadAllModulesAsync()
         {
-            var config = await LoadConfigurationAsync();
+            var config = await LoadConfigurationAsync().ConfigureAwait(false);
             
             config.Modules
                 .ForEach(x => LoadAssembly(x.Reference, config.ModulesBasePath));

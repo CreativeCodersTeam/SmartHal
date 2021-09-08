@@ -33,12 +33,13 @@ namespace CreativeCoders.SmartHal.Kernel.SubSystems.Drivers
             _driverInstances = new ConcurrentList<DriverInstance>();
         }
 
-        public Task InitAsync(IEnumerable<IDriverConfiguration> driverConfigurations)
+        public async Task InitAsync(IEnumerable<IDriverConfiguration> driverConfigurations)
         {
             LoadDriverInfos();
 
-            return _driverLoader.LoadDriversAsync(driverConfigurations, _driverInfos,
-                driverInstance => _driverInstances.Add(driverInstance));
+            await _driverLoader.LoadDriversAsync(driverConfigurations, _driverInfos,
+                    driverInstance => _driverInstances.Add(driverInstance))
+                .ConfigureAwait(false);
         }
 
         public IDriver GetDriver(string driverName)

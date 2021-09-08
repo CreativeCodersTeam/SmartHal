@@ -22,7 +22,7 @@ namespace CreativeCoders.SmartHal.Web.Api.ServerBase
             _diContainer = diContainer;
         }
 
-        public Task StartAsync()
+        public async Task StartAsync()
         {
             var hostBuilder = CreateHostBuilder();
 
@@ -30,12 +30,12 @@ namespace CreativeCoders.SmartHal.Web.Api.ServerBase
 
             _webHost = hostBuilder.Build();
 
-            return _webHost.StartAsync();
+            await _webHost.StartAsync().ConfigureAwait(false);
         }
 
         public async Task StopAsync()
         {
-            await _webHost.StopAsync();
+            await _webHost.StopAsync().ConfigureAwait(false);
 
             _webHost.Dispose();
         }

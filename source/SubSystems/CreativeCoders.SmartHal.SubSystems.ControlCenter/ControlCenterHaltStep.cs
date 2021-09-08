@@ -16,9 +16,9 @@ namespace CreativeCoders.SmartHal.SubSystems.ControlCenter
             _controlCenterSubSystem = controlCenterSubSystem;
         }
 
-        public Task ExecuteAsync()
+        public async Task ExecuteAsync()
         {
-            return _controlCenterSubSystem.ShutdownWebApi();
+            await _controlCenterSubSystem.ShutdownWebApiAsync().ConfigureAwait(false);
         }
     }
 }

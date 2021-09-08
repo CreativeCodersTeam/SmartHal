@@ -49,7 +49,7 @@ namespace CreativeCoders.SmartHal.System.Boot
                 throw new DirectoryNotFoundException("SmartHal instance path not set or not exists");
             }
 
-            await LoadModulesAsync();
+            await LoadModulesAsync().ConfigureAwait(false);
 
             var services = new ServiceCollection();
             
@@ -87,7 +87,7 @@ namespace CreativeCoders.SmartHal.System.Boot
         {
             var modulesLoader = new ModulesLoader(_instancePath);
 
-            await modulesLoader.LoadAllModulesAsync();
+            await modulesLoader.LoadAllModulesAsync().ConfigureAwait(false);
         }
 
         public BootLoader<T> ConfigureKernelBuilder(Action<IKernelBuilder> configureKernelBuilder)

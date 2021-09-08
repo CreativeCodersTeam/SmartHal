@@ -18,16 +18,17 @@ namespace CreativeCoders.SmartHal.SubSystems.RemoteControl
             _host = classFactory.Create<RemoteControlHost>();
         }
         
-        public Task StartWebApi()
+        public async Task StartWebApiAsync()
         {
-            return _host.StartAsync();
+            await _host.StartAsync().ConfigureAwait(false);
         }
 
-        public Task ShutdownWebApi()
+        public async Task ShutdownWebApiAsync()
         {
-            return _host == null
-                ? Task.CompletedTask
-                : _host.StopAsync();
+            if (_host != null)
+            {
+                await _host.StopAsync().ConfigureAwait(false);
+            }
         }
     }
 }

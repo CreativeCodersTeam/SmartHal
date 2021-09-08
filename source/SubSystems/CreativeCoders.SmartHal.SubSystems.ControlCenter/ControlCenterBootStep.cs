@@ -18,7 +18,7 @@ namespace CreativeCoders.SmartHal.SubSystems.ControlCenter
 
         public async Task ExecuteAsync()
         {
-            await _controlCenterSubSystem.StartWebApi().ConfigureAwait(false);
+            await _controlCenterSubSystem.StartWebApiAsync().ConfigureAwait(false);
         }
     }
 }

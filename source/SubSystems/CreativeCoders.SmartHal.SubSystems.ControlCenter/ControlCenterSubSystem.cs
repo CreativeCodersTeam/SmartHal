@@ -18,14 +18,14 @@ namespace CreativeCoders.SmartHal.SubSystems.ControlCenter
             _controlCenterHost = classFactory.Create<ControlCenterHost>();
         }
 
-        public Task StartWebApi()
+        public async Task StartWebApiAsync()
         {
-            return _controlCenterHost.StartAsync();
+            await _controlCenterHost.StartAsync().ConfigureAwait(false);
         }
 
-        public Task ShutdownWebApi()
+        public async Task ShutdownWebApiAsync()
         {
-            return _controlCenterHost.StopAsync();
+            await _controlCenterHost.StopAsync().ConfigureAwait(false);
         }
     }
 }

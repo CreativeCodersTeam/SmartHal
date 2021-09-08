@@ -18,7 +18,7 @@ namespace CreativeCoders.SmartHal.Web.ControlCenter.Client.ViewModels
 
         public async Task RefreshAsync()
         {
-            var items = await _itemsApi.GetItemsAsync();
+            var items = await _itemsApi.GetItemsAsync().ConfigureAwait(false);
 
             using (ItemModels.Update())
             {
@@ -31,7 +31,9 @@ namespace CreativeCoders.SmartHal.Web.ControlCenter.Client.ViewModels
         {
             try
             {
-                await _itemsApi.SendCommandAsync(new SendCommandModel { CommandValue = itemModel.Value, ItemName = itemModel.Name });
+                await _itemsApi.SendCommandAsync(
+                        new SendCommandModel { CommandValue = itemModel.Value, ItemName = itemModel.Name })
+                    .ConfigureAwait(false);
             }
             catch (Exception)
             {

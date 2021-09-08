@@ -41,7 +41,7 @@ namespace CreativeCoders.SmartHal.Web.ControlCenter.Client
             builder.Services.AddSingleton<ThingsViewModel>();
             builder.Services.AddSingleton<ItemsViewModel>();
 
-            await builder.Build().RunAsync();
+            await builder.Build().RunAsync().ConfigureAwait(false);
         }
 
         private static T CreateWebApiClient<T>(ClientConfig config)

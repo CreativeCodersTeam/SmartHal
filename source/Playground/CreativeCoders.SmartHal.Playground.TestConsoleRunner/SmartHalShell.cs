@@ -14,13 +14,13 @@ namespace CreativeCoders.SmartHal.Playground.TestConsoleRunner
             _kernel = kernel;
         }
 
-        public Task RunAsync()
+        public async Task RunAsync()
         {
             var consoleService = _kernel.GetService<IConsoleService>();
             
             var consoleInput = consoleService.CreateConsole(new ConsoleOutput());
             
-            return CommandLoopAsync(consoleInput);
+            await CommandLoopAsync(consoleInput).ConfigureAwait(false);
         }
         
         private static async Task CommandLoopAsync(IConsoleInput consoleInput)
@@ -37,7 +37,9 @@ namespace CreativeCoders.SmartHal.Playground.TestConsoleRunner
         {
             Console.WriteLine();
             Console.Write("SmartHalShell> ");
+
             var command = Console.ReadLine();
+
             return command;
         }
     }

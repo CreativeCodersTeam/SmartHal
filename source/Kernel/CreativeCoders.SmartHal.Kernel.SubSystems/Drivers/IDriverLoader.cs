@@ -10,8 +10,10 @@ namespace CreativeCoders.SmartHal.Kernel.SubSystems.Drivers
     [PublicAPI]
     public interface IDriverLoader
     {
-        Task LoadDriverAsync(IDriverConfiguration driverConfiguration, IEnumerable<DriverInfo> driverInfos, Action<DriverInstance> driverLoaded);
+        Task LoadDriverAsync(IDriverConfiguration driverConfiguration, IEnumerable<DriverInfo> driverInfos,
+            Action<DriverInstance> driverLoaded);
         
-        Task LoadDriversAsync(IEnumerable<IDriverConfiguration> driverConfigurations, IEnumerable<DriverInfo> driverInfos, Action<DriverInstance> driverLoaded);
+        Task LoadDriversAsync(IEnumerable<IDriverConfiguration> driverConfigurations,
+            IEnumerable<DriverInfo> driverInfos, Action<DriverInstance> driverLoaded);
     }
 }

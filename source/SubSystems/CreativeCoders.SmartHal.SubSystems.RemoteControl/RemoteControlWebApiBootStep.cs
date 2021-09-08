@@ -16,9 +16,9 @@ namespace CreativeCoders.SmartHal.SubSystems.RemoteControl
             _remoteControlSubSystem = remoteControlSubSystem;
         }
         
-        public Task ExecuteAsync()
+        public async Task ExecuteAsync()
         {
-            return _remoteControlSubSystem.StartWebApi();
+            await _remoteControlSubSystem.StartWebApiAsync().ConfigureAwait(false);
         }
     }
 }

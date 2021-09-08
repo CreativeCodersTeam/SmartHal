@@ -19,7 +19,7 @@ namespace CreativeCoders.SmartHal.Web.ControlCenter.Client.ViewModels
 
         public async Task Refresh()
         {
-            var things = (await _gatewaysApi.GetThingsAsync()).ToArray();
+            var things = (await _gatewaysApi.GetThingsAsync().ConfigureAwait(false)).ToArray();
 
             using (ThingModels.Update())
             {

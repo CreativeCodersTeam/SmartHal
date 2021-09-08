@@ -32,7 +32,7 @@ namespace CreativeCoders.SmartHal.Web.Frontend.Client
 
             builder.Services.AddTransient(_ => CreateWebApiClient(config));
 
-            await builder.Build().RunAsync();
+            await builder.Build().RunAsync().ConfigureAwait(false);
         }
 
         private static ISmartHalWebApi CreateWebApiClient(ClientConfig config)

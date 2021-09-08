@@ -17,7 +17,8 @@ namespace CreativeCoders.SmartHal.Playground.TestConsoleRunner
             var kernel = await new BootLoader<DefaultKernelBuilder>()
                 .SetInstancePath(basePath)
                 .ConfigureKernelBuilder(x => x.AddConsoleSupport())
-                .StartKernelAsync();
+                .StartKernelAsync()
+                .ConfigureAwait(false);
             
             await new SmartHalShell(kernel).RunAsync().ConfigureAwait(false);
             
