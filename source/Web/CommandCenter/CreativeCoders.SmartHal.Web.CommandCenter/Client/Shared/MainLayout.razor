@@ -1,0 +1,52 @@
+﻿@inherits LayoutComponentBase
+
+<RadzenHeader>
+    <ChildContent>
+        <div class="row justify-content-start align-items-center">
+            <div class="col-6 d-flex align-items-center">
+                <RadzenSidebarToggle Click="@(args => { _sidebarIsExpanded = !_sidebarIsExpanded; _bodyIsExpanded = !_bodyIsExpanded; })">
+                </RadzenSidebarToggle>
+                <RadzenLabel Text="SmartHal CommandCenter" />
+                
+            </div>
+            <div class="col-6 d-flex align-items-center justify-content-end">
+                <div class="d-none d-md-inline-flex align-items-center">
+                    @*<Social />*@ 
+                </div>
+                <label class="d-none d-sm-inline-block" style="margin-left: 1rem">Theme:</label>
+                @*<RadzenDropDown style="margin:0 .5rem" TValue="string" TextProperty="Text" ValueProperty="Value" Data="@themes" Value="@ThemeState.CurrentTheme" Change="@ChangeTheme" />*@
+            </div>
+        </div>
+    </ChildContent>
+</RadzenHeader>
+
+<div style="width:100%">
+    <RadzenBody @bind-Expanded="@_bodyIsExpanded">
+        <ChildContent>
+            <RadzenContentContainer Name="main">
+                @Body
+            </RadzenContentContainer>
+        </ChildContent>
+    </RadzenBody>
+</div>
+
+<RadzenSidebar @bind-Expanded="@_sidebarIsExpanded">
+    <ChildContent>
+        <SideBar />
+    </ChildContent>
+</RadzenSidebar>
+
+<RadzenFooter>
+    <ChildContent>
+        <RadzenLabel Text="CreativeCoders SmartHal, Copyright &copy; 2021">
+        </RadzenLabel>
+        <RadzenLink Text="[source]" Path="https://github.com/CreativeCodersTeam/SmartHal" Target="_blank" Style="margin-left:5px;vertical-align:bottom;" />
+    </ChildContent>
+</RadzenFooter>
+
+@code
+{
+    private bool _sidebarIsExpanded = true;
+
+    private bool _bodyIsExpanded = false;
+}

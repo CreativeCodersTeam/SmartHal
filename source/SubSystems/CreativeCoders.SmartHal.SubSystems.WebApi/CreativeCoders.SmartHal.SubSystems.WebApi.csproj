@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Kernel\CreativeCoders.SmartHal.Kernel.Base\CreativeCoders.SmartHal.Kernel.Base.csproj" />
+    <ProjectReference Include="..\..\Web\Api\CreativeCoders.SmartHal.Web.Api.Server\CreativeCoders.SmartHal.Web.Api.Server.csproj" />
+  </ItemGroup>
+
+</Project>

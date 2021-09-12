@@ -29,8 +29,7 @@ using CreativeCoders.SmartHal.Scripting.Api;
 using CreativeCoders.SmartHal.Scripting.Base;
 using CreativeCoders.SmartHal.Scripting.Base.ActionScripts.Triggers;
 using CreativeCoders.SmartHal.Scripting.Base.Api;
-using CreativeCoders.SmartHal.SubSystems.ControlCenter;
-using CreativeCoders.SmartHal.SubSystems.RemoteControl;
+using CreativeCoders.SmartHal.SubSystems.WebApi;
 
 namespace CreativeCoders.SmartHal.System.DefaultSystem
 {
@@ -45,8 +44,7 @@ namespace CreativeCoders.SmartHal.System.DefaultSystem
                 .SetupItemSubSystem()
                 .SetupScriptingSubSystem()
                 .SetupTriggerSubSystem()
-                .SetupRemoteControlSubSystem()
-                .SetupControlCenterSubSystem()
+                .SetupWebApiSubSystem()
                 .SetupBoot()
                 .SetupHalt();
         }
@@ -61,22 +59,14 @@ namespace CreativeCoders.SmartHal.System.DefaultSystem
             return containerBuilder;
         }
 
-        private static IDiContainerBuilder SetupControlCenterSubSystem(this IDiContainerBuilder containerBuilder)
+        private static IDiContainerBuilder SetupWebApiSubSystem(this IDiContainerBuilder containerBuilder)
         {
             containerBuilder
-                .AddSingleton<IControlCenterSubSystem, ControlCenterSubSystem>();
+                .AddSingleton<IWebApiSubSystem, WebApiSubSystem>();
 
             return containerBuilder;
         }
 
-        private static IDiContainerBuilder SetupRemoteControlSubSystem(this IDiContainerBuilder containerBuilder)
-        {
-            containerBuilder
-                .AddSingleton<IRemoteControlSubSystem, RemoteControlSubSystem>();
-
-            return containerBuilder;
-        }
-        
         private static IDiContainerBuilder SetupTriggerSubSystem(this IDiContainerBuilder containerBuilder)
         {
             containerBuilder

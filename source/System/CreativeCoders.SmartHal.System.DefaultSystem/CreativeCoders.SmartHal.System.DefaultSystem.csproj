@@ -16,8 +16,7 @@
 		<ProjectReference Include="..\..\Kernel\CreativeCoders.SmartHal.Kernel\CreativeCoders.SmartHal.Kernel.csproj" />
 		<ProjectReference Include="..\..\Scripting\CreativeCoders.SmartHal.Scripting.Base\CreativeCoders.SmartHal.Scripting.Base.csproj" />
 		<ProjectReference Include="..\..\Scripting\CreativeCoders.SmartHal.Scripting\CreativeCoders.SmartHal.Scripting.csproj" />
-		<ProjectReference Include="..\..\SubSystems\CreativeCoders.SmartHal.SubSystems.ControlCenter\CreativeCoders.SmartHal.SubSystems.ControlCenter.csproj" />
-		<ProjectReference Include="..\..\SubSystems\CreativeCoders.SmartHal.SubSystems.RemoteControl\CreativeCoders.SmartHal.SubSystems.RemoteControl.csproj" />
+		<ProjectReference Include="..\..\SubSystems\CreativeCoders.SmartHal.SubSystems.WebApi\CreativeCoders.SmartHal.SubSystems.WebApi.csproj" />
 		<ProjectReference Include="..\CreativeCoders.SmartHal.System\CreativeCoders.SmartHal.System.csproj" />
 	</ItemGroup>
 
