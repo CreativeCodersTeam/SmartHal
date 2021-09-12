@@ -1,6 +1,6 @@
 {
   "name": "CreativeCoders.SmartHal.Web.CommandCenter",
-  "short_name": "CreativeCoders.SmartHal.Web.CommandCenter",
+  "short_name": "SmartHal CommandCenter",
   "start_url": "./",
   "display": "standalone",
   "background_color": "#ffffff",

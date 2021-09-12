@@ -7,6 +7,9 @@ using System.Collections.Generic;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using CreativeCoders.SmartHal.Web.Api.Client;
+using CreativeCoders.SmartHal.Web.CommandCenter.Shared;
+using Refit;
 
 namespace CreativeCoders.SmartHal.Web.CommandCenter.Client
 {
@@ -19,7 +22,15 @@ namespace CreativeCoders.SmartHal.Web.CommandCenter.Client
 
             builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
 
+            builder.Services.AddRefitClient<IGatewaysApi>()
+                .ConfigureHttpClient((sp, client) => client.BaseAddress = new Uri("https://localhost:13578/"));
+
             await builder.Build().RunAsync();
         }
+
+        //private async Task<ClientConfigModel> GetClientConfigAsync()
+        //{
+
+        //}
     }
 }

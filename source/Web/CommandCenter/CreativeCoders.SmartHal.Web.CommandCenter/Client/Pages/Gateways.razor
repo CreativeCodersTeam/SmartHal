@@ -1,7 +1,26 @@
 ﻿@page "/gateways"
+@using CreativeCoders.SmartHal.Web.Api.Client
+@using CreativeCoders.SmartHal.Web.Api.Core.Models
+
+@inject IGatewaysApi _gatewaysApi
 
 <h3>Gateways</h3>
 
+<RadzenDataGrid Data="@_gateways" TItem="GatewayModel">
+    <Columns>
+        <RadzenDataGridColumn TItem="GatewayModel" Property="Id" Title="Id" />
+        <RadzenDataGridColumn TItem="GatewayModel" Property="Name" Title="Name" />
+        <RadzenDataGridColumn TItem="GatewayModel" Property="State" Title="State" />
+    </Columns>
+    
+</RadzenDataGrid>
+
 @code {
+    private IEnumerable<GatewayModel> _gateways;
+
+    protected override async Task OnInitializedAsync()
+    {
+        _gateways = await _gatewaysApi.GetGatewaysAsync();
+    }
 
 }

@@ -1,13 +1,13 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using CreativeCoders.Net.WebApi.Definition;
 using CreativeCoders.SmartHal.Web.Api.Core.Models;
+using Refit;
 
-namespace CreativeCoders.SmartHal.Web.Api.Client.ControlCenter
+namespace CreativeCoders.SmartHal.Web.Api.Client
 {
     public interface IGatewaysApi
     {
-        [Get("gateways")]
+        [Get("/api/gateways")]
         Task<IEnumerable<GatewayModel>> GetGatewaysAsync();
     }
 }

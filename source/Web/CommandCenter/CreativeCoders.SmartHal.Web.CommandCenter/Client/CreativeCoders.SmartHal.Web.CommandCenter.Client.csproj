@@ -13,6 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\Api\CreativeCoders.SmartHal.Web.Api.Client\CreativeCoders.SmartHal.Web.Api.Client.csproj" />
     <ProjectReference Include="..\Shared\CreativeCoders.SmartHal.Web.CommandCenter.Shared.csproj" />
   </ItemGroup>
 

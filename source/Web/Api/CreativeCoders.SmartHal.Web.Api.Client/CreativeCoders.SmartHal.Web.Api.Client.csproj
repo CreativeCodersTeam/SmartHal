@@ -7,7 +7,7 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="CreativeCoders.Net.WebApi" Version="0.14.1" />
+	  <PackageReference Include="Refit.HttpClientFactory" Version="6.0.94" />
 	</ItemGroup>
 
 	<ItemGroup>
