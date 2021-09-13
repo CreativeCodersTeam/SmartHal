@@ -1,12 +1,19 @@
 ﻿@page "/gateways"
 @using CreativeCoders.SmartHal.Web.Api.Client
 @using CreativeCoders.SmartHal.Web.Api.Core.Models
+@using CreativeCoders.SmartHal.Web.CommandCenter.Client.ViewModels
 
-@inject IGatewaysApi _gatewaysApi
+@inject GatewaysViewModel _gatewaysViewModel
 
-<h3>Gateways</h3>
 
-<RadzenDataGrid Data="@_gateways" TItem="GatewayModel">
+<PageHeader Icon="carbon:gateway-api" Text="Gateways" />
+
+
+<RadzenButton Click="async () => { await _gatewaysViewModel.RefreshAsync(); }" Style="margin: 10px">
+    <Iconify Icon="mdi:refresh" />
+</RadzenButton>
+
+<RadzenDataGrid Data="@_gatewaysViewModel.Gateways" TItem="GatewayModel">
     <Columns>
         <RadzenDataGridColumn TItem="GatewayModel" Property="Id" Title="Id" />
         <RadzenDataGridColumn TItem="GatewayModel" Property="Name" Title="Name" />
@@ -16,11 +23,9 @@
 </RadzenDataGrid>
 
 @code {
-    private IEnumerable<GatewayModel> _gateways;
-
     protected override async Task OnInitializedAsync()
     {
-        _gateways = await _gatewaysApi.GetGatewaysAsync();
+        await _gatewaysViewModel.RefreshAsync();
     }
 
 }

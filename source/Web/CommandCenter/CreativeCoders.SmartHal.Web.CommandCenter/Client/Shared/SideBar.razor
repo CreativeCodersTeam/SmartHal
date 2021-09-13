@@ -4,7 +4,17 @@
 <RadzenPanelMenu>
 
     <RadzenPanelMenuItem Text="Things">
-        <RadzenPanelMenuItem Text="Gateways" Path="gateways"/>
+        <RadzenPanelMenuItem Path="gateways">
+            <Template>
+                <div style="float: left">
+                    <Iconify Icon="carbon:gateway-api"  />
+                </div>
+                <div style="float: left">
+                    <RadzenHeading Size="H4" Text="Gateways"></RadzenHeading>
+                </div>
+                
+            </Template>
+        </RadzenPanelMenuItem>
         <RadzenPanelMenuItem Text="Things" Path="things"/>
         <RadzenPanelMenuItem Text="Thing Channels" Path="thingchannels"/>
     </RadzenPanelMenuItem>

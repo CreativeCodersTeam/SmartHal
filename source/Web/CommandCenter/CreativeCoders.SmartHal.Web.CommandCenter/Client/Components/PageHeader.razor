@@ -1,0 +1,17 @@
+﻿
+<div>
+    @if (!string.IsNullOrWhiteSpace(Icon))
+    {
+        <Iconify Icon="@Icon" style="float: left; margin: 5px" />
+    }
+    
+    <RadzenHeading Size="H2" Text="@Text" />
+</div>
+
+@code {
+    [Parameter]
+    public string Text { get; set; }
+
+    [Parameter]
+    public string Icon { get; set; }
+}

@@ -8,6 +8,7 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using CreativeCoders.SmartHal.Web.Api.Client;
+using CreativeCoders.SmartHal.Web.CommandCenter.Client.ViewModels;
 using CreativeCoders.SmartHal.Web.CommandCenter.Shared;
 using Refit;
 
@@ -20,12 +21,19 @@ namespace CreativeCoders.SmartHal.Web.CommandCenter.Client
             var builder = WebAssemblyHostBuilder.CreateDefault(args);
             builder.RootComponents.Add<App>("#app");
 
-            builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
-
-            builder.Services.AddRefitClient<IGatewaysApi>()
-                .ConfigureHttpClient((sp, client) => client.BaseAddress = new Uri("https://localhost:13578/"));
+            ConfigureServices(builder.Services, builder.HostEnvironment);
 
             await builder.Build().RunAsync();
+        }
+
+        private static void ConfigureServices(IServiceCollection services, IWebAssemblyHostEnvironment hostEnvironment)
+        {
+            services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(hostEnvironment.BaseAddress) });
+
+            services.AddRefitClient<IGatewaysApi>()
+                .ConfigureHttpClient((sp, client) => client.BaseAddress = new Uri("https://localhost:13578/"));
+
+            services.AddSingleton<GatewaysViewModel>();
         }
 
         //private async Task<ClientConfigModel> GetClientConfigAsync()
