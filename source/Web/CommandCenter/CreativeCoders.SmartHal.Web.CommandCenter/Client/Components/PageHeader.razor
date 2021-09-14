@@ -1,11 +1,13 @@
 ﻿
-<div>
+<div style="display: flex; align-items: stretch;">
+    
     @if (!string.IsNullOrWhiteSpace(Icon))
     {
-        <Iconify Icon="@Icon" style="float: left; margin: 5px" />
+        <RadzenIcon Icon="@Icon" style="font-size: 48px; vertical-align: middle" />
     }
+
+    <RadzenHeading Size="H2" Text="@Text" style="padding-left: 16px; vertical-align: middle; height: 100%" />
     
-    <RadzenHeading Size="H2" Text="@Text" />
 </div>
 
 @code {

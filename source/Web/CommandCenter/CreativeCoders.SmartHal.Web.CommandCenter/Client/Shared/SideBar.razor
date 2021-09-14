@@ -1,25 +1,14 @@
-﻿
-<RadzenLabel Text="Sidebar" />
+﻿@using System.Xml
 
 <RadzenPanelMenu>
 
-    <RadzenPanelMenuItem Text="Things">
-        <RadzenPanelMenuItem Path="gateways">
-            <Template>
-                <div style="float: left">
-                    <Iconify Icon="carbon:gateway-api"  />
-                </div>
-                <div style="float: left">
-                    <RadzenHeading Size="H4" Text="Gateways"></RadzenHeading>
-                </div>
-                
-            </Template>
-        </RadzenPanelMenuItem>
-        <RadzenPanelMenuItem Text="Things" Path="things"/>
-        <RadzenPanelMenuItem Text="Thing Channels" Path="thingchannels"/>
+    <RadzenPanelMenuItem Text="Things" Icon="folder">
+        <RadzenPanelMenuItem Path="gateways" Text="Gateways" Icon="router" />
+        <RadzenPanelMenuItem Text="Things" Path="things" Icon="devices" />
+        <RadzenPanelMenuItem Text="Thing Channels" Path="thingchannels" Icon="read_more" />
     </RadzenPanelMenuItem>
     
-    <RadzenPanelMenuItem Text="Items" Path="/items" />
+    <RadzenPanelMenuItem Text="Items" Path="items" />
     
     <RadzenPanelMenuItem Text="Settings" Path="settings" />
 
