@@ -1,7 +1,29 @@
 ﻿@page "/things"
+@using CreativeCoders.SmartHal.Web.Api.Core.Models
+@using CreativeCoders.SmartHal.Web.CommandCenter.Client.ViewModels
 
-<h3>Things</h3>
+@inject ThingsViewModel _thingsViewModel
+
+<PageHeader Icon="devices" Text="Things" />
+
+
+<RadzenButton Click="async () => { await _thingsViewModel.RefreshAsync(); }" Style="margin: 10px">
+    <Iconify Icon="mdi:refresh" />
+</RadzenButton>
+
+<RadzenDataGrid Data="@_thingsViewModel.Things" TItem="ThingModel">
+    <Columns>
+        <RadzenDataGridColumn TItem="ThingModel" Property="Id" Title="Id" />
+        <RadzenDataGridColumn TItem="ThingModel" Property="Name" Title="Name" />
+        <RadzenDataGridColumn TItem="ThingModel" Property="State" Title="State" />
+    </Columns>
+
+</RadzenDataGrid>
 
 @code {
+    protected override async Task OnInitializedAsync()
+    {
+        await _thingsViewModel.RefreshAsync();
+    }
 
 }

@@ -26,14 +26,6 @@ namespace CreativeCoders.SmartHal.Web.CommandCenter.Client.ViewModels
             Gateways = new ExtendedObservableCollection<GatewayModel>(
                 new SynchronizationContext(), SynchronizationMethod.Post, () => new NoLockingMechanism(),
                 await _gatewaysApi.GetGatewaysAsync());
-            
-            //using var _ = Gateways.Update();
-
-            //var gateways = await _gatewaysApi.GetGatewaysAsync();
-
-            //Gateways.Clear();
-
-            //Gateways.AddRange(gateways);
         }
 
         public ExtendedObservableCollection<GatewayModel> Gateways { get; set; }

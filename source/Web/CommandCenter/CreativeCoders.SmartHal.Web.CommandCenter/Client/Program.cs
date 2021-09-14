@@ -30,10 +30,16 @@ namespace CreativeCoders.SmartHal.Web.CommandCenter.Client
         {
             services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(hostEnvironment.BaseAddress) });
 
+            var apiUri = new Uri("https://localhost:13578/");
+
             services.AddRefitClient<IGatewaysApi>()
-                .ConfigureHttpClient((sp, client) => client.BaseAddress = new Uri("https://localhost:13578/"));
+                .ConfigureHttpClient((sp, client) => client.BaseAddress = apiUri);
+
+            services.AddRefitClient<IThingsApi>()
+                .ConfigureHttpClient((sp, client) => client.BaseAddress = apiUri);
 
             services.AddSingleton<GatewaysViewModel>();
+            services.AddSingleton<ThingsViewModel>();
         }
 
         //private async Task<ClientConfigModel> GetClientConfigAsync()
