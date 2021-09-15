@@ -1,16 +1,44 @@
 ﻿@using System.Xml
+@using Microsoft.Extensions.Localization
+
+@inject IStringLocalizer<Program> _loc
 
 <RadzenPanelMenu>
 
-    <RadzenPanelMenuItem Text="Things" Icon="folder">
-        <RadzenPanelMenuItem Path="gateways" Text="Gateways" Icon="router" />
-        <RadzenPanelMenuItem Text="Things" Path="things" Icon="devices" />
-        <RadzenPanelMenuItem Text="Thing Channels" Path="thingchannels" Icon="read_more" />
+    <RadzenPanelMenuItem>
+        <Template>
+            <IconPanelMenuItem Icon="@Icons.Folder" Text="Things" />
+        </Template>
+        <ChildContent>
+            <RadzenPanelMenuItem Path="gateways">
+                <Template>
+                    <IconPanelMenuItem Icon="@Icons.Gateways" Text="@_loc["Gateways"]" />
+                </Template>
+            </RadzenPanelMenuItem>
+            <RadzenPanelMenuItem Path="things">
+                <Template>
+                    <IconPanelMenuItem Icon="@Icons.Things" Text="@CommandCenterClient.Things" />
+                </Template>
+            </RadzenPanelMenuItem>
+            <RadzenPanelMenuItem Path="thingchannels">
+                <Template>
+                    <IconPanelMenuItem Icon="@Icons.ThingChannels" Text="Thing Channels" />
+                </Template>
+            </RadzenPanelMenuItem>
+        </ChildContent>
     </RadzenPanelMenuItem>
     
-    <RadzenPanelMenuItem Text="Items" Path="items" />
+    <RadzenPanelMenuItem Path="items">
+        <Template>
+            <IconPanelMenuItem Icon="@Icons.Items" Text="Items" />
+        </Template>
+    </RadzenPanelMenuItem>
     
-    <RadzenPanelMenuItem Text="Settings" Path="settings" />
+    <RadzenPanelMenuItem Path="settings">
+        <Template>
+            <IconPanelMenuItem Icon="@Icons.Settings" Text="Settings" />
+        </Template>
+    </RadzenPanelMenuItem>
 
 </RadzenPanelMenu>
 

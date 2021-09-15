@@ -94,15 +94,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CreativeCoders.SmartHal.Sys
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CommandCenter", "CommandCenter", "{70138EAE-9FB0-4779-8CE6-8A42B9B6D051}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreativeCoders.SmartHal.Web.CommandCenter.Server", "Web\CommandCenter\CreativeCoders.SmartHal.Web.CommandCenter\Server\CreativeCoders.SmartHal.Web.CommandCenter.Server.csproj", "{26DB42EB-FE1F-44B2-AC8F-92AEA2690C49}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CreativeCoders.SmartHal.Web.CommandCenter.Server", "Web\CommandCenter\CreativeCoders.SmartHal.Web.CommandCenter\Server\CreativeCoders.SmartHal.Web.CommandCenter.Server.csproj", "{26DB42EB-FE1F-44B2-AC8F-92AEA2690C49}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreativeCoders.SmartHal.Web.CommandCenter.Client", "Web\CommandCenter\CreativeCoders.SmartHal.Web.CommandCenter\Client\CreativeCoders.SmartHal.Web.CommandCenter.Client.csproj", "{00DE9C96-3E81-4C0E-B10A-AC4F1D2F9FC5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CreativeCoders.SmartHal.Web.CommandCenter.Client", "Web\CommandCenter\CreativeCoders.SmartHal.Web.CommandCenter\Client\CreativeCoders.SmartHal.Web.CommandCenter.Client.csproj", "{00DE9C96-3E81-4C0E-B10A-AC4F1D2F9FC5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreativeCoders.SmartHal.Web.CommandCenter.Shared", "Web\CommandCenter\CreativeCoders.SmartHal.Web.CommandCenter\Shared\CreativeCoders.SmartHal.Web.CommandCenter.Shared.csproj", "{E16F5BFF-B9A6-4C34-86CA-4DDD6D9D25C3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CreativeCoders.SmartHal.Web.CommandCenter.Shared", "Web\CommandCenter\CreativeCoders.SmartHal.Web.CommandCenter\Shared\CreativeCoders.SmartHal.Web.CommandCenter.Shared.csproj", "{E16F5BFF-B9A6-4C34-86CA-4DDD6D9D25C3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreativeCoders.SmartHal.Web.Api.Server", "Web\Api\CreativeCoders.SmartHal.Web.Api.Server\CreativeCoders.SmartHal.Web.Api.Server.csproj", "{40E9AA8F-F693-41D5-8A0C-4D4B4C479780}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CreativeCoders.SmartHal.Web.Api.Server", "Web\Api\CreativeCoders.SmartHal.Web.Api.Server\CreativeCoders.SmartHal.Web.Api.Server.csproj", "{40E9AA8F-F693-41D5-8A0C-4D4B4C479780}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreativeCoders.SmartHal.SubSystems.WebApi", "SubSystems\CreativeCoders.SmartHal.SubSystems.WebApi\CreativeCoders.SmartHal.SubSystems.WebApi.csproj", "{FC723F88-5650-4637-A78D-15FB7C754E7B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CreativeCoders.SmartHal.SubSystems.WebApi", "SubSystems\CreativeCoders.SmartHal.SubSystems.WebApi\CreativeCoders.SmartHal.SubSystems.WebApi.csproj", "{FC723F88-5650-4637-A78D-15FB7C754E7B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -4,6 +4,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,6 +21,12 @@ namespace CreativeCoders.SmartHal.Web.CommandCenter.Client
         {
             var builder = WebAssemblyHostBuilder.CreateDefault(args);
             builder.RootComponents.Add<App>("#app");
+
+            //var cultureInfo = new CultureInfo("de-DE");
+            var cultureInfo = new CultureInfo("en-US");
+
+            CultureInfo.DefaultThreadCurrentCulture = cultureInfo;
+            CultureInfo.DefaultThreadCurrentUICulture = cultureInfo;
 
             ConfigureServices(builder.Services, builder.HostEnvironment);
 
@@ -40,6 +47,8 @@ namespace CreativeCoders.SmartHal.Web.CommandCenter.Client
 
             services.AddSingleton<GatewaysViewModel>();
             services.AddSingleton<ThingsViewModel>();
+
+            services.AddLocalization(opts => { opts.ResourcesPath = "Resources"; });
         }
 
         //private async Task<ClientConfigModel> GetClientConfigAsync()
