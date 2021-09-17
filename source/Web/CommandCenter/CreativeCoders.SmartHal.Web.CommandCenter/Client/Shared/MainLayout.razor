@@ -4,7 +4,7 @@
     <ChildContent>
         <div class="row justify-content-start align-items-center">
             <div class="col-6 d-flex align-items-center">
-                <RadzenSidebarToggle Click="@(args => { _sidebarIsExpanded = !_sidebarIsExpanded; _bodyIsExpanded = !_bodyIsExpanded; })">
+                <RadzenSidebarToggle Click="@(_ => { _sidebarIsExpanded = !_sidebarIsExpanded; _bodyIsExpanded = !_bodyIsExpanded; })">
                 </RadzenSidebarToggle>
                 <RadzenLabel Text="SmartHal CommandCenter" />
                 
@@ -48,5 +48,5 @@
 {
     private bool _sidebarIsExpanded = true;
 
-    private bool _bodyIsExpanded = false;
+    private bool _bodyIsExpanded;
 }

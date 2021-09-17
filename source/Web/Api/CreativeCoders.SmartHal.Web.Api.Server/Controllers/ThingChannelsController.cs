@@ -8,26 +8,26 @@ namespace CreativeCoders.SmartHal.Web.Api.Server.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class GatewaysController : ControllerBase
+    public class ThingChannelsController : ControllerBase
     {
-        private readonly IGatewayRepository _gatewayRepository;
+        private readonly IThingChannelRepository _thingChannelRepository;
 
-        public GatewaysController(IGatewayRepository gatewayRepository)
+        public ThingChannelsController(IThingChannelRepository thingChannelRepository)
         {
-            _gatewayRepository = gatewayRepository;
+            _thingChannelRepository = thingChannelRepository;
         }
 
         [HttpGet]
-        public IEnumerable<GatewayModel> Get()
+        public IEnumerable<ThingChannelModel> Get()
         {
-            return _gatewayRepository
+            return _thingChannelRepository
                 .Select(x =>
-                    new GatewayModel
+                    new ThingChannelModel
                     {
                         Id = x.Id.ToString(),
                         Name = x.Name,
                         State = x.State,
-                        StateText = x.State.ToString()
+                        Value = x.Value
                     });
         }
     }

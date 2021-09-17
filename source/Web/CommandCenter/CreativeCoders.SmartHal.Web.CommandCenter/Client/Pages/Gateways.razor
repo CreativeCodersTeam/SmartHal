@@ -1,31 +1,32 @@
 ﻿@page "/gateways"
-@using CreativeCoders.SmartHal.Web.Api.Client
-@using CreativeCoders.SmartHal.Web.Api.Core.Models
 @using CreativeCoders.SmartHal.Web.CommandCenter.Client.ViewModels
 
-@inject GatewaysViewModel _gatewaysViewModel
 
+<PageHeader Icon="@Icons.Gateways" Text="@Localizer[Texts.Gateways]" />
 
-<PageHeader Icon="carbon:gateway" Text="Gateways" />
-
-
-<RadzenButton Click="async () => { await _gatewaysViewModel.RefreshAsync(); }" Style="margin: 10px">
-    <Iconify Icon="mdi:refresh" />
+<RadzenButton Click="async () => { await ViewModel.RefreshAsync(); }" Style="margin: 10px">
+    <Iconify Icon="@Icons.Refresh" />
 </RadzenButton>
 
-<RadzenDataGrid Data="@_gatewaysViewModel.Gateways" TItem="GatewayModel">
+<RadzenDataGrid Data="@ViewModel.Gateways" TItem="GatewayModel">
     <Columns>
-        <RadzenDataGridColumn TItem="GatewayModel" Property="Id" Title="Id" />
-        <RadzenDataGridColumn TItem="GatewayModel" Property="Name" Title="Name" />
-        <RadzenDataGridColumn TItem="GatewayModel" Property="State" Title="State" />
+        <RadzenDataGridColumn TItem="GatewayModel" Property="Id" Title="@Localizer[Texts.Id]" />
+        <RadzenDataGridColumn TItem="GatewayModel" Property="Name" Title="@Localizer[Texts.Name]" />
+        <RadzenDataGridColumn TItem="GatewayModel" Property="State" Title="@Localizer[Texts.State]" />
     </Columns>
     
 </RadzenDataGrid>
 
+
 @code {
+    [Inject]
+    public IExtendedStringLocalizer<Gateways> Localizer { get; set; }
+
+    [Inject]
+    public GatewaysViewModel ViewModel { get; set; }
+
     protected override async Task OnInitializedAsync()
     {
-        await _gatewaysViewModel.RefreshAsync();
+        await ViewModel.RefreshAsync();
     }
-
 }

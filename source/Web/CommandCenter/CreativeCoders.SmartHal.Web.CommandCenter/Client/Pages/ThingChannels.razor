@@ -1,7 +1,33 @@
 ﻿@page "/thingchannels"
+@using CreativeCoders.SmartHal.Web.CommandCenter.Client.ViewModels
 
-<h3>ThingChannels</h3>
+
+<PageHeader Icon="@Icons.ThingChannels" Text="@Localizer[Texts.ThingChannels]" />
+
+<RadzenButton Click="async () => { await ViewModel.RefreshAsync(); }" Style="margin: 10px">
+    <Iconify Icon="@Icons.Refresh" />
+</RadzenButton>
+
+<RadzenDataGrid Data="@ViewModel.ThingChannels" TItem="ThingChannelModel">
+    <Columns>
+        <RadzenDataGridColumn TItem="ThingChannelModel" Property="Id" Title="@Localizer[Texts.Id]" />
+        <RadzenDataGridColumn TItem="ThingChannelModel" Property="Name" Title="@Localizer[Texts.Name]" />
+        <RadzenDataGridColumn TItem="ThingChannelModel" Property="State" Title="@Localizer[Texts.State]" />
+        <RadzenDataGridColumn TItem="ThingChannelModel" Property="Value" Title="@Localizer[Texts.Value]" />
+    </Columns>
+
+</RadzenDataGrid>
+
 
 @code {
+    [Inject]
+    public ThingChannelsViewModel ViewModel { get; set; }
 
+    [Inject]
+    public IExtendedStringLocalizer<Things> Localizer { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        await ViewModel.RefreshAsync();
+    }
 }

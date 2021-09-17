@@ -1,28 +1,26 @@
 ﻿@using System.Xml
-@using Microsoft.Extensions.Localization
-
-@inject IStringLocalizer<Program> _loc
+@using CreativeCoders.SmartHal.Web.CommandCenter.Client.Localization
 
 <RadzenPanelMenu>
 
     <RadzenPanelMenuItem>
         <Template>
-            <IconPanelMenuItem Icon="@Icons.Folder" Text="Things" />
+            <IconPanelMenuItem Icon="@Icons.Folder" Text="@Localizer[Texts.Things]" />
         </Template>
         <ChildContent>
             <RadzenPanelMenuItem Path="gateways">
                 <Template>
-                    <IconPanelMenuItem Icon="@Icons.Gateways" Text="@_loc["Gateways"]" />
+                    <IconPanelMenuItem Icon="@Icons.Gateways" Text="@Localizer[Texts.Gateways]" />
                 </Template>
             </RadzenPanelMenuItem>
             <RadzenPanelMenuItem Path="things">
                 <Template>
-                    <IconPanelMenuItem Icon="@Icons.Things" Text="@CommandCenterClient.Things" />
+                    <IconPanelMenuItem Icon="@Icons.Things" Text="@Localizer[Texts.Things]" />
                 </Template>
             </RadzenPanelMenuItem>
             <RadzenPanelMenuItem Path="thingchannels">
                 <Template>
-                    <IconPanelMenuItem Icon="@Icons.ThingChannels" Text="Thing Channels" />
+                    <IconPanelMenuItem Icon="@Icons.ThingChannels" Text="@Localizer[Texts.ThingChannels]" />
                 </Template>
             </RadzenPanelMenuItem>
         </ChildContent>
@@ -30,18 +28,19 @@
     
     <RadzenPanelMenuItem Path="items">
         <Template>
-            <IconPanelMenuItem Icon="@Icons.Items" Text="Items" />
+            <IconPanelMenuItem Icon="@Icons.Items" Text="@Localizer[Texts.Items]" />
         </Template>
     </RadzenPanelMenuItem>
     
     <RadzenPanelMenuItem Path="settings">
         <Template>
-            <IconPanelMenuItem Icon="@Icons.Settings" Text="Settings" />
+            <IconPanelMenuItem Icon="@Icons.Settings" Text="@Localizer[Texts.Settings]" />
         </Template>
     </RadzenPanelMenuItem>
 
 </RadzenPanelMenu>
 
 @code {
-
+    [Inject]
+    public IExtendedStringLocalizer<SideBar> Localizer { get; set; }
 }

@@ -1,4 +1,4 @@
-﻿namespace CreativeCoders.SmartHal.Web.CommandCenter.Client.Components
+﻿namespace CreativeCoders.SmartHal.Web.CommandCenter.Client.Resources
 {
     public static class Icons
     {
@@ -13,5 +13,7 @@
         public const string Items = "ic:round-devices-other";
 
         public const string Settings = "ic:sharp-settings-applications";
+
+        public const string Refresh = "mdi:refresh";
     }
 }

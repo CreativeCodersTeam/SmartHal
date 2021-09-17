@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 using System.Threading.Tasks;
 using CreativeCoders.Core;
 using CreativeCoders.SmartHal.Web.CommandCenter.Shared;
@@ -11,16 +10,11 @@ namespace CreativeCoders.SmartHal.Web.CommandCenter.Server.Controllers
     [Route("api/[controller]")]
     public class ClientConfigController : ControllerBase
     {
-        private readonly ILogger<ClientConfigController> _logger;
-
         private readonly string _webApiUrl;
 
-        public ClientConfigController(ILogger<ClientConfigController> logger, IConfiguration configuration)
+        public ClientConfigController(IConfiguration configuration)
         {
-            Ensure.IsNotNull(logger, nameof(logger));
             Ensure.IsNotNull(configuration, nameof(configuration));
-
-            _logger = logger;
 
             _webApiUrl = configuration.GetSection("WebApi")["Url"];
         }

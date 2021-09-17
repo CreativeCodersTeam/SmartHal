@@ -1,29 +1,32 @@
 ﻿@page "/things"
-@using CreativeCoders.SmartHal.Web.Api.Core.Models
 @using CreativeCoders.SmartHal.Web.CommandCenter.Client.ViewModels
 
-@inject ThingsViewModel _thingsViewModel
 
-<PageHeader Icon="devices" Text="Things" />
+<PageHeader Icon="@Icons.Things" Text="@Localizer[Texts.Things]" />
 
-
-<RadzenButton Click="async () => { await _thingsViewModel.RefreshAsync(); }" Style="margin: 10px">
-    <Iconify Icon="mdi:refresh" />
+<RadzenButton Click="async () => { await ViewModel.RefreshAsync(); }" Style="margin: 10px">
+    <Iconify Icon="@Icons.Refresh" />
 </RadzenButton>
 
-<RadzenDataGrid Data="@_thingsViewModel.Things" TItem="ThingModel">
+<RadzenDataGrid Data="@ViewModel.Things" TItem="ThingModel">
     <Columns>
-        <RadzenDataGridColumn TItem="ThingModel" Property="Id" Title="Id" />
-        <RadzenDataGridColumn TItem="ThingModel" Property="Name" Title="Name" />
-        <RadzenDataGridColumn TItem="ThingModel" Property="State" Title="State" />
+        <RadzenDataGridColumn TItem="ThingModel" Property="Id" Title="@Localizer[Texts.Id]" />
+        <RadzenDataGridColumn TItem="ThingModel" Property="Name" Title="@Localizer[Texts.Name]" />
+        <RadzenDataGridColumn TItem="ThingModel" Property="State" Title="@Localizer[Texts.State]" />
     </Columns>
 
 </RadzenDataGrid>
 
+
 @code {
+    [Inject]
+    public ThingsViewModel ViewModel { get; set; }
+
+    [Inject]
+    public IExtendedStringLocalizer<Things> Localizer { get; set; }
+
     protected override async Task OnInitializedAsync()
     {
-        await _thingsViewModel.RefreshAsync();
+        await ViewModel.RefreshAsync();
     }
-
 }
